@@ -22,7 +22,7 @@ public class NodeBase
 
     public GameObject obj;
 
-    public Vector3 position;
+    public Vector2 position;
     
     public List<NodeBase> children = new();
 
@@ -40,16 +40,16 @@ public class NodeBase
         neighbors = new List<NodeBase>();
 
         //Adds the neighbors of the node to list (Vertical, Horizontal)
-        IsNeighborLegal(position + new Vector3(1,0));
-        IsNeighborLegal(position + new Vector3(-1,0));
-        IsNeighborLegal(position + new Vector3(0,1));
-        IsNeighborLegal(position + new Vector3(0,-1));
+        IsNeighborLegal(position + new Vector2(1,0));
+        IsNeighborLegal(position + new Vector2(-1,0));
+        IsNeighborLegal(position + new Vector2(0,1));
+        IsNeighborLegal(position + new Vector2(0,-1));
         
         //Adds the neighbors of the node to list (Diagonal)
-        IsNeighborLegal(position + new Vector3(1,1));
-        IsNeighborLegal(position + new Vector3(-1,-1));
-        IsNeighborLegal(position + new Vector3(-1,1));
-        IsNeighborLegal(position + new Vector3(1,-1));
+        IsNeighborLegal(position + new Vector2(1,1));
+        IsNeighborLegal(position + new Vector2(-1,-1));
+        IsNeighborLegal(position + new Vector2(-1,1));
+        IsNeighborLegal(position + new Vector2(1,-1));
         
         return neighbors;
     }

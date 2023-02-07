@@ -33,8 +33,8 @@ public class PathFinding : MonoBehaviour
             
             visited.Add(current);
 
-            current.obj.GetComponent<SpriteRenderer>().color = visitedColor;
-            SetCosts(current);
+            //current.obj.GetComponent<Renderer>().material.color = visitedColor;
+            //SetCosts(current);
             
             toVisit.Remove(current);
 
@@ -49,8 +49,8 @@ public class PathFinding : MonoBehaviour
                 //Loops while there are still tiles in the path
                 while (currentPathTile != startNode) {
                     path.Add(currentPathTile);
-                    if (currentPathTile == endNode) currentPathTile.obj.GetComponent<SpriteRenderer>().color = endColor;
-                    else currentPathTile.obj.GetComponent<SpriteRenderer>().color = currentPathTile.costMultiplyer == 2 ? pathSwamp : pathColor;
+                    if (currentPathTile == endNode) currentPathTile.obj.GetComponent<Renderer>().material.color = endColor;
+                    //else currentPathTile.obj.GetComponent<Renderer>().material.color = currentPathTile.costMultiplyer == 2 ? pathSwamp : pathColor;
 
                     currentPathTile = currentPathTile.connectedNode;
 
@@ -59,7 +59,7 @@ public class PathFinding : MonoBehaviour
                     print("Backtracking");
                 }
 
-                currentPathTile.obj.GetComponent<SpriteRenderer>().color = startColor;
+                //currentPathTile.obj.GetComponent<Renderer>().material.color = startColor;
                 
                 Debug.Log(path.Count);
                 return path;

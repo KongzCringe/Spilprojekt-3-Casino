@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = System.Random;
@@ -13,6 +14,7 @@ namespace Script
     {
         [SerializeField] private GameObject ground;
         [SerializeField] private GameObject debugging;
+        [SerializeField] private LayerMask obstacleMask;
 
         private static int amountOfTiles = 1;
         private int tempAmountOfTiles;
@@ -38,6 +40,7 @@ namespace Script
 
                 if (Physics.Raycast(ray, out hit))
                 {
+                    if (startNode != null) startNode.obj.GetComponent<Renderer>().material.color = Color.gray;
                     startNode = GetNode(hit.point);
                     startNode.obj.GetComponent<Renderer>().material.color = Color.green;
                 }
@@ -50,8 +53,9 @@ namespace Script
 
                 if (Physics.Raycast(ray, out hit))
                 {
+                    if (endNode != null) endNode.obj.GetComponent<Renderer>().material.color = Color.gray;
                     endNode = GetNode(hit.point);
-                    endNode.obj.GetComponent<Renderer>().material.color = Color.black;
+                    endNode.obj.GetComponent<Renderer>().material.color = Color.red;
                 }
             }
 
@@ -61,42 +65,57 @@ namespace Script
 
                 foreach (var node in path)
                 {
-                    node.obj.GetComponent<Renderer>().
+                    node.obj.GetComponent<Renderer>().material.color = Color.red;
                 }
             }
         }
 
         private void GenerateGrid()
         {
+            var x = 0f;
+
+            var increment = 1f / amountOfTiles;
+            
             foreach (var obj in listOfDebugging)
             {
                 Destroy(obj);
             }
             tempAmountOfTiles = amountOfTiles;
             var bounds = ground.GetComponent<Collider>().bounds;
-            for (float x = 0; x < bounds.max.x - bounds.min.x; x += 1f / amountOfTiles)
+            for (float i = 0; i < bounds.max.x - bounds.min.x; i += increment)
             {
-                for (float z = 0; z < bounds.max.z - bounds.min.z; z += 1f / amountOfTiles)
+                var z = 0f;
+                for (float j = 0; j < bounds.max.z - bounds.min.z; j += increment)
                 {
-                    var node = new NodeBase
-                    {
-                        position = new Vector3(bounds.min.x + x, 0, bounds.min.z + z)
-                    };
-                    
-                    grid[(int) (bounds.min.x + x) * amountOfTiles, (int) (bounds.min.z + z) * amountOfTiles] = node;
+                    var node = new NodeBase {position = new Vector2(bounds.min.x + x, bounds.min.z + z)};
 
-                    var obj = Instantiate(debugging, node.position, Quaternion.identity);
+                    grid[(int) (bounds.min.x + x), (int) (bounds.min.z + z)] = node;
+                    var nodePos = node.position;
+                    
+                    var obj = Instantiate(debugging, new Vector3(nodePos.x, 0, nodePos.y), Quaternion.identity);
                     node.obj = obj;
                     
                     listOfDebugging.Add(obj);
+
+                    var collider = Physics.OverlapSphere(new Vector3(nodePos.x, 0, nodePos.y), increment, obstacleMask);
+
+                    if (collider.Length != 0)
+                    {
+                        node.walkable = false;
+                        node.obj.GetComponent<Renderer>().material.color = Color.black;
+                    }
+
+                    z += increment;
                 }
+
+                x += increment;
             }
         }
         
-        public static NodeBase GetNode(Vector3 position)
+        private static NodeBase GetNode(Vector3 position)
         {
-            var x = Mathf.RoundToInt(position.x) * amountOfTiles;
-            var z = Mathf.RoundToInt(position.z) * amountOfTiles;
+            var x = Mathf.RoundToInt(position.x);
+            var z = Mathf.RoundToInt(position.z);
             return grid[x, z];
         }
     }
