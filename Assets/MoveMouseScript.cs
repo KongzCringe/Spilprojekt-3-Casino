@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveMouseScript : MonoBehaviour
 {
-    bool pickedUp = false;
+    [SerializeField] bool pickedUp = false;
     // Start is called before the first frame update
     void Start()
     {
