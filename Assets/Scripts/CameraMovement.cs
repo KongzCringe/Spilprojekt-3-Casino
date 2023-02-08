@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour
     public Vector3 minBoundaries = new Vector3(-10, -10, -10);
     public Vector3 maxBoundaries = new Vector3(10, 10, 10);
     public float boundarySmoothing = 0.1f;
+    public float rotationSpeed = 5.0f;
 
     private Vector3 targetPosition;
 
@@ -26,11 +27,7 @@ public class CameraMovement : MonoBehaviour
         Vector3 sideways = transform.right * horizontal;
 
         targetPosition += (forwards + sideways) * speed * Time.deltaTime;
-        targetPosition = new Vector3(
-            Mathf.Clamp(targetPosition.x, minBoundaries.x, maxBoundaries.x),
-            Mathf.Clamp(targetPosition.y, minBoundaries.y, maxBoundaries.y),
-            Mathf.Clamp(targetPosition.z, minBoundaries.z, maxBoundaries.z)
-        );
+        targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, minBoundaries.x, maxBoundaries.x), Mathf.Clamp(targetPosition.y, minBoundaries.y, maxBoundaries.y), Mathf.Clamp(targetPosition.z, minBoundaries.z, maxBoundaries.z));
 
         Vector3 clampedTarget = targetPosition;
         Vector3 currentPosition = transform.position;
@@ -43,6 +40,16 @@ public class CameraMovement : MonoBehaviour
         else
         {
             transform.position = smoothedTarget;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
 }
