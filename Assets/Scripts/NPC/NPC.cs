@@ -27,6 +27,11 @@ public class NPC : MonoBehaviour
 
             nodeIndex = path.Count - 1;
 
+            foreach (var nodeBase in path)
+            {
+                nodeBase.obj.GetComponent<Renderer>().material.color = Color.blue;
+            }
+
             MoveObject();
         }
         
