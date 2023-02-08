@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour
     public Vector3 maxBoundaries = new Vector3(10, 10, 10);
     public float boundarySmoothing = 0.1f;
     public float rotationSpeed = 5.0f;
+    public float MouserotationSpeed = 5.0f;
 
     private Vector3 targetPosition;
     private float yaw = 0.0f;
@@ -57,7 +58,7 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             float mouseX = Input.GetAxis("Mouse X");
-            yaw += rotationSpeed * mouseX * Time.deltaTime;
+            yaw += MouserotationSpeed * mouseX * Time.deltaTime;
             transform.eulerAngles = new Vector3(0, yaw, 0);
         }
     }

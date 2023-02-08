@@ -30210,7 +30210,8 @@ MonoBehaviour:
   minBoundaries: {x: -10, y: -10, z: 3}
   maxBoundaries: {x: 10, y: 12, z: 25}
   boundarySmoothing: 0.1
-  rotationSpeed: 500
+  rotationSpeed: 50
+  MouserotationSpeed: 500
 --- !u!4 &870089862
 Transform:
   m_ObjectHideFlags: 0
