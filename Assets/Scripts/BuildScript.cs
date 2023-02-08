@@ -9,12 +9,14 @@ public class BuildScript : MonoBehaviour
     bool spaceOccupied;
     bool delete;
     GameObject moneyObject;
+    [SerializeField] GameObject emptyMouse;
     int money;
     // Start is called before the first frame update
     void Start()
     {
         moneyObject = GameObject.FindWithTag("Money");
-       
+        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,22 +27,32 @@ public class BuildScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         spaceOccupied = false;
+        
     }
 
     private void OnTriggerStay(Collider other)
     {
         spaceOccupied = true;
+        if (other == null)
+        {
+            spaceOccupied = false;
+        }
+        
         if (delete == true)
         {
-            other.gameObject.transform.position = new Vector3(-1231, -1231, -1231);
+            other.gameObject.GetComponent<AutoDestroyScript>().SellBuilding();
             delete = false;
+            spaceOccupied = false;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (delete == true && spaceOccupied == false)
+        {
+            delete = false;
+        }
         if (spaceOccupied == true)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
@@ -57,6 +69,7 @@ public class BuildScript : MonoBehaviour
                 Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
                 moneyObject.GetComponent<MoneyScript>().moneyCount -= cost;
                 gameObject.SetActive(false);
+                emptyMouse.SetActive(true);
             }
         }
 
@@ -64,4 +77,6 @@ public class BuildScript : MonoBehaviour
         
 
     }
+
+    
 }
