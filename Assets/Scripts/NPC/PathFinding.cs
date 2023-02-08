@@ -69,6 +69,8 @@ public class PathFinding : MonoBehaviour
                 return path;
             }
 
+            print("GridPos: " + current.gridPosition);
+            
             //Loops through all neighbours of current node
             foreach (var neighbor in current.GetNeighbors().Where(t => t.walkable && !visited.Contains(t)))
             {

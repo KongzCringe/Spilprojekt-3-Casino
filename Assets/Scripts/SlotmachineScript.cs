@@ -79,4 +79,9 @@ public class SlotmachineScript : MonoBehaviour
             machineMoney += 1;
         }
     }
+    
+    public Vector3 GetPosition()
+    {
+        return transform.GetChild(0).position;
+    }
 }
