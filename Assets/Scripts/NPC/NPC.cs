@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Grid = Script.Grid;
+using Random = System.Random;
 
 public class NPC : MonoBehaviour
 {
@@ -13,9 +15,22 @@ public class NPC : MonoBehaviour
 
     private List<NodeBase> path;
 
+    private int money;
+    private int chips;
+
+    private int joy = 100;
+
+    private bool VIP;
+    
+
     void Start()
     {
+        var rnd = new Random();
+        var vipChance = rnd.Next(0, 100);
         
+        VIP = vipChance > 5;
+        
+        money = rnd.Next(VIP ? 1000 : 10, VIP ? 5000 : 200);
     }
     
     void Update()
