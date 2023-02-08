@@ -28,7 +28,7 @@ public class NPC : MonoBehaviour
         var rnd = new Random();
         var vipChance = rnd.Next(0, 100);
         
-        VIP = vipChance > 5;
+        VIP = vipChance < 5;
         
         money = rnd.Next(VIP ? 1000 : 10, VIP ? 5000 : 200);
     }
