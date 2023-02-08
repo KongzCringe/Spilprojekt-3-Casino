@@ -12,10 +12,12 @@ public class CameraMovement : MonoBehaviour
     public float rotationSpeed = 5.0f;
 
     private Vector3 targetPosition;
+    private float yaw = 0.0f;
 
     void Start()
     {
         targetPosition = transform.position;
+        yaw = transform.eulerAngles.y;
     }
 
     void Update()
@@ -50,6 +52,13 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            float mouseX = Input.GetAxis("Mouse X");
+            yaw += rotationSpeed * mouseX * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, yaw, 0);
         }
     }
 }
