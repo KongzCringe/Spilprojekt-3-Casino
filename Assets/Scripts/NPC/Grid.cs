@@ -50,7 +50,7 @@ namespace Script
 
                 if (!endNode.walkable) return;
                     
-                if (endNode == null) print("null");
+                //if (endNode == null) print("null");
                 endNode.obj.GetComponent<Renderer>().material.color = Color.black;
             }
         }
@@ -74,8 +74,8 @@ namespace Script
             var ySize = (max.y - min.y) / increment + AmountOfTiles;
             
             grid = new NodeBase[(int) xSize, (int) ySize];
-            print(grid.GetLength(0));
-            print(grid.GetLength(1));
+            //print(grid.GetLength(0));
+            //print(grid.GetLength(1));
             
             var pos = ground[0].transform.position;
             
@@ -252,7 +252,7 @@ namespace Script
                 }
             }
 
-            print(closestNode.gridPosition);
+            //print(closestNode.gridPosition);
             
             return closestNode;
         }

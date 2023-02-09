@@ -20,6 +20,7 @@ public class NPC : MonoBehaviour
     private State state;
 
     private NodeBase Target;
+    private Vector3 spawnPosition;
 
     private int money;
     private int chips;
@@ -29,6 +30,7 @@ public class NPC : MonoBehaviour
     private bool VIP;
 
     private GameLoop gameLoop;
+    private SlotmachineScript slotScript;
 
     private bool targetReached;
 
@@ -36,6 +38,7 @@ public class NPC : MonoBehaviour
     {
         Slot,
         Exchange,
+        Leave,
         None
     }
     
@@ -44,19 +47,33 @@ public class NPC : MonoBehaviour
         Idle,
         Moving,
         Gambling,
-        Exchanging
+        Exchanging,
+        Leaving
     }
 
     public void StartNPC(GameLoop gameLoop)
     {
         this.gameLoop = gameLoop;
-        
+        spawnPosition = transform.position;
+
         var rnd = new Random();
-        var vipChance = rnd.Next(0, 100);
         
+        var Entering = rnd.Next(1,3) == 1;
+        
+        var vipChance = rnd.Next(0, 100);
         VIP = vipChance < 5;
         
-        money = rnd.Next(VIP ? 1000 : 10, VIP ? 5000 : 200);
+        money = rnd.Next(VIP ? 1000 : 3, VIP ? 5000 : 10);
+        
+        print(Entering);
+
+        if (!Entering)
+        {
+            task = Agenda.None;
+            UpdateState();
+
+            return;
+        }
 
         task = Agenda.Exchange;
         
@@ -68,7 +85,7 @@ public class NPC : MonoBehaviour
 
         if (state != State.Moving) return;
 
-            var position = transform.position;
+        var position = transform.position;
         var targetPos = new Vector3(targetNode.position.x, position.y, targetNode.position.y);
         
         transform.position = Vector3.MoveTowards(position, targetPos, 5f * Time.deltaTime);
@@ -86,6 +103,7 @@ public class NPC : MonoBehaviour
         switch (task)
         {
             case Agenda.Exchange:
+                print("Going to exchange");
                 var exchangeCounters = gameLoop.GetExchangeCounter();
                 
                 var counterIndex = rnd.Next(0, exchangeCounters.Count - 1);
@@ -100,25 +118,50 @@ public class NPC : MonoBehaviour
 
                 nodeIndex = path.Count - 1;
 
+                state = State.Exchanging;
                 MoveObject();
-                
                 break;
             
             case Agenda.Slot:
+                print("Going to slot");
                 var slotMachines = gameLoop.GetSlotMachines();
                 
                 var slotIndex = rnd.Next(0, slotMachines.Count - 1);
+
+                slotScript = slotMachines[slotIndex].GetComponent<SlotmachineScript>();
                 
-                var slotPosition = slotMachines[slotIndex].GetComponent<SlotmachineScript>().GetPosition();
+                var slotPosition = slotScript.GetPosition();
                 
                 targetNode = Grid.GetNode(new Vector2(slotPosition.x, slotPosition.z));
                 
                 path = PathFinding.FindPath(startNode, targetNode);
 
                 nodeIndex = path.Count - 1;
-
-                MoveObject();
                 
+                state = State.Gambling;
+                MoveObject();
+                break;
+            
+            case Agenda.Leave:
+                var exit = gameLoop.GetOppositeSpawn(spawnPosition);
+                targetNode = Grid.GetNode(new Vector2(exit.x, exit.z));
+
+                path = PathFinding.FindPath(startNode, targetNode);
+                nodeIndex = path.Count - 1;
+
+                state = State.Leaving;
+                MoveObject();
+                break;
+            
+            case Agenda.None:
+                exit = gameLoop.GetOppositeSpawn(spawnPosition);
+                targetNode = Grid.GetNode(new Vector2(exit.x, exit.z));
+
+                path = PathFinding.FindPath(startNode, targetNode);
+                nodeIndex = path.Count - 1;
+
+                state = State.Leaving;
+                MoveObject();
                 break;
         }
     }
@@ -129,14 +172,75 @@ public class NPC : MonoBehaviour
         if (nodeIndex >= 0) targetNode = path[nodeIndex];
         else
         {
-            task = Agenda.None;
-            state = State.Idle;
+            switch (task)
+            {
+                case Agenda.Slot:
+                    StartCoroutine(SlotMachine());
+                    state = State.Gambling;
+                    break;
+                    
+                case Agenda.Exchange:
+                    StartCoroutine(Exchange(4));
+                    state = State.Exchanging;
+                    break;
+                
+                case Agenda.Leave:
+                    Destroy(gameObject);
+                    break;
+                
+                default:
+                    task = Agenda.None;
+                    state = State.Idle;
+                    break;
+            }
         }
         nodeIndex--;
     }
 
+    private IEnumerator Exchange(int timer)
+    {
+        print("Starts exchanging");
+        yield return new WaitForSeconds(timer);
+        
+        var amount = Mathf.Min(money, 2);
+        money -= amount;
+        chips += amount;
+        
+        print("Exchanged " + amount + " money for chips");
+        
+        GetNextTask();
+    }
+
+    private IEnumerator SlotMachine()
+    {
+        while (chips > 0){
+            print("Playing slotmachine");
+            yield return new WaitForSeconds(1);
+            chips--;
+            //slotScript.SlotFunction();
+        }
+        
+        GetNextTask();
+    }
+    
+    
+
     private void GetNextTask()
     {
-        
+        if (chips == 0 && money != 0)
+        {
+            task = Agenda.Exchange;
+            UpdateState();
+        }
+        else if (chips != 0)
+        {
+            task = Agenda.Slot;
+            UpdateState();
+        }
+        else
+        {
+            task = Agenda.Leave;
+            UpdateState();
+        }
     }
 }
