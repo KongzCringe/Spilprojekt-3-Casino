@@ -50,13 +50,13 @@ public class OpenMenuScript : MonoBehaviour
     void OpenMenu()
     {
         openState = true;
-        targetMenu = -83;
+        targetMenu = -428.7f;
     }
 
     void CloseMenu()
     {
         openState = false;
-        targetMenu = -307;
+        targetMenu = -651.9f;
     }
 
 
