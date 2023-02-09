@@ -6,6 +6,7 @@ public class BuildingMouseScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed = 100f;
+    public float rotateSpeed;
     public Vector3 targetPos;
     public bool isMoving;
     const int MOUSE = 0;
@@ -27,8 +28,19 @@ public class BuildingMouseScript : MonoBehaviour
         //}
         //if (isMoving)
         //{
-            
+
         //}
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            transform.Rotate(Vector3.up * rotateSpeed, Space.Self);
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            transform.Rotate(Vector3.down * rotateSpeed, Space.Self);
+        }
+
+
         SetTarggetPosition();
         MoveObject();
     }
