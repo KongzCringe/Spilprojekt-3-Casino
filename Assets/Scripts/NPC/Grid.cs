@@ -93,7 +93,7 @@ namespace Script
                             position = new Vector2(min.x + i, min.y + j),
                             gridPosition = new Vector2(x, z),
                             walkable = walkableBool,
-                            obj = Instantiate(debugging, new Vector3(min.x + i, 0, min.y + j), Quaternion.identity),
+                            //obj = Instantiate(debugging, new Vector3(min.x + i, 0, min.y + j), Quaternion.identity),
                         };
                         
                         //print("x: " + node.gridPosition.x + " z: " + node.gridPosition.y);
@@ -108,7 +108,7 @@ namespace Script
                         if (collider.Length != 0)
                             node.walkable = false;
                         
-                        if (!node.walkable) node.obj.GetComponent<Renderer>().material.color = Color.red;
+                        //if (!node.walkable) node.obj.GetComponent<Renderer>().material.color = Color.red;
 
                         //yield return new WaitForSeconds(0.05f);
                         
