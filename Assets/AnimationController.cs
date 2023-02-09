@@ -9,15 +9,22 @@ public class AnimationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("vertical", Input.GetAxis("Vertical"));
-        animator.SetFloat("horizontal", Input.GetAxis("Horizontal"));
+        if (Input.GetKey(KeyCode.W))
+        {
+            //Send the message to the Animator to activate the trigger parameter named "Jump"
+            animator.SetTrigger("StartWalking");
+        }
 
-        
+        if (Input.GetKey(KeyCode.S))
+        {
+            //Send the message to the Animator to activate the trigger parameter named "Jump"
+            animator.SetTrigger("StopWalking");
+        }
     }
 }
