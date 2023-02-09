@@ -22,14 +22,14 @@ public class PathFinding : MonoBehaviour
     
     public static List<NodeBase> FindPath(NodeBase startNode, NodeBase endNode)
     {
-        print("lol");
+        //print("lol");
         var toVisit = new List<NodeBase> { startNode };
         var visited = new List<NodeBase>();
 
         //Loops while there are nodes to visit
         while (toVisit.Any())
         {
-            print("toVisit: " + toVisit.Count);
+            //print("toVisit: " + toVisit.Count);
             var current = toVisit[0];
 
             foreach (var node in toVisit)
@@ -45,7 +45,7 @@ public class PathFinding : MonoBehaviour
             //If end node is reached, return path
             if (current == endNode)
             {
-                print("EndNode Reached");
+                //print("EndNode Reached");
                 var currentPathTile = endNode;
                 var path = new List<NodeBase>();
                 var count = 1000;
@@ -60,33 +60,33 @@ public class PathFinding : MonoBehaviour
 
                     count--;
                     if (count < 0) throw new Exception();
-                    print("Backtracking");
+                    //print("Backtracking");
                 }
 
                 //currentPathTile.obj.GetComponent<Renderer>().material.color = startColor;
                 
-                Debug.Log(path.Count);
+                //Debug.Log(path.Count);
                 return path;
             }
 
-            print("GridPos: " + current.gridPosition);
+            //print("GridPos: " + current.gridPosition);
             
             //Loops through all neighbours of current node
             foreach (var neighbor in current.GetNeighbors().Where(t => t.walkable && !visited.Contains(t)))
             {
-                print("Neibors: " + current.GetNeighbors().Count);
+                //print("Neibors: " + current.GetNeighbors().Count);
                 var inSearch = toVisit.Contains(neighbor);
                 var costToNeighbor = current.G + current.GetDistance(neighbor);
                 
                 //If the cost to the neighbor is lower than the current cost, set the new cost and set the current node as the connected node
                 if (!inSearch || costToNeighbor < neighbor.G) {
-                    print("First");
+                    //print("First");
                     neighbor.SetG(costToNeighbor);
                     neighbor.SetConnection(current);
 
                     //If the neighbor is not in the search list, add it
                     if (!inSearch) {
-                        print("Second");
+                        //print("Second");
                         neighbor.SetH(neighbor.GetDistance(endNode));
                         toVisit.Add(neighbor);
                     }
