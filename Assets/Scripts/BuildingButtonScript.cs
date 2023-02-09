@@ -7,11 +7,11 @@ public class BuildingButtonScript : MonoBehaviour
     bool alreadyPressed;
     [SerializeField] GameObject mouse;
     [SerializeField] GameObject mouseIcon;
-    GameObject emptyMouse;
+    [SerializeField] GameObject emptyMouse;
     // Start is called before the first frame update
     void Start()
     {
-        emptyMouse = GameObject.FindWithTag("EmptyMouse");
+        
     }
 
     // Update is called once per frame
