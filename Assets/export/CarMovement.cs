@@ -22,7 +22,7 @@ public class CarMovement : MonoBehaviour
     
     IEnumerator DestroyCar()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         Destroy(gameObject);
     }
 }
