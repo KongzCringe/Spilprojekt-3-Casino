@@ -15,11 +15,16 @@ public class MoveMouseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (otherObject == null && gameObject.transform.childCount > 0)
+        {
+            otherObject = gameObject.transform.GetChild(0).GetComponent<Collider>();
+        }
         if (Input.GetMouseButtonDown(0) && pickedUp == true)
         {
             
             Debug.Log("Place");
             pickedUp = false;
+            otherObject.gameObject.transform.parent = null;
         }
         else if (Input.GetMouseButtonDown(0) && gameObject.transform.childCount < 1 && otherObject != null)
         {

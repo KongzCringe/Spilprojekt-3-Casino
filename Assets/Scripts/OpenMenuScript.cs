@@ -9,11 +9,11 @@ public class OpenMenuScript : MonoBehaviour
     [SerializeField] float targetMenu = -645;
     [SerializeField] GameObject traitorMenu;
     [SerializeField] GameObject mouse;
-    GameObject emptyMouse;
+    [SerializeField] GameObject emptyMouse;
     // Start is called before the first frame update
     void Start()
     {
-        emptyMouse = GameObject.FindWithTag("EmptyMouse");
+        
     }
 
     // Update is called once per frame
