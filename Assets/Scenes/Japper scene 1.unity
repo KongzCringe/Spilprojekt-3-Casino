@@ -3111,6 +3111,9 @@ MonoBehaviour:
   prefab: {fileID: 1883610579232712279, guid: ac6b58de23cf0984fb79eac99df2876c, type: 3}
   cost: 1500
   emptyMouse: {fileID: 1856942410}
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!64 &76692075
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38685,6 +38688,9 @@ MonoBehaviour:
   prefab: {fileID: 7162999652260584355, guid: 68f9b34dec7d49142b067dc742410623, type: 3}
   cost: 1000
   emptyMouse: {fileID: 1856942410}
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!65 &1074230298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55382,6 +55388,9 @@ MonoBehaviour:
   rotateSpeed: 5
   targetPos: {x: 0, y: 0, z: 0}
   isMoving: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1497840667
 Transform:
   m_ObjectHideFlags: 0

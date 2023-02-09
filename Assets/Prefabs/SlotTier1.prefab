@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1883610579232712281}
   - component: {fileID: 1883610579232712278}
   - component: {fileID: 3958985667359125636}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: SlotTier1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machineMoney: 1000
-  bet: 0
+  bet: 1
 --- !u!65 &3958985667359125636
 BoxCollider:
   m_ObjectHideFlags: 0

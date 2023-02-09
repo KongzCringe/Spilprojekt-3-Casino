@@ -11,6 +11,7 @@ public class BuildScript : MonoBehaviour
     GameObject moneyObject;
     [SerializeField] GameObject emptyMouse;
     int money;
+    [SerializeField] LayerMask mask;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,8 +64,11 @@ public class BuildScript : MonoBehaviour
         }
         else
         {
+            Ray rayray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Physics.Raycast(rayray, out hit, 10000, mask);
             gameObject.GetComponent<Renderer>().material.color = Color.green;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.layer == 6)
             {
                 Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
                 moneyObject.GetComponent<MoneyScript>().moneyCount -= cost;
