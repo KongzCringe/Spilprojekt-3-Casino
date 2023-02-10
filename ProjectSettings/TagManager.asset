@@ -7,6 +7,8 @@ TagManager:
   - Winrate
   - Money
   - EmptyMouse
+  - Fisk
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class SlotmachineScript : MonoBehaviour
     GameObject winChance;
     Slider winSlider;
     public int machineMoney;
-    [SerializeField] int bet;
+    [SerializeField] public int bet;
     
     private bool isOccupied;
     Vector3 position;
@@ -17,7 +17,7 @@ public class SlotmachineScript : MonoBehaviour
     private float notOccupiedForSeconds = 0;
     
     private GameObject occupiedBy;
-    
+
     // Start is called before the first frame update
     void Start()
     {
