@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,16 +10,45 @@ public class SlotmachineScript : MonoBehaviour
     Slider winSlider;
     public int machineMoney;
     [SerializeField] int bet;
+    
+    private bool isOccupied;
+    Vector3 position;
+
+    private float notOccupiedForSeconds = 0;
+    
+    private GameObject occupiedBy;
+    
     // Start is called before the first frame update
     void Start()
     {
         winChance = GameObject.FindWithTag("Winrate");
         winSlider = winChance.GetComponent<Slider>();
+        
+        isOccupied = false;
+        
+        occupiedBy = null;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (occupiedBy != null)
+        {
+            if (Vector3.Distance(position, occupiedBy.transform.position) > 1.5f)
+            {
+                notOccupiedForSeconds += Time.deltaTime;
+            }
+
+            if (notOccupiedForSeconds > 3)
+            {
+                notOccupiedForSeconds = 0;
+                isOccupied = false;
+                occupiedBy = null;
+            }
+        }
+        */
+        
         if (Input.GetKey(KeyCode.K))
         {
             SlotFunction();
@@ -121,8 +151,29 @@ public class SlotmachineScript : MonoBehaviour
         }
     }
     
-    public Vector3 GetPosition()
+    public void NotOccupied(GameObject npc)
     {
-        return transform.GetChild(0).position;
+        if (occupiedBy != npc) return;
+            
+        isOccupied = false;
+        occupiedBy = null;
+    }
+    
+
+    public Vector3 GetPosition(GameObject NPC)
+    {
+        if (isOccupied)
+        {
+            print("Occupied");
+            return Vector3.zero;
+        }
+
+        position = transform.GetChild(0).position;
+
+        isOccupied = true;
+
+        occupiedBy = NPC;
+
+        return position;
     }
 }
