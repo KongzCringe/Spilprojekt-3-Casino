@@ -10,6 +10,7 @@ public class BuildingMouseScript : MonoBehaviour
     public Vector3 targetPos;
     public bool isMoving;
     const int MOUSE = 0;
+    [SerializeField] LayerMask mask;
 
     void Start()
     {
@@ -53,7 +54,7 @@ public class BuildingMouseScript : MonoBehaviour
         Ray rayray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(rayray, out hit))
+        if (Physics.Raycast(rayray, out hit, 10000, mask))
         {
             if (hit.collider.gameObject.layer == 6)
             {
