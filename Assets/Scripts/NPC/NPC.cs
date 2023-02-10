@@ -57,25 +57,16 @@ public class NPC : MonoBehaviour
         spawnPosition = transform.position;
 
         var rnd = new Random();
-        
-        var Entering = rnd.Next(1,3) == 1;
-        
+
         var vipChance = rnd.Next(0, 100);
         VIP = vipChance < 5;
         
         money = rnd.Next(VIP ? 1000 : 3, VIP ? 5000 : 10);
-        
-        print(Entering);
-
-        if (!Entering)
-        {
-            task = Agenda.None;
-            UpdateState();
-
-            return;
-        }
 
         task = Agenda.Exchange;
+
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("StartWalking");
         
         UpdateState();
     }
@@ -163,7 +154,11 @@ public class NPC : MonoBehaviour
                 state = State.Leaving;
                 MoveObject();
                 break;
+            
         }
+        
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("StartWalking");
     }
     
     private void MoveObject()
@@ -172,6 +167,9 @@ public class NPC : MonoBehaviour
         if (nodeIndex >= 0) targetNode = path[nodeIndex];
         else
         {
+            var animator = GetComponent<Animator>();
+            animator.SetTrigger("StopWalking");
+            
             switch (task)
             {
                 case Agenda.Slot:
