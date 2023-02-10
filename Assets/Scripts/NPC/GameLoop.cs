@@ -20,7 +20,7 @@ public class GameLoop : MonoBehaviour
     private void Start()
     {
         var rnd = new Random();
-        wait = rnd.Next(1, 2);
+        wait = rnd.Next(2, 4);
     }
 
     void Update()
