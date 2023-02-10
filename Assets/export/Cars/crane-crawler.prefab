@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4165609145431445417}
   - component: {fileID: 4165609145431445415}
   - component: {fileID: 4165609145431445414}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4165609145534445968}
   - component: {fileID: 4165609145534445966}
   - component: {fileID: 4165609145534445969}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-chassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4165609145716099341}
   - component: {fileID: 4165609145716099340}
   - component: {fileID: 4165609145716099343}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 4165609145945483536}
   - component: {fileID: 4165609145945483534}
   - component: {fileID: 4165609145945483537}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-wheel_TF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 4165609146107465357}
   - component: {fileID: 4165609146107465355}
   - component: {fileID: 4165609146107465354}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-wheel_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 4165609146774942491}
   - component: {fileID: 4165609146774942489}
   - component: {fileID: 4165609146774942488}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 4165609146823301608}
   - component: {fileID: 4165609146823301606}
   - component: {fileID: 4165609146823301609}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 4165609146865561258}
   - component: {fileID: 4165609146865561256}
   - component: {fileID: 4165609146865561259}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 4165609146991127972}
   - component: {fileID: 4165609146991127970}
   - component: {fileID: 4165609146991127973}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-wheel_TC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 4165609147035524898}
   - component: {fileID: 4165609147035524896}
   - component: {fileID: 4165609147035524899}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-wheel_TB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 4165609147148761083}
   - component: {fileID: 4165609147148761081}
   - component: {fileID: 4165609147148761080}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: crane-crawler-wheel_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}

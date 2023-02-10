@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6642368026692291355}
   - component: {fileID: 6642368026692291354}
   - component: {fileID: 6642368026692291353}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-hippie-van
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6642368026931074303}
   - component: {fileID: 6642368026931074273}
   - component: {fileID: 6642368026931074272}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-hippie-van-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 6642368027656879521}
   - component: {fileID: 6642368027656879523}
   - component: {fileID: 6642368027656879522}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-hippie-van-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 6642368027993384158}
   - component: {fileID: 6642368027993384128}
   - component: {fileID: 6642368027993384159}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-hippie-van-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 6642368028254289453}
   - component: {fileID: 6642368028254289455}
   - component: {fileID: 6642368028254289454}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-hippie-van-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 6642368028401296997}
   - component: {fileID: 6642368028401296999}
   - component: {fileID: 6642368028401296998}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-hippie-van-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

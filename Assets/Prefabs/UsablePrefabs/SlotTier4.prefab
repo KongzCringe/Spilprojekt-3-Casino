@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1816969379476627161}
   - component: {fileID: 1816969379476627174}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: StandPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 1816969379885902531}
   - component: {fileID: 1816969379885902528}
   - component: {fileID: 7020131788809001932}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SlotTier4
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

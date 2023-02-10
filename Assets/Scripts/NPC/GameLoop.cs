@@ -7,8 +7,8 @@ using Random = System.Random;
 
 public class GameLoop : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> slotMachines = new List<GameObject>();
-    [SerializeField] private List<GameObject> exchangeCounters = new List<GameObject>();
+    [SerializeField] private List<GameObject> slotMachines = new ();
+    [SerializeField] private List<GameObject> exchangeCounters = new ();
 
     [SerializeField] private GameObject SpawnRoad;
 
@@ -30,7 +30,7 @@ public class GameLoop : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (slotMachines.Count < 1 && exchangeCounters.Count < 1) return;
+        //if (slotMachines.Count < 1 && exchangeCounters.Count < 1) return;
         
         if (timer >= wait)
         {
@@ -80,9 +80,19 @@ public class GameLoop : MonoBehaviour
         slotMachines.Add(slotMachine);
     }
     
+    public void RemoveslotMachine(GameObject slotMachine)
+    {
+        slotMachines.Remove(slotMachine);
+    }
+    
     public void AddExchangeCounter(GameObject exchangeCounter)
     {
         exchangeCounters.Add(exchangeCounter);
+    }
+    
+    public void RemoveExchangeCounter(GameObject exchangeCounter)
+    {
+        exchangeCounters.Remove(exchangeCounter);
     }
 
     public Vector3 GetOppositeSpawn()

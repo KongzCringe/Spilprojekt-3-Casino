@@ -14,20 +14,24 @@ public class ExchangeCounter : MonoBehaviour
     
     private void Start()
     {
-        var childCount = transform.childCount;
-        isOccupied = new bool[childCount];
-        positions = new Vector3[childCount];
-        occupiedBy = new GameObject[childCount];
+        var listOfStandPoint = GetStandPoints();
+        print(listOfStandPoint.Count);
+        
+        isOccupied = new bool[listOfStandPoint.Count];
+        positions = new Vector3[listOfStandPoint.Count];
+        occupiedBy = new GameObject[listOfStandPoint.Count];
         
         for (int i = 0; i < isOccupied.Length; i++)
         {
             isOccupied[i] = false;
         }
-        
-        for (int i = 0; i < transform.childCount; i++)
+
+        for (int i = 0; i < listOfStandPoint.Count; i++)
         {
-            positions[i] = transform.GetChild(i).position;
+            positions[i] = listOfStandPoint[i].transform.position;
         }
+
+
     }
 
     private void Update()
@@ -69,14 +73,28 @@ public class ExchangeCounter : MonoBehaviour
             if (occupiedBy[i]) continue;
             
             print(i);
-            print(transform.GetChild(i).position);
+            print(positions[i]);
             isOccupied[i] = true;
             occupiedBy[i] = NPC;
-            return transform.GetChild(i).position;
+            return positions[i];
         }
 
         return Vector3.zero;
 
 
+    }
+    
+    private List<GameObject> GetStandPoints()
+    {
+        var standPoints = new List<GameObject>();
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).name == "StandPoint")
+            {
+                 standPoints.Add(transform.GetChild(i).gameObject);
+            }
+        }
+
+        return standPoints;
     }
 }

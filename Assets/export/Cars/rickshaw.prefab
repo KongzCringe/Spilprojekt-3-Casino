@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6854356378859404498}
   - component: {fileID: 6854356378859404499}
   - component: {fileID: 6854356378859404496}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: rickshaw
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 6854356379783105898}
   - component: {fileID: 6854356379783105900}
   - component: {fileID: 6854356379783105901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: rickshaw-wheel_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 6854356380098625787}
   - component: {fileID: 6854356380098625789}
   - component: {fileID: 6854356380098625786}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: rickshaw-wheel_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 6854356380133509590}
   - component: {fileID: 6854356380133509608}
   - component: {fileID: 6854356380133509609}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: rickshaw-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

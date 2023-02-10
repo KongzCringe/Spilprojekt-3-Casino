@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5222129078218578820}
   - component: {fileID: 5222129078218578822}
   - component: {fileID: 5222129078218578823}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-baywatch-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5222129078236073556}
   - component: {fileID: 5222129078236073558}
   - component: {fileID: 5222129078236073559}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-baywatch-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5222129078369329427}
   - component: {fileID: 5222129078369329437}
   - component: {fileID: 5222129078369329426}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-baywatch-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 5222129078889446369}
   - component: {fileID: 5222129078889446374}
   - component: {fileID: 5222129078889446375}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-baywatch
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 5222129079551516261}
   - component: {fileID: 5222129079551516263}
   - component: {fileID: 5222129079551516260}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-baywatch-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 5222129080107618300}
   - component: {fileID: 5222129080107618302}
   - component: {fileID: 5222129080107618303}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-baywatch-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

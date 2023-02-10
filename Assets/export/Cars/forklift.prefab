@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5164925068112810831}
   - component: {fileID: 5164925068112810825}
   - component: {fileID: 5164925068112810824}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: forklift-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5164925068348231046}
   - component: {fileID: 5164925068348231040}
   - component: {fileID: 5164925068348231047}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: forklift-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5164925068561756238}
   - component: {fileID: 5164925068561756232}
   - component: {fileID: 5164925068561756239}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: forklift-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 5164925069064937183}
   - component: {fileID: 5164925069064937177}
   - component: {fileID: 5164925069064937176}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: forklift-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 5164925069069605658}
   - component: {fileID: 5164925069069605652}
   - component: {fileID: 5164925069069605659}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: forklift-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 5164925069616112551}
   - component: {fileID: 5164925069616112545}
   - component: {fileID: 5164925069616112544}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: lift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 5164925069794673616}
   - component: {fileID: 5164925069794673623}
   - component: {fileID: 5164925069794673622}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: forklift
   m_TagString: Fisk
   m_Icon: {fileID: 0}

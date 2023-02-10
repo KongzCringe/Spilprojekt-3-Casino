@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6935808640703689835}
   - component: {fileID: 6935808640703689837}
   - component: {fileID: 6935808640703689834}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6935808640716525027}
   - component: {fileID: 6935808640716525029}
   - component: {fileID: 6935808640716525026}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck-door_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6935808640729793083}
   - component: {fileID: 6935808640729793085}
   - component: {fileID: 6935808640729793082}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 6935808640873311926}
   - component: {fileID: 6935808640873311928}
   - component: {fileID: 6935808640873311929}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 6935808641131302276}
   - component: {fileID: 6935808641131302277}
   - component: {fileID: 6935808641131302274}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 6935808641436295444}
   - component: {fileID: 6935808641436295446}
   - component: {fileID: 6935808641436295447}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck-door_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 6935808642151003867}
   - component: {fileID: 6935808642151003869}
   - component: {fileID: 6935808642151003866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 6935808642287311348}
   - component: {fileID: 6935808642287311350}
   - component: {fileID: 6935808642287311351}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truck-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

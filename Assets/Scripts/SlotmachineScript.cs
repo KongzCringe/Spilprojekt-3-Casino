@@ -159,7 +159,7 @@ public class SlotmachineScript : MonoBehaviour
         occupiedBy = null;
     }
     
-
+    
     public Vector3 GetPosition(GameObject NPC)
     {
         if (isOccupied)
@@ -175,5 +175,18 @@ public class SlotmachineScript : MonoBehaviour
         occupiedBy = NPC;
 
         return position;
+    }
+
+    private GameObject GetStandPoint()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).name == "StandPoint")
+            {
+                return transform.GetChild(i).gameObject;
+            }
+        }
+
+        return null;
     }
 }

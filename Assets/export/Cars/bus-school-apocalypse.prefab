@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6762255551367901612}
   - component: {fileID: 6762255551367901610}
   - component: {fileID: 6762255551367901611}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bus-school-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6762255551502002189}
   - component: {fileID: 6762255551502002187}
   - component: {fileID: 6762255551502002188}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bus-school-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6762255551874136283}
   - component: {fileID: 6762255551874136281}
   - component: {fileID: 6762255551874136282}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bus-school-equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 6762255551956216191}
   - component: {fileID: 6762255551956216176}
   - component: {fileID: 6762255551956216177}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bus-school-apocalypse
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 6762255552454227720}
   - component: {fileID: 6762255552454227734}
   - component: {fileID: 6762255552454227735}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bus-school-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 6762255552467914303}
   - component: {fileID: 6762255552467914301}
   - component: {fileID: 6762255552467914302}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bus-school-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 6762255552742797756}
   - component: {fileID: 6762255552742797754}
   - component: {fileID: 6762255552742797755}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bus-school-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

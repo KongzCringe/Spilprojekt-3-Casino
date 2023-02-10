@@ -13,12 +13,15 @@ public class BuildScript : MonoBehaviour
     int money;
     [SerializeField] LayerMask mask;
     Collider otherObject;
+    
+    GameLoop gameLoop;
+    
     // Start is called before the first frame update
     void Start()
     {
         moneyObject = GameObject.FindWithTag("Money");
-        
 
+        gameLoop = FindObjectOfType<GameLoop>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,6 +53,12 @@ public class BuildScript : MonoBehaviour
         if (delete == true)
         {
             other.gameObject.GetComponent<AutoDestroyScript>().SellBuilding();
+
+            var obj = other.gameObject;
+            
+            if (obj.transform.CompareTag("Exchange")) gameLoop.RemoveExchangeCounter(obj);
+            else if (obj.transform.CompareTag("Slot")) gameLoop.RemoveslotMachine(obj);
+            
             delete = false;
             spaceOccupied = false;
         }
@@ -78,7 +87,9 @@ public class BuildScript : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.green;
             if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.layer == 6)
             {
-                Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+                var obj = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+                if (obj.transform.CompareTag("Exchange")) gameLoop.AddExchangeCounter(obj);
+                else if (obj.transform.CompareTag("Slot")) gameLoop.AddSlotMachine(obj);
                 moneyObject.GetComponent<MoneyScript>().moneyCount -= cost;
                 gameObject.SetActive(false);
                 emptyMouse.SetActive(true);

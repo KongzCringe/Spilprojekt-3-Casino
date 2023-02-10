@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 238884440359751537}
   - component: {fileID: 238884440359751539}
   - component: {fileID: 238884440359751536}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: firetruckwheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 238884440592126138}
   - component: {fileID: 238884440592126140}
   - component: {fileID: 238884440592126141}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: firetruck-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 238884440946790235}
   - component: {fileID: 238884440946790232}
   - component: {fileID: 238884440946790233}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: firetruck
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 238884441226117163}
   - component: {fileID: 238884441226117165}
   - component: {fileID: 238884441226117162}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: firetruck-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 238884441842159026}
   - component: {fileID: 238884441842159028}
   - component: {fileID: 238884441842159029}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: firetruck-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 238884442430223852}
   - component: {fileID: 238884442430223854}
   - component: {fileID: 238884442430223855}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: firetruck-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

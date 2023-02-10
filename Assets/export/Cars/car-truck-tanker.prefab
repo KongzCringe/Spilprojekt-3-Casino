@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7897677280234835355}
   - component: {fileID: 7897677280234835353}
   - component: {fileID: 7897677280234835354}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_BL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7897677280259613512}
   - component: {fileID: 7897677280259613513}
   - component: {fileID: 7897677280259613514}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 7897677280337962630}
   - component: {fileID: 7897677280337962628}
   - component: {fileID: 7897677280337962629}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_BR1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 7897677280512280219}
   - component: {fileID: 7897677280512280217}
   - component: {fileID: 7897677280512280218}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_BR3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 7897677280664368520}
   - component: {fileID: 7897677280664368566}
   - component: {fileID: 7897677280664368567}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 7897677280736442755}
   - component: {fileID: 7897677280736442753}
   - component: {fileID: 7897677280736442754}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 7897677280882637036}
   - component: {fileID: 7897677280882637034}
   - component: {fileID: 7897677280882637035}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_BL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 7897677281748730222}
   - component: {fileID: 7897677281748730220}
   - component: {fileID: 7897677281748730221}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_BR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 7897677282089370399}
   - component: {fileID: 7897677282089370397}
   - component: {fileID: 7897677282089370398}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_BL3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 7897677282178102399}
   - component: {fileID: 7897677282178102397}
   - component: {fileID: 7897677282178102398}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-truck-tanker-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

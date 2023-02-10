@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2442860918541436494}
   - component: {fileID: 2442860918541436492}
   - component: {fileID: 2442860918541436495}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-tow-truck_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2442860918721887263}
   - component: {fileID: 2442860918721887262}
   - component: {fileID: 2442860918721887257}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-tow-truck
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 2442860919051704374}
   - component: {fileID: 2442860919051704372}
   - component: {fileID: 2442860919051704375}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-tow-truck-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 2442860919536057308}
   - component: {fileID: 2442860919536124962}
   - component: {fileID: 2442860919536057309}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-tow-truck-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 2442860920205152326}
   - component: {fileID: 2442860920205152324}
   - component: {fileID: 2442860920205152327}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-tow-truck-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 2442860920303828093}
   - component: {fileID: 2442860920303828035}
   - component: {fileID: 2442860920303828034}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-tow-truck-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

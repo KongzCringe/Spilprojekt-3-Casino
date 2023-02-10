@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5254560810053223786}
   - component: {fileID: 5254560810053223787}
   - component: {fileID: 5254560810053223784}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-passenger-race
   m_TagString: Fisk
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5254560810723863507}
   - component: {fileID: 5254560810723863501}
   - component: {fileID: 5254560810723863506}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-passenger-race-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 5254560810726393148}
   - component: {fileID: 5254560810726393150}
   - component: {fileID: 5254560810726393151}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-passenger-race-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 5254560811158200845}
   - component: {fileID: 5254560811158200847}
   - component: {fileID: 5254560811158200844}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-passenger-race-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 5254560811163673599}
   - component: {fileID: 5254560811163673593}
   - component: {fileID: 5254560811163673598}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-passenger-race-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 5254560811517332699}
   - component: {fileID: 5254560811517332693}
   - component: {fileID: 5254560811517332698}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: car-passenger-race-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

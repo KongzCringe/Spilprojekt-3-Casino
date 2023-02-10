@@ -9,6 +9,8 @@ TagManager:
   - EmptyMouse
   - Fisk
   - Wall
+  - Slot
+  - Exchange
   layers:
   - Default
   - TransparentFX

@@ -37,6 +37,7 @@ namespace Script
 
         private void Update()
         {
+            /*
             if (!Input.GetMouseButtonDown(0)) return;
             
             RaycastHit hit;
@@ -44,15 +45,16 @@ namespace Script
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (endNode != null) endNode.obj.GetComponent<Renderer>().material.color = Color.gray;
+                //if (endNode != null) endNode.obj.GetComponent<Renderer>().material.color = Color.gray;
                 var hitPos = new Vector2(hit.point.x, hit.point.z);
                 endNode = GetNode(hitPos);
 
                 if (!endNode.walkable) return;
                     
                 //if (endNode == null) print("null");
-                endNode.obj.GetComponent<Renderer>().material.color = Color.black;
+                //endNode.obj.GetComponent<Renderer>().material.color = Color.black;
             }
+            */
         }
 
         private IEnumerator GenerateGrid()
