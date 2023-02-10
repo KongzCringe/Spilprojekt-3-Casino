@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using Packages.Rider.Editor.UnitTesting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Grid = Script.Grid;
 using Random = System.Random;
@@ -60,9 +56,9 @@ public class NPC : MonoBehaviour
         var rnd = new Random();
 
         var vipChance = rnd.Next(0, 100);
-        VIP = vipChance < 5;
+        //VIP = vipChance < 5;
         
-        money = rnd.Next(VIP ? 1000 : 3, VIP ? 5000 : 10);
+        money = rnd.Next(VIP ? 1000 : 5, VIP ? 5000 : 25);
 
         if (gameLoop.GetExchangeCounter().Count <= 0 || 
             gameLoop.GetSlotMachines().Count <= 0 || 
@@ -248,7 +244,7 @@ public class NPC : MonoBehaviour
         print("Starts exchanging");
         yield return new WaitForSeconds(timer);
         
-        var amount = Mathf.Min(money, 2);
+        var amount = Mathf.Min(money, 10);
         money -= amount;
         chips += amount;
         
@@ -262,8 +258,8 @@ public class NPC : MonoBehaviour
         while (chips > 0){
             print("Playing slotmachine");
             yield return new WaitForSeconds(1);
-            chips--;
-            //slotScript.SlotFunction();
+            chips -= slotScript.bet;
+            slotScript.SlotFunction();
         }
         
         GetNextTask();
