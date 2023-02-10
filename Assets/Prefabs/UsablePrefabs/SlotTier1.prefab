@@ -217,5 +217,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778680ac846b2324fa70a9c15d08445d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  machineMoney: 0
-  bet: 0
+  machineMoney: 1000
+  bet: 1
