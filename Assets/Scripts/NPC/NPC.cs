@@ -34,6 +34,8 @@ public class NPC : MonoBehaviour
 
     private bool targetReached;
 
+    private GameObject atObject;
+
     enum Agenda
     {
         Slot,
@@ -54,7 +56,6 @@ public class NPC : MonoBehaviour
     public void StartNPC(GameLoop gameLoop)
     {
         this.gameLoop = gameLoop;
-        spawnPosition = transform.position;
 
         var rnd = new Random();
 
@@ -63,7 +64,18 @@ public class NPC : MonoBehaviour
         
         money = rnd.Next(VIP ? 1000 : 3, VIP ? 5000 : 10);
 
-        task = Agenda.Exchange;
+        if (gameLoop.GetExchangeCounter().Count <= 0 || 
+            gameLoop.GetSlotMachines().Count <= 0 || 
+            gameLoop.GetNpcsInCasino().Count >= gameLoop.GetSlotMachines().Count)
+        {
+            print("None");
+            task = Agenda.Leave;
+        }
+        else
+        {
+            gameLoop.NpcEnteredCasino(gameObject);
+            task = Agenda.Exchange;
+        }
 
         var animator = GetComponent<Animator>();
         animator.SetTrigger("StartWalking");
@@ -79,7 +91,9 @@ public class NPC : MonoBehaviour
         var position = transform.position;
         var targetPos = new Vector3(targetNode.position.x, position.y, targetNode.position.y);
         
-        transform.position = Vector3.MoveTowards(position, targetPos, 5f * Time.deltaTime);
+        transform.LookAt(targetPos);
+        
+        transform.position = Vector3.MoveTowards(position, targetPos, 10f * Time.deltaTime);
 
         if (Vector2.Distance(new Vector2(position.x, position.z), new Vector2(targetPos.x, targetPos.z)) < 0.1f) MoveObject();
     }
@@ -98,15 +112,29 @@ public class NPC : MonoBehaviour
                 var exchangeCounters = gameLoop.GetExchangeCounter();
                 
                 var counterIndex = rnd.Next(0, exchangeCounters.Count - 1);
+                
+                atObject = exchangeCounters[counterIndex];
 
-                var positions = exchangeCounters[counterIndex].GetComponent<ExchangeCounter>().GetPositions();
-                
-                var posIndex = rnd.Next(0, positions.Length - 1);
-                
-                targetNode = Grid.GetNode(new Vector2(positions[posIndex].x, positions[posIndex].z));
+                var position = exchangeCounters[counterIndex].GetComponent<ExchangeCounter>().GetPosition(gameObject);
+
+                if (position == Vector3.zero)
+                {
+                    task = Agenda.Leave;
+                    UpdateState();
+                    break;
+                }
+
+                targetNode = Grid.GetNode(new Vector2(position.x, position.z));
                 
                 path = PathFinding.FindPath(startNode, targetNode);
 
+                if (path == null)
+                {
+                    task = Agenda.Leave;
+                    UpdateState();
+                    break;
+                }
+                
                 nodeIndex = path.Count - 1;
 
                 state = State.Exchanging;
@@ -116,16 +144,33 @@ public class NPC : MonoBehaviour
             case Agenda.Slot:
                 print("Going to slot");
                 var slotMachines = gameLoop.GetSlotMachines();
-                
+
                 var slotIndex = rnd.Next(0, slotMachines.Count - 1);
+                
+                atObject = slotMachines[slotIndex];
 
                 slotScript = slotMachines[slotIndex].GetComponent<SlotmachineScript>();
                 
-                var slotPosition = slotScript.GetPosition();
+                var slotPosition = slotScript.GetPosition(gameObject);
+                
+                if (slotPosition == Vector3.zero)
+                {
+                    task = Agenda.Leave;
+                    UpdateState();
+                    break;
+                }
                 
                 targetNode = Grid.GetNode(new Vector2(slotPosition.x, slotPosition.z));
                 
                 path = PathFinding.FindPath(startNode, targetNode);
+
+                if (path == null)
+                {
+                    task = Agenda.Leave;
+                    state = State.Leaving;
+                    MoveObject();
+                    break;
+                }
 
                 nodeIndex = path.Count - 1;
                 
@@ -134,18 +179,20 @@ public class NPC : MonoBehaviour
                 break;
             
             case Agenda.Leave:
-                var exit = gameLoop.GetOppositeSpawn(spawnPosition);
+                var exit = gameLoop.GetOppositeSpawn();
                 targetNode = Grid.GetNode(new Vector2(exit.x, exit.z));
 
                 path = PathFinding.FindPath(startNode, targetNode);
                 nodeIndex = path.Count - 1;
+                
+                gameLoop.NpcLeftCasino(gameObject);
 
                 state = State.Leaving;
                 MoveObject();
                 break;
             
             case Agenda.None:
-                exit = gameLoop.GetOppositeSpawn(spawnPosition);
+                exit = gameLoop.GetOppositeSpawn();
                 targetNode = Grid.GetNode(new Vector2(exit.x, exit.z));
 
                 path = PathFinding.FindPath(startNode, targetNode);
@@ -183,6 +230,7 @@ public class NPC : MonoBehaviour
                     break;
                 
                 case Agenda.Leave:
+                    //gameLoop.RemoveNPC(gameObject);
                     Destroy(gameObject);
                     break;
                 
@@ -220,23 +268,25 @@ public class NPC : MonoBehaviour
         
         GetNextTask();
     }
-    
-    
 
     private void GetNextTask()
     {
         if (chips == 0 && money != 0)
         {
+            atObject.GetComponent<SlotmachineScript>().NotOccupied(gameObject);
             task = Agenda.Exchange;
             UpdateState();
         }
         else if (chips != 0)
         {
             task = Agenda.Slot;
+            atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
             UpdateState();
         }
         else
         {
+            if (atObject.GetComponent<SlotmachineScript>()) atObject.GetComponent<SlotmachineScript>().NotOccupied(gameObject);
+            else atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
             task = Agenda.Leave;
             UpdateState();
         }
