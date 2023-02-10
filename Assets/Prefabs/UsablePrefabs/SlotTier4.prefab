@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1816969379885902542}
   - component: {fileID: 1816969379885902531}
   - component: {fileID: 1816969379885902528}
+  - component: {fileID: 7020131788809001932}
   m_Layer: 0
   m_Name: SlotTier4
   m_TagString: Untagged
@@ -202,3 +203,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.026204431, y: 0.03062627, z: 0.051005565}
   m_Center: {x: -0.011188448, y: 0.013521759, z: 0.01843073}
+--- !u!114 &7020131788809001932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816969379885902540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778680ac846b2324fa70a9c15d08445d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineMoney: 25000
+  bet: 25
