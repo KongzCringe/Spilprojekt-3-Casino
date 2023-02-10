@@ -46,7 +46,11 @@ public class MoveMouseScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        otherObject = other;
+        if (other.gameObject.tag != "Wall")
+        {
+            otherObject = other;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)

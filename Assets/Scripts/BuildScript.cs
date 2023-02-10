@@ -12,6 +12,7 @@ public class BuildScript : MonoBehaviour
     [SerializeField] GameObject emptyMouse;
     int money;
     [SerializeField] LayerMask mask;
+    Collider otherObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +24,24 @@ public class BuildScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         spaceOccupied = true;
+        otherObject = other;
     }
 
     private void OnTriggerExit(Collider other)
     {
         spaceOccupied = false;
-        
+        otherObject = null;
+
+
     }
 
     private void OnTriggerStay(Collider other)
     {
         spaceOccupied = true;
+        if (otherObject = null)
+        {
+            otherObject = other;
+        }
         if (other == null)
         {
             spaceOccupied = false;
@@ -57,7 +65,7 @@ public class BuildScript : MonoBehaviour
         if (spaceOccupied == true)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall")
             {
                 delete = true;
             }
