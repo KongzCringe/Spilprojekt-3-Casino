@@ -8,7 +8,7 @@ public class SlotmachineScript : MonoBehaviour
     GameObject winChance;
     Slider winSlider;
     public int machineMoney;
-    [SerializeField] int bet;
+    public int bet;
     // Start is called before the first frame update
     void Start()
     {
