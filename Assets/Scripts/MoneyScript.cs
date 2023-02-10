@@ -5,7 +5,9 @@ using TMPro;
 
 public class MoneyScript : MonoBehaviour
 {
+    bool safety;
     public int moneyCount;
+    int oldMoney = 0;
     [SerializeField] TMP_Text moneyText;
     // Start is called before the first frame update
     void Start()
@@ -16,9 +18,34 @@ public class MoneyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moneyCount.ToString() != moneyText.text)
+        if (oldMoney < moneyCount && ((moneyCount - oldMoney) / 100) > 1)
         {
-            moneyText.text = moneyCount.ToString() + "$";
+            safety = true;
+            oldMoney += ((moneyCount-oldMoney)/100);
+        }
+        else
+        {
+            if (oldMoney > moneyCount && ((moneyCount - oldMoney) / 100) < -1)
+            {
+                safety = true;
+                oldMoney += ((moneyCount - oldMoney) / 100);
+            }
+            else
+            {
+                safety = false;
+            }
+        }
+        
+
+        if (oldMoney != moneyCount && safety == false)
+        {
+            oldMoney = moneyCount;
+        }
+
+
+        if (oldMoney.ToString() != moneyText.text)
+        {
+            moneyText.text = oldMoney.ToString() + "$";
         }
         if (moneyCount < 0)
         {
