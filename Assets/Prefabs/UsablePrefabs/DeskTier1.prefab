@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3774207514314475875}
   - component: {fileID: 274568023197353670}
   - component: {fileID: 2606319060749447692}
+  - component: {fileID: 8991066269523426937}
+  - component: {fileID: 7898627801551145972}
   m_Layer: 0
   m_Name: DeskTier1
   m_TagString: Untagged
@@ -87,6 +89,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8991066269523426937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551869357367710681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13579738, y: 0.04116051, z: 0.023371033}
+  m_Center: {x: -0.020185143, y: -0.0053617773, z: 0.010049151}
+--- !u!54 &7898627801551145972
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551869357367710681}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &3740825263521645137
 PrefabInstance:
   m_ObjectHideFlags: 0
