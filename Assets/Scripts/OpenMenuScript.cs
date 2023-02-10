@@ -9,7 +9,10 @@ public class OpenMenuScript : MonoBehaviour
     [SerializeField] float targetMenu = -645;
     [SerializeField] GameObject traitorMenu;
     [SerializeField] GameObject mouse;
+    [SerializeField] GameObject collectMouse;
     [SerializeField] GameObject emptyMouse;
+    [SerializeField] float open;
+    [SerializeField] float close;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class OpenMenuScript : MonoBehaviour
         if (openState == false)
         {
             mouse.SetActive(true);
+            collectMouse.SetActive(false);
             OpenMenu();
         }
         else
@@ -43,6 +47,7 @@ public class OpenMenuScript : MonoBehaviour
                 emptyMouse.SetActive(true);
             }
             mouse.SetActive(false);
+            collectMouse.SetActive(true);
             CloseMenu();
         }
     }
@@ -50,13 +55,13 @@ public class OpenMenuScript : MonoBehaviour
     void OpenMenu()
     {
         openState = true;
-        targetMenu = -428.7f;
+        targetMenu = open;
     }
 
     void CloseMenu()
     {
         openState = false;
-        targetMenu = -651.9f;
+        targetMenu = close;
     }
 
 
