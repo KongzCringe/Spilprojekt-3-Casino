@@ -22,7 +22,7 @@ public class MoveMouseScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && pickedUp == true)
         {
             
-            Debug.Log("Place");
+            //Debug.Log("Place");
             pickedUp = false;
             otherObject.gameObject.transform.parent = null;
         }
@@ -31,7 +31,7 @@ public class MoveMouseScript : MonoBehaviour
             pickedUp = true;
             otherObject.gameObject.transform.parent = gameObject.transform;
             otherObject.transform.localPosition = new Vector3(0, 0, 0);
-            Debug.Log("Pickup");
+            //Debug.Log("Pickup");
         }
 
 
@@ -57,4 +57,5 @@ public class MoveMouseScript : MonoBehaviour
     {
         otherObject = null;
     }
+
 }
