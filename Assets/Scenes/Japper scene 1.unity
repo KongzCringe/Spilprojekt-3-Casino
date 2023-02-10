@@ -55311,7 +55311,6 @@ MonoBehaviour:
   SpawnRoad: {fileID: 777841668}
   playerModels:
   - {fileID: 6386155808934149616, guid: a06716ebdb1476944bac6ec3f72b9dd1, type: 3}
-  - {fileID: 9029395227040111076, guid: f07c9a649c37d9f4881b48725b113952, type: 3}
   - {fileID: 6933188668914757571, guid: c802d426e01c39c4399dcfa9396243bf, type: 3}
   - {fileID: 5366785418181899431, guid: 91b3f76da2b97734b9ed2789ac729085, type: 3}
   - {fileID: 8161768363895779499, guid: 99e49a175a756a34d97b1c5e2ec6d8d3, type: 3}
