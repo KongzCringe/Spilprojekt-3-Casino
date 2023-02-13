@@ -140,6 +140,11 @@ public class NPC : MonoBehaviour
             case Agenda.Slot:
                 //print("Going to slot");
                 var slotMachines = gameLoop.GetSlotMachines();
+                
+                foreach (var slotMachine in slotMachines)
+                {
+                    if (slotMachine.)
+                }
 
                 var slotIndex = rnd.Next(0, slotMachines.Count - 1);
                 
