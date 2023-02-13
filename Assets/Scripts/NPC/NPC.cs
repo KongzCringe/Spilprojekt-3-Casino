@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -62,11 +63,11 @@ public class NPC : MonoBehaviour
         
         money = rnd.Next(VIP ? 1000 : 5, VIP ? 5000 : 25);
 
-        if (gameLoop.GetExchangeCounter().Count <= 0 || 
+        if (//gameLoop.GetExchangeCounter().Count <= 0 || 
             gameLoop.GetSlotMachines().Count <= 0 || 
             gameLoop.GetNpcsInCasino().Count >= gameLoop.GetSlotMachines().Count)
         {
-            print("None");
+            //print("None");
             task = Agenda.Leave;
         }
         else
@@ -83,7 +84,6 @@ public class NPC : MonoBehaviour
     
     void Update()
     {
-
         if (state != State.Moving) return;
 
         var position = transform.position;
@@ -106,7 +106,7 @@ public class NPC : MonoBehaviour
         switch (task)
         {
             case Agenda.Exchange:
-                print("Going to exchange");
+                //print("Going to exchange");
                 var exchangeCounters = gameLoop.GetExchangeCounter();
                 
                 var counterIndex = rnd.Next(0, exchangeCounters.Count - 1);
@@ -140,7 +140,7 @@ public class NPC : MonoBehaviour
                 break;
             
             case Agenda.Slot:
-                print("Going to slot");
+                //print("Going to slot");
                 var slotMachines = gameLoop.GetSlotMachines();
 
                 var slotIndex = rnd.Next(0, slotMachines.Count - 1);
@@ -183,6 +183,7 @@ public class NPC : MonoBehaviour
                 path = PathFinding.FindPath(startNode, targetNode);
                 nodeIndex = path.Count - 1;
                 
+                //if (gameLoop.GetNpcsInCasino().Contains(gameObject)) gameLoop.NpcLeftCasino(gameObject);
                 gameLoop.NpcLeftCasino(gameObject);
 
                 state = State.Leaving;
@@ -199,11 +200,34 @@ public class NPC : MonoBehaviour
                 state = State.Leaving;
                 MoveObject();
                 break;
-            
+
+            default:
+                throw new ArgumentOutOfRangeException();
         }
         
         var animator = GetComponent<Animator>();
         animator.SetTrigger("StartWalking");
+    }
+
+    public void UpdateNpc()
+    {
+        if (//gameLoop.GetExchangeCounter().Count <= 0 || 
+            gameLoop.GetSlotMachines().Count <= 0 || 
+            gameLoop.GetNpcsInCasino().Count >= gameLoop.GetSlotMachines().Count)
+        {
+            //print("None");
+            task = Agenda.Leave;
+        }
+        else
+        {
+            gameLoop.NpcEnteredCasino(gameObject);
+            task = Agenda.Exchange;
+        }
+
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("StartWalking");
+        
+        UpdateState();
     }
     
     private void MoveObject()
@@ -229,7 +253,6 @@ public class NPC : MonoBehaviour
                     break;
                 
                 case Agenda.Leave:
-                    //gameLoop.RemoveNPC(gameObject);
                     Destroy(gameObject);
                     break;
                 
@@ -244,14 +267,14 @@ public class NPC : MonoBehaviour
 
     private IEnumerator Exchange(int timer)
     {
-        print("Starts exchanging");
+        //print("Starts exchanging");
         yield return new WaitForSeconds(timer);
         
         var amount = Mathf.Min(money, 10);
         money -= amount;
         chips += amount;
         
-        print("Exchanged " + amount + " money for chips");
+        //print("Exchanged " + amount + " money for chips");
         
         GetNextTask();
     }
@@ -259,7 +282,7 @@ public class NPC : MonoBehaviour
     private IEnumerator SlotMachine()
     {
         while (chips > 0){
-            print("Playing slotmachine");
+            //print("Playing slotmachine");
             yield return new WaitForSeconds(1);
             chips -= slotScript.bet;
             slotScript.SlotFunction();

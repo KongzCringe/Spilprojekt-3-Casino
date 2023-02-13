@@ -25243,7 +25243,7 @@ GameObject:
   - component: {fileID: 699890198}
   - component: {fileID: 699890197}
   - component: {fileID: 699890196}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28767,7 +28767,7 @@ GameObject:
   - component: {fileID: 777841672}
   - component: {fileID: 777841671}
   - component: {fileID: 777841670}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28915,7 +28915,7 @@ MonoBehaviour:
     m_Bits: 8
   floorMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
 --- !u!4 &778190032
 Transform:
   m_ObjectHideFlags: 0
