@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOutput: {fileID: 3918147115095231613}
-  SMscript: {fileID: 0}
+  SMscript: {fileID: 2551288875902328744}
 --- !u!1 &7038224566064464386
 GameObject:
   m_ObjectHideFlags: 0
