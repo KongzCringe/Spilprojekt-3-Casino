@@ -78682,7 +78682,6 @@ GameObject:
   - component: {fileID: 2779836140750148576}
   - component: {fileID: 2779836140757351454}
   - component: {fileID: 4652878322447937227}
-  - component: {fileID: 6300629834623270676}
   m_Layer: 0
   m_Name: man-native_Rig
   m_TagString: Untagged
@@ -79799,18 +79798,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6300629834623270676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2779836140750049218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b17e5732df8642cda869ac685b13a518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &6741825500267113402
 AudioSource:
   m_ObjectHideFlags: 0
