@@ -25,7 +25,7 @@ public class SlotmachineScript : MonoBehaviour
         winSlider = winChance.GetComponent<Slider>();
         
         isOccupied = false;
-        
+        position = GetStandPoint().transform.position;
         occupiedBy = null;
     }
 
