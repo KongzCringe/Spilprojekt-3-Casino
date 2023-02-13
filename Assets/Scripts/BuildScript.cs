@@ -57,7 +57,7 @@ public class BuildScript : MonoBehaviour
             var obj = other.gameObject;
             
             if (obj.transform.CompareTag("Exchange")) gameLoop.RemoveExchangeCounter(obj);
-            else if (obj.transform.CompareTag("Slot")) gameLoop.RemoveslotMachine(obj);
+            else if (obj.transform.CompareTag("Slot")) gameLoop.RemoveSlotMachine(obj);
             
             delete = false;
             spaceOccupied = false;

@@ -61,15 +61,16 @@ public class ExchangeCounter : MonoBehaviour
 
     public Vector3 GetPosition(GameObject NPC)
     {
-
+        /*
         if (isOccupied.All(x => x))
         {
             return Vector3.zero;
         }
+        */
 
         for (int i = 0; i < isOccupied.Length; i++)
         {
-            if (occupiedBy[i]) continue;
+            //if (occupiedBy[i]) continue;
             
             isOccupied[i] = true;
             occupiedBy[i] = NPC;
