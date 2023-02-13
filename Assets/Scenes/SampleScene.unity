@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOutput: {fileID: 897139598}
-  machineMoney: {fileID: 7235806610389100990}
+  SMscript: {fileID: 7235806610389100990}
 --- !u!1 &1194772405
 GameObject:
   m_ObjectHideFlags: 0
