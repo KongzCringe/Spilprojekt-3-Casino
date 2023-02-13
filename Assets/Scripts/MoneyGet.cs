@@ -8,9 +8,7 @@ public class MoneyGet : MonoBehaviour
 
     void Update()
     {
-        textOutput.fontSize = 25 - (SMscript.machineMoney / (SMscript.machineMoney / 10));
-
-        print(SMscript.machineMoney / 10000);
-        textOutput.text = SMscript.machineMoney.ToString();
+        //textOutput.fontSize = 25 - (SMscript.machineMoney / (SMscript.machineMoney / 10));
+        textOutput.text =  "$" + SMscript.machineMoney.ToString();
     }
 }
