@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d74c43b93141e09489a685e926166fc0
+  - enabled: 1
     path: Assets/Scenes/Japper scene 1.unity
     guid: c2a8bec4ab3b287468f64ee01868d0d1
   m_configObjects: {}
