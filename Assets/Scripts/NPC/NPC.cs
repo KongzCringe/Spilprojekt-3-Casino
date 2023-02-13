@@ -145,14 +145,20 @@ public class NPC : MonoBehaviour
                 
                 foreach (var slotMachine in slotMachines)
                 {
-                    if (slotMachine.)
+                    print(slotMachine.name);
+                    if (slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
+                    
+                    slotScript = slotMachine.GetComponent<SlotmachineScript>();
+                    atObject = slotMachine;
+                    break;
                 }
 
-                var slotIndex = rnd.Next(0, slotMachines.Count - 1);
-                
-                atObject = slotMachines[slotIndex];
-
-                slotScript = slotMachines[slotIndex].GetComponent<SlotmachineScript>();
+                if (slotScript == null)
+                {
+                    task = Agenda.Leave;
+                    UpdateState();
+                    break;
+                }
                 
                 var slotPosition = slotScript.GetPosition(gameObject);
                 
@@ -188,8 +194,9 @@ public class NPC : MonoBehaviour
                 path = PathFinding.FindPath(startNode, targetNode);
                 nodeIndex = path.Count - 1;
                 
-                //if (gameLoop.GetNpcsInCasino().Contains(gameObject)) gameLoop.NpcLeftCasino(gameObject);
-                gameLoop.NpcLeftCasino(gameObject);
+                print("Huh");
+                
+                if (gameLoop.GetNpcsInCasino().Contains(gameObject)) gameLoop.NpcLeftCasino(gameObject);
 
                 state = State.Leaving;
                 MoveObject();
@@ -258,6 +265,7 @@ public class NPC : MonoBehaviour
                     break;
                 
                 case Agenda.Leave:
+                    gameLoop.RemoveNpc(gameObject);
                     Destroy(gameObject);
                     break;
                 

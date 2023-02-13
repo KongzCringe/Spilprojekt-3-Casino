@@ -57,6 +57,11 @@ public class SlotmachineScript : MonoBehaviour
         }
     }
 
+    public bool IsOccupied()
+    {
+        return isOccupied;
+    }
+
     public void SlotFunction()
     {
         if (playSound.isPlaying == false)
