@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using UnityEngine;
 using Random = System.Random;
 
@@ -73,6 +74,13 @@ public class GameLoop : MonoBehaviour
     public void NpcLeftCasino(GameObject npc)
     {
         npcInCasino.Remove(npc);
+        
+        /*
+        var newNpc = GetClosestNpc();
+        if (newNpc == null) return;
+        
+        newNpc.GetComponent<NPC>().UpdateNpc();
+         */
     }
 
     public void AddSlotMachine(GameObject slotMachine)
@@ -93,6 +101,22 @@ public class GameLoop : MonoBehaviour
     public void RemoveExchangeCounter(GameObject exchangeCounter)
     {
         exchangeCounters.Remove(exchangeCounter);
+    }
+
+    private GameObject GetClosestNpc()
+    {
+        GameObject closestNpc = null;
+        var closestDistance = double.MaxValue;
+        
+        foreach (var npc in 
+                 Npcs.Where(npc => !npcInCasino.Contains(npc)).Where(npc => 
+                     Vector3.Distance(npc.transform.position, transform.position) < closestDistance))
+        {
+            closestDistance = Vector3.Distance(npc.transform.position, transform.position);
+            closestNpc = npc;
+        }
+
+        return closestNpc;
     }
 
     public Vector3 GetOppositeSpawn()

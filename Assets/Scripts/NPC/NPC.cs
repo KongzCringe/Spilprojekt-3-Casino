@@ -60,7 +60,7 @@ public class NPC : MonoBehaviour
         
         money = rnd.Next(VIP ? 1000 : 5, VIP ? 5000 : 25);
 
-        if (gameLoop.GetExchangeCounter().Count <= 0 || 
+        if (//gameLoop.GetExchangeCounter().Count <= 0 || 
             gameLoop.GetSlotMachines().Count <= 0 || 
             gameLoop.GetNpcsInCasino().Count >= gameLoop.GetSlotMachines().Count)
         {
@@ -181,6 +181,7 @@ public class NPC : MonoBehaviour
                 path = PathFinding.FindPath(startNode, targetNode);
                 nodeIndex = path.Count - 1;
                 
+                //if (gameLoop.GetNpcsInCasino().Contains(gameObject)) gameLoop.NpcLeftCasino(gameObject);
                 gameLoop.NpcLeftCasino(gameObject);
 
                 state = State.Leaving;
@@ -202,6 +203,27 @@ public class NPC : MonoBehaviour
         
         var animator = GetComponent<Animator>();
         animator.SetTrigger("StartWalking");
+    }
+
+    public void UpdateNpc()
+    {
+        if (//gameLoop.GetExchangeCounter().Count <= 0 || 
+            gameLoop.GetSlotMachines().Count <= 0 || 
+            gameLoop.GetNpcsInCasino().Count >= gameLoop.GetSlotMachines().Count)
+        {
+            print("None");
+            task = Agenda.Leave;
+        }
+        else
+        {
+            gameLoop.NpcEnteredCasino(gameObject);
+            task = Agenda.Exchange;
+        }
+
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("StartWalking");
+        
+        UpdateState();
     }
     
     private void MoveObject()
@@ -226,7 +248,6 @@ public class NPC : MonoBehaviour
                     break;
                 
                 case Agenda.Leave:
-                    //gameLoop.RemoveNPC(gameObject);
                     Destroy(gameObject);
                     break;
                 
