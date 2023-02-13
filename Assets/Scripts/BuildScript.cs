@@ -71,10 +71,10 @@ public class BuildScript : MonoBehaviour
         {
             delete = false;
         }
-        if (spaceOccupied == true)
+        if (spaceOccupied == true || moneyObject.GetComponent<MoneyScript>().moneyCount < cost)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
-            if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall")
+            if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall" && spaceOccupied == true)
             {
                 delete = true;
             }
@@ -85,7 +85,7 @@ public class BuildScript : MonoBehaviour
             RaycastHit hit;
             Physics.Raycast(rayray, out hit, 10000, mask);
             gameObject.GetComponent<Renderer>().material.color = Color.green;
-            if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.layer == 6)
+            if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.layer == 6 && moneyObject.GetComponent<MoneyScript>().moneyCount > cost)
             {
                 var obj = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
                 if (obj.transform.CompareTag("Exchange")) gameLoop.AddExchangeCounter(obj);
