@@ -81,7 +81,6 @@ public class NPC : MonoBehaviour
     
     void Update()
     {
-
         if (state != State.Moving) return;
 
         var position = transform.position;
