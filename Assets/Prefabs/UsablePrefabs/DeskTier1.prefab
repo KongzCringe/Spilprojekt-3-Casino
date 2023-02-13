@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7825265505113451163}
   - component: {fileID: 6960288811441022696}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StandPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,8 @@ GameObject:
   - component: {fileID: 7898627801551145972}
   - component: {fileID: 306183401858359651}
   - component: {fileID: 7311461149498298666}
-  m_Layer: 0
+  - component: {fileID: -3614466850214798402}
+  m_Layer: 3
   m_Name: DeskTier1
   m_TagString: Exchange
   m_Icon: {fileID: 0}
@@ -269,6 +270,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3614466850214798402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551869357367710681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cfe683bcfeab44bada90458dd80b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 1000
 --- !u!1001 &3740825263521645137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,6 +349,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 50bec85adb103024dbec427dcef1540a, type: 3}
       propertyPath: m_Name
       value: Computer (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50bec85adb103024dbec427dcef1540a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50bec85adb103024dbec427dcef1540a, type: 3}
