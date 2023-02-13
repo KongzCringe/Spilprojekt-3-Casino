@@ -164,7 +164,6 @@ public class SlotmachineScript : MonoBehaviour
     {
         if (isOccupied)
         {
-            print("Occupied");
             return Vector3.zero;
         }
 
