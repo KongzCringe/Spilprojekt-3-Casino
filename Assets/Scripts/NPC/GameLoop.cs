@@ -74,11 +74,11 @@ public class GameLoop : MonoBehaviour
     public void NpcLeftCasino(GameObject npc)
     {
         var newNpc = GetClosestNpc();
-        if (newNpc == null) return;
-        
-        newNpc.GetComponent<NPC>().UpdateNpc();
-        
         npcInCasino.Remove(npc);
+        
+        if (newNpc == null) return;
+
+        newNpc.GetComponent<NPC>().UpdateNpc();
     }
 
     public void AddSlotMachine(GameObject slotMachine)
@@ -112,10 +112,13 @@ public class GameLoop : MonoBehaviour
         GameObject closestNpc = null;
         var closestDistance = double.MaxValue;
 
-        print(Npcs.Count);
-        
         foreach (var npc in Npcs)
         {
+            print("npc: " + npc);
+            if (npcInCasino.Contains(npc) || 
+                Vector3.Distance(npc.transform.position, transform.position) >= closestDistance) continue;
+
+            print("closest npc: " + npc);
             closestDistance = Vector3.Distance(npc.transform.position, transform.position);
             closestNpc = npc;
         }
