@@ -161,7 +161,7 @@ public class SlotmachineScript : MonoBehaviour
         }
         else
         {
-            machineMoney += bet;
+            machineMoney += (bet*10);
         }
     }
     

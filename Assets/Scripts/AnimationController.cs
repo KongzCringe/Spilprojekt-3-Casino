@@ -13,18 +13,18 @@ public class AnimationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            //Send the message to the Animator to activate the trigger parameter named "Jump"
-            animator.SetTrigger("StartWalking");
-        }
+    //void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.W))
+    //    {
+    //        //Send the message to the Animator to activate the trigger parameter named "Jump"
+    //        animator.SetTrigger("StartWalking");
+    //    }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            //Send the message to the Animator to activate the trigger parameter named "Jump"
-            animator.SetTrigger("StopWalking");
-        }
-    }
+    //    if (Input.GetKey(KeyCode.S))
+    //    {
+    //        //Send the message to the Animator to activate the trigger parameter named "Jump"
+    //        animator.SetTrigger("StopWalking");
+    //    }
+    //}
 }
