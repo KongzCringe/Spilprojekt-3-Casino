@@ -32,6 +32,8 @@ public class NPC : MonoBehaviour
 
     private GameObject atObject;
 
+    GameObject counter;
+
     enum Agenda
     {
         Slot,
@@ -112,7 +114,7 @@ public class NPC : MonoBehaviour
                 atObject = exchangeCounters[counterIndex];
 
                 var position = exchangeCounters[counterIndex].GetComponent<ExchangeCounter>().GetPosition(gameObject);
-
+                counter = exchangeCounters[counterIndex];
                 if (position == Vector3.zero)
                 {
                     task = Agenda.Leave;
@@ -221,6 +223,7 @@ public class NPC : MonoBehaviour
                     break;
                     
                 case Agenda.Exchange:
+                    counter.GetComponent<AudioSource>().Play();
                     StartCoroutine(Exchange(4));
                     state = State.Exchanging;
                     break;
