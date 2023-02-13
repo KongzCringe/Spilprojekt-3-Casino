@@ -12,7 +12,7 @@ public class BuildScript : MonoBehaviour
     [SerializeField] GameObject emptyMouse;
     int money;
     [SerializeField] LayerMask mask;
-    Collider otherObject;
+    [SerializeField] Collider otherObject;
     
     GameLoop gameLoop;
     
@@ -41,15 +41,15 @@ public class BuildScript : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         spaceOccupied = true;
-        if (otherObject = null)
-        {
-            otherObject = other;
-        }
-        if (other == null)
-        {
-            spaceOccupied = false;
-        }
-        
+        //if (otherObject = null)
+        //{
+        //    otherObject = other;
+        //}
+        //if (other == null)
+        //{
+        //    spaceOccupied = false;
+        //}
+
         if (delete == true)
         {
             other.gameObject.GetComponent<AutoDestroyScript>().SellBuilding();
