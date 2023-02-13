@@ -10,7 +10,9 @@ public class SlotmachineScript : MonoBehaviour
     Slider winSlider;
     public int machineMoney;
     [SerializeField] public int bet;
-    
+    [SerializeField] AudioSource jackpotSound;
+    [SerializeField] AudioSource playSound;
+
     private bool isOccupied;
     Vector3 position;
 
@@ -57,9 +59,15 @@ public class SlotmachineScript : MonoBehaviour
 
     public void SlotFunction()
     {
+        if (playSound.isPlaying == false)
+        {
+            playSound.Play();
+        }
+        
         int win = Random.Range(1, 101);
         if (win < winSlider.value)
         {
+            
             win = Random.Range(1, 1001);
 
 
@@ -93,6 +101,7 @@ public class SlotmachineScript : MonoBehaviour
 
                 case 1000:
                     machineMoney -= (bet * 1000);
+                    jackpotSound.Play();
                     break;
                 default:
                     break;
@@ -164,7 +173,6 @@ public class SlotmachineScript : MonoBehaviour
     {
         if (isOccupied)
         {
-            print("Occupied");
             return Vector3.zero;
         }
 

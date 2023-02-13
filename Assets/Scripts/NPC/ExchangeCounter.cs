@@ -15,8 +15,7 @@ public class ExchangeCounter : MonoBehaviour
     private void Start()
     {
         var listOfStandPoint = GetStandPoints();
-        print(listOfStandPoint.Count);
-        
+
         isOccupied = new bool[listOfStandPoint.Count];
         positions = new Vector3[listOfStandPoint.Count];
         occupiedBy = new GameObject[listOfStandPoint.Count];
@@ -72,8 +71,6 @@ public class ExchangeCounter : MonoBehaviour
         {
             if (occupiedBy[i]) continue;
             
-            print(i);
-            print(positions[i]);
             isOccupied[i] = true;
             occupiedBy[i] = NPC;
             return positions[i];
