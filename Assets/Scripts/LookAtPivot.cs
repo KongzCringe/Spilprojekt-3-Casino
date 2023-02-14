@@ -10,7 +10,7 @@ public class LookAtPivot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = original.transform.position;
+        //transform.position = original.transform.position;
 
         transform.LookAt(pivotPoint);
         //transform.Translate(Vector3.right * Time.deltaTime);
