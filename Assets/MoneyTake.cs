@@ -1,24 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MoneyTake : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private CollectScript _CollectScript;
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _CollectScript = FindObjectOfType<CollectScript>();
     }
 
     public void TakeMoney()
     {
-        
-        
+        _CollectScript.MoneyTake(gameObject);
     }
 }

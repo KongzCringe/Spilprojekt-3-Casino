@@ -18,19 +18,22 @@ public class CollectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetMouseButtonDown(0) && otherObject != null && otherObject.GetComponent<SlotmachineScript>())
         {
             gameObject.GetComponent<AudioSource>().Play();
             MoneyScript.moneyCount += (otherObject.GetComponent<SlotmachineScript>().machineMoney - (otherObject.GetComponent<SlotmachineScript>().bet*1000));
             otherObject.GetComponent<SlotmachineScript>().machineMoney = (otherObject.GetComponent<SlotmachineScript>().bet * 1000);
         }   
+        */
     }
 
-    public static void MoneyTake(GameObject SlotMachine)
+    public void MoneyTake(GameObject SlotMachine)
     {
+        var Slotscript = SlotMachine.GetComponent<SlotmachineScript>();
         gameObject.GetComponent<AudioSource>().Play();
-        MoneyScript += (SlotMachine.GetComponent<SlotmachineScript>().machineMoney - (otherObject.GetComponent<SlotmachineScript>().bet*1000));
-        SlotMachine.GetComponent<SlotmachineScript>().machineMoney = (SlotMachine.GetComponent<SlotmachineScript>().bet * 1000);
+        MoneyScript.moneyCount += (Slotscript.machineMoney - (Slotscript.bet*1000));
+        Slotscript.machineMoney = (Slotscript.bet * 1000);
     }
     
     private void OnTriggerEnter(Collider other)
