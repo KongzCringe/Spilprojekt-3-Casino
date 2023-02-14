@@ -32,6 +32,8 @@ public class GameLoop : MonoBehaviour
         if (save != null) LoadPlayerProgress(save);
         else
         {
+            MoneyScript.moneyCount = 5000;
+            
             foreach (var slotMachine in slotMachines)
             {
                 placedObjects.Add(slotMachine);
@@ -104,7 +106,7 @@ public class GameLoop : MonoBehaviour
     public void AddSlotMachine(GameObject slotMachine)
     {
         slotMachines.Add(slotMachine);
-    }
+    } 
     
     public void RemoveSlotMachine(GameObject slotMachine)
     {
