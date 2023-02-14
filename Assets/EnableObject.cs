@@ -7,28 +7,34 @@ public class EnableObject : MonoBehaviour
 
     [SerializeField] private GameObject UI;
     [SerializeField] private Animator Anim;
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    private bool MouseHover = false;
+
+    
     void Update()
     {
         
+        print(MouseHover);
+    
     }
 
     void OnMouseEnter()
     {
-        Anim.SetTrigger("UP");
+        if (MouseHover == false)
+        {
+            Anim.SetTrigger("UP");
+            MouseHover = true;
+        }
+        
+        Anim.SetBool("MouseHover", true);
     }
     
     void OnMouseExit()
     {
+        MouseHover = false;
         Anim.SetTrigger("DOWN");
+        
+        Anim.SetBool("MouseHover", false);
     }
 
     public void Disable()
