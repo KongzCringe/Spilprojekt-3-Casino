@@ -7,6 +7,8 @@ public class CollectScript : MonoBehaviour
 {
     Collider otherObject;
     [SerializeField] MoneyScript moneyScript;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,13 @@ public class CollectScript : MonoBehaviour
         }   
     }
 
+    public static void MoneyTake(GameObject SlotMachine)
+    {
+        gameObject.GetComponent<AudioSource>().Play();
+        MoneyScript += (SlotMachine.GetComponent<SlotmachineScript>().machineMoney - (otherObject.GetComponent<SlotmachineScript>().bet*1000));
+        SlotMachine.GetComponent<SlotmachineScript>().machineMoney = (SlotMachine.GetComponent<SlotmachineScript>().bet * 1000);
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         otherObject = other;
