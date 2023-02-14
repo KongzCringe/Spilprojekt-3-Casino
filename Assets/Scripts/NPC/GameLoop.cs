@@ -27,7 +27,7 @@ public class GameLoop : MonoBehaviour
 
     private void Start()
     {
-        var save = SaveSystem.LoadPlayerProgress();
+        PlayerProgress save = null; //SaveSystem.LoadPlayerProgress();
         
         if (save != null) LoadPlayerProgress(save);
         else
