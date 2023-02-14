@@ -10886,7 +10886,7 @@ Transform:
   - {fileID: 1814161906}
   - {fileID: 802513664}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &281604597
 PrefabInstance:
@@ -14165,7 +14165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7826942599176524907, guid: b94e4a4cd0119874fadfb7734718375f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7826942599176524907, guid: b94e4a4cd0119874fadfb7734718375f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32436,7 +32436,7 @@ Transform:
   m_Children:
   - {fileID: 694760938}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -38.672, z: 0}
 --- !u!1 &870512332 stripped
 GameObject:
@@ -45059,7 +45059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7826942599176524907, guid: b94e4a4cd0119874fadfb7734718375f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7826942599176524907, guid: b94e4a4cd0119874fadfb7734718375f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45942,7 +45942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6054489168126246354, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_Name
-      value: SlotTier1
+      value: SlotTier1 - Copy
       objectReference: {fileID: 0}
     - target: {fileID: 7814486087008465720, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_RootOrder
@@ -47937,7 +47937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73422801bbc231744b63bd7ac13193d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyCount: 5000
   moneyText: {fileID: 1290298254}
 --- !u!114 &1290298254
 MonoBehaviour:
@@ -55443,6 +55442,19 @@ MonoBehaviour:
   - {fileID: 7711013106963378669, guid: b6d8a6e07d6f6dc43a42dcb1105f21e5, type: 3}
   - {fileID: 7862124921631468208, guid: f8c19bec13e75d7499257cfef224cc64, type: 3}
   - {fileID: 1621079125783572915, guid: 36d0f9b37857da940ad2dd68c8ccd6f4, type: 3}
+  placeables:
+  - {fileID: 4859007708713197913, guid: c6e59490bb4a6194f8f9f924cba8dc5d, type: 3}
+  - {fileID: 4551869357367710681, guid: 5cf6d3db56898c94bac05ee95ba6ad54, type: 3}
+  - {fileID: 7913615788390861074, guid: ad7d148a6051f674f9b6c22fe519955c, type: 3}
+  - {fileID: 5756784816889679233, guid: dc25ed5abc5b2724eb3e334b584a4f14, type: 3}
+  - {fileID: 919132149155446097, guid: 8e253539d780dcd4cad6cec2532c2472, type: 3}
+  - {fileID: 6054489168126246354, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+  - {fileID: 6649012151119366579, guid: dcddddeb5b72d6644aa9679d55cb73bd, type: 3}
+  - {fileID: 4883235267308747220, guid: d35f400f732d8ec4f87379b1acee9dfe, type: 3}
+  - {fileID: 1816969379885902540, guid: f1ee2bd88bd64ca4d84a4cd86c199a5f, type: 3}
+  - {fileID: 8129457335974638507, guid: bf2e64b0bc6908544b7a2571f16f94a8, type: 3}
+  - {fileID: 1912764546292142483, guid: b715f7190abbd9d4fbc38935d56e606e, type: 3}
+  placedObjects: []
 --- !u!4 &1463296190
 Transform:
   m_ObjectHideFlags: 0

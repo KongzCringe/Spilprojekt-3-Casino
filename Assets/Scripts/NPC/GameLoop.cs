@@ -14,6 +14,10 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private GameObject SpawnRoad;
 
     [SerializeField] private GameObject[] playerModels;
+    
+    [SerializeField] private GameObject[] placeables;
+
+    public List<GameObject> placedObjects = new ();
 
     private float wait;
     private float timer;
@@ -23,6 +27,22 @@ public class GameLoop : MonoBehaviour
 
     private void Start()
     {
+        var save = SaveSystem.LoadPlayerProgress();
+        
+        if (save != null) LoadPlayerProgress(save);
+        else
+        {
+            foreach (var slotMachine in slotMachines)
+            {
+                placedObjects.Add(slotMachine);
+            }
+
+            foreach (var exchangeCounter in exchangeCounters)
+            {
+                placedObjects.Add(exchangeCounter);
+            }
+        }
+
         var rnd = new Random();
         wait = rnd.Next(2, 3);
     }
@@ -141,5 +161,57 @@ public class GameLoop : MonoBehaviour
         
         return new Vector3(bounds.min.x + 3, 0,
             spawnRoadPos.z);
+    }
+
+    public void AddPlacedObject(GameObject placedObject)
+    {
+        placedObjects.Add(placedObject);
+    }
+    
+    public void RemovePlacedObject(GameObject placedObject)
+    {
+        placedObjects.Remove(placedObject);
+    }
+
+    private void LoadPlayerProgress(PlayerProgress playerProgress)
+    {
+        for (int i = 0; i < playerProgress.objectNames.Length; i++)
+        {
+            var placeable = placeables.FirstOrDefault(x => x.name == playerProgress.objectNames[i]);
+            if (placeable == null) continue;
+            
+            var placedObject = Instantiate(placeable, 
+                
+                new Vector3(
+                    playerProgress.objectPositions[i].x, 
+                    playerProgress.objectPositions[i].y, 
+                    playerProgress.objectPositions[i].z),
+                
+                Quaternion.Euler(
+                    playerProgress.objectRotations[i].x,
+                    playerProgress.objectRotations[i].y,
+                    playerProgress.objectRotations[i].z));
+
+            placedObject.name = placeable.name;
+            
+            MoneyScript.moneyCount = playerProgress.money;
+
+            placedObjects.Add(placedObject);
+        }
+    }
+    
+    private void OnApplicationQuit()
+    {
+        var array = new GameObject[placedObjects.Count];
+
+        for (int i = 0; i < placedObjects.Count; i++)
+        {
+            print(placedObjects[i].name);
+            array[i] = placedObjects[i];    
+        }
+        
+        SaveSystem.SavePlayerProgress(array);
+        
+        print("Saved");
     }
 }

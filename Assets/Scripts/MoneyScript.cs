@@ -6,7 +6,7 @@ using TMPro;
 public class MoneyScript : MonoBehaviour
 {
     bool safety;
-    public int moneyCount;
+    public static int moneyCount;
     int oldMoney = 0;
     [SerializeField] TMP_Text moneyText;
     // Start is called before the first frame update
@@ -55,5 +55,12 @@ public class MoneyScript : MonoBehaviour
         {
             moneyText.color = Color.green;
         }
+
+        /*
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            moneyCount = 5000;
+        }
+        */
     }
 }
