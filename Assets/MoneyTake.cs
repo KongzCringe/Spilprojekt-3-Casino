@@ -5,19 +5,23 @@ using UnityEngine;
 
 public class MoneyTake : MonoBehaviour
 {
-    private CollectScript _CollectScript;
+    [SerializeField] CollectScript _CollectScript;
     
     public LayerMask clickableLayerMask;  public float clickableDistance = 100f;
             
     private void Start()
     {
-        _CollectScript = FindObjectOfType<CollectScript>();
-        print(_CollectScript.name);
+        
+        
     }
 
         
     void Update()
     {
+        if (_CollectScript == null)
+        {
+            _CollectScript = FindObjectOfType<CollectScript>();
+        }
         // Check for mouse button down event
         if (Input.GetMouseButtonDown(0))
         {
