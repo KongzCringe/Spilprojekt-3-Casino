@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 4256774593146413602}
   - component: {fileID: 3563182641110093761}
   - component: {fileID: 7695476998099356551}
+  - component: {fileID: 102003910216497938}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -363,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 1122510482704175995}
   m_LocalRotation: {x: 0.50000054, y: 0.49999857, z: 0.49999928, w: 0.5000016}
   m_LocalPosition: {x: -0.0108, y: 0.0192, z: 0.0433}
-  m_LocalScale: {x: 0.031794667, y: 0.031794667, z: 0.031794667}
+  m_LocalScale: {x: 0.05014945, y: 0.05014945, z: 0.05014945}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5713671273720535389}
@@ -419,6 +420,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1625585127212511896}
   Anim: {fileID: 3563182641110093761}
+--- !u!65 &102003910216497938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122510482704175995}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39851862, y: 1.6257808, z: 1}
+  m_Center: {x: 0.30074242, y: 0.3128895, z: -0.0000000123022295}
 --- !u!1 &1625585127212511896
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81197aa75a645349a484add3d72a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CollectScript: {fileID: 0}
   clickableLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1043,8 +1058,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.026204431, y: 0.03062627, z: 0.051005565}
-  m_Center: {x: -0.011188448, y: 0.013521759, z: 0.01843073}
+  m_Size: {x: 0.026204444, y: 0.030626286, z: 0.06015386}
+  m_Center: {x: -0.011188456, y: 0.013521766, z: 0.0230049}
 --- !u!114 &1970158075087575002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,6 +1602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81197aa75a645349a484add3d72a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CollectScript: {fileID: 0}
   clickableLayerMask:
     serializedVersion: 2
     m_Bits: 256
