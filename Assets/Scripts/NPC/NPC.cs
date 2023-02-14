@@ -109,10 +109,8 @@ public class NPC : MonoBehaviour
     private GameObject GetSlot()
     {
         var highestTier = GetHighestTier();
-        print("highest tier: " + highestTier);
         foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => x.GetComponent<SlotClass>().GetSlotTier() == highestTier))
         {
-            print("Slottier 2: " + slotMachine.GetComponent<SlotClass>().GetSlotTier());
             if (slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
             return slotMachine;
         }
@@ -273,6 +271,8 @@ public class NPC : MonoBehaviour
             var animator = GetComponent<Animator>();
             animator.SetTrigger(StopWalking);
             
+            transform.LookAt(atObject.transform);
+
             switch (task)
             {
                 case Agenda.Slot:
@@ -306,7 +306,6 @@ public class NPC : MonoBehaviour
         
         var amount = Mathf.Min(money, 100);
         
-        print(amount);
         money -= amount;
         chips += amount;
 
