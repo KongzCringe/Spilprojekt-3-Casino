@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Grid = Script.Grid;
 using Random = System.Random;
@@ -102,6 +103,34 @@ public class NPC : MonoBehaviour
         if (Vector2.Distance(new Vector2(position.x, position.z), new Vector2(targetPos.x, targetPos.z)) < 0.1f) MoveObject();
     }
 
+    private GameObject GetSlot()
+    {
+        var highestTier = GetHighestTier();
+
+        foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => x.GetComponent<SlotClass>().GetSlotTier() == highestTier))
+        {
+            if (slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
+            return slotMachine;
+        }
+
+        return null;
+    }
+
+    private int GetHighestTier()
+    {
+        var highestTier = 0;
+        
+        foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => money / x.GetComponent<SlotmachineScript>().bet > 5))
+        {
+            if (slotMachine.GetComponent<SlotClass>().GetSlotTier() > highestTier)
+            {
+                highestTier = slotMachine.GetComponent<SlotClass>().GetSlotTier();
+            }
+        }
+
+        return highestTier;
+    }
+
     private void UpdateState()
     {
         var rnd = new Random();
@@ -148,22 +177,18 @@ public class NPC : MonoBehaviour
             case Agenda.Slot:
                 var slotMachines = gameLoop.GetSlotMachines();
                 
-                foreach (var slotMachine in slotMachines)
-                {
-                    if (slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
-                    
-                    slotScript = slotMachine.GetComponent<SlotmachineScript>();
-                    atObject = slotMachine;
-                    break;
-                }
-
-                if (slotScript == null)
+                var slotmachine = GetSlot();
+                
+                if (slotmachine == null)
                 {
                     task = Agenda.Leave;
                     UpdateState();
                     break;
                 }
-                
+
+                slotScript = slotmachine.GetComponent<SlotmachineScript>();
+                atObject = slotmachine;
+
                 var slotPosition = slotScript.GetPosition(gameObject);
                 
                 if (slotPosition == Vector3.zero)
