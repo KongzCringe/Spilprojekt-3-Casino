@@ -59,6 +59,8 @@ public class BuildScript : MonoBehaviour
             if (obj.transform.CompareTag("Exchange")) gameLoop.RemoveExchangeCounter(obj);
             else if (obj.transform.CompareTag("Slot")) gameLoop.RemoveSlotMachine(obj);
             
+            gameLoop.RemovePlacedObject(obj);
+            
             delete = false;
             spaceOccupied = false;
         }
@@ -90,6 +92,9 @@ public class BuildScript : MonoBehaviour
                 var obj = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
                 if (obj.transform.CompareTag("Exchange")) gameLoop.AddExchangeCounter(obj);
                 else if (obj.transform.CompareTag("Slot")) gameLoop.AddSlotMachine(obj);
+                
+                gameLoop.AddPlacedObject(obj);
+                
                 moneyObject.GetComponent<MoneyScript>().moneyCount -= cost;
                 gameObject.SetActive(false);
                 emptyMouse.SetActive(true);
