@@ -36,7 +36,7 @@ public class MoveMouseScript : MonoBehaviour
 
 
  
-        if (pickedUp == false && gameObject.transform.childCount > 0 && otherObject != null)
+        if (pickedUp == false && gameObject.transform.childCount > 0 && otherObject != null && gameObject.layer == 3)
         {
             otherObject.gameObject.transform.parent = null;
         }
