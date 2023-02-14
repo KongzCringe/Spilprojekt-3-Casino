@@ -22,6 +22,7 @@ public class NPC : MonoBehaviour
 
     private int money;
     private int chips;
+    private int tier;
 
     private int joy = 100;
 
@@ -58,13 +59,15 @@ public class NPC : MonoBehaviour
     public void StartNPC(GameLoop gameLoop)
     {
         this.gameLoop = gameLoop;
-
+        
         var rnd = new Random();
 
         var vipChance = rnd.Next(0, 100);
         //VIP = vipChance < 5;
+
+        tier = rnd.Next(1, GetHighestTier());
         
-        money = rnd.Next(VIP ? 1000 : 5, VIP ? 5000 : 25);
+        money = rnd.Next(5 * tier, 25 * tier);
 
         if (//gameLoop.GetExchangeCounter().Count <= 0 || 
             gameLoop.GetSlotMachines().Count <= 0 || 
@@ -106,9 +109,10 @@ public class NPC : MonoBehaviour
     private GameObject GetSlot()
     {
         var highestTier = GetHighestTier();
-
+        print("highest tier: " + highestTier);
         foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => x.GetComponent<SlotClass>().GetSlotTier() == highestTier))
         {
+            print("Slottier 2: " + slotMachine.GetComponent<SlotClass>().GetSlotTier());
             if (slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
             return slotMachine;
         }
@@ -120,7 +124,7 @@ public class NPC : MonoBehaviour
     {
         var highestTier = 0;
         
-        foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => money / x.GetComponent<SlotmachineScript>().bet > 5))
+        foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => chips / x.GetComponent<SlotmachineScript>().bet > 5))
         {
             if (slotMachine.GetComponent<SlotClass>().GetSlotTier() > highestTier)
             {
@@ -300,7 +304,9 @@ public class NPC : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         
-        var amount = Mathf.Min(money, 10);
+        var amount = Mathf.Min(money, 100);
+        
+        print(amount);
         money -= amount;
         chips += amount;
 
@@ -329,7 +335,7 @@ public class NPC : MonoBehaviour
         else if (chips != 0)
         {
             task = Agenda.Slot;
-            atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
+            //atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
             UpdateState();
         }
         else

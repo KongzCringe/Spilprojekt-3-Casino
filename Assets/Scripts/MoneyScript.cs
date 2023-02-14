@@ -56,11 +56,11 @@ public class MoneyScript : MonoBehaviour
             moneyText.color = Color.green;
         }
 
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            moneyCount = 5000;
+            moneyCount += 5000;
         }
-        */
+        
     }
 }
