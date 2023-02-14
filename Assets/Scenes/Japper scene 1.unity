@@ -46012,8 +46012,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 8482903931256980900, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482903931256980900, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5989219585704634871, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+    - {fileID: 2346190955682628998, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+    - {fileID: 8482903931256980900, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
 --- !u!1 &1249641765 stripped
 GameObject:
@@ -46032,6 +46042,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81197aa75a645349a484add3d72a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickableLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  clickableDistance: 100
 --- !u!114 &1249641767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46039,7 +46053,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249641765}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
