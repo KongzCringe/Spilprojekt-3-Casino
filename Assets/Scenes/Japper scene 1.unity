@@ -45932,6 +45932,30 @@ PrefabInstance:
       propertyPath: cost
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 1553724424262403497, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Size.x
+      value: 0.026204444
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553724424262403497, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Size.y
+      value: 0.030626282
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553724424262403497, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Size.z
+      value: 0.0978938
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553724424262403497, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Center.x
+      value: -0.011188456
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553724424262403497, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Center.y
+      value: 0.0135217635
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553724424262403497, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_Center.z
+      value: 0.041874863
+      objectReference: {fileID: 0}
     - target: {fileID: 3635907882670561882, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_fontColor.a
       value: 1
@@ -45991,6 +46015,79 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5989219585704634871, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+--- !u!1 &1249641765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5372018257137230762, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+  m_PrefabInstance: {fileID: 1249641764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1249641766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249641765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81197aa75a645349a484add3d72a047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1249641767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249641765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1249641766}
+        m_TargetAssemblyTypeName: MoneyTake, Assembly-CSharp
+        m_MethodName: TakeMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1254171144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55442,18 +55539,7 @@ MonoBehaviour:
   - {fileID: 7711013106963378669, guid: b6d8a6e07d6f6dc43a42dcb1105f21e5, type: 3}
   - {fileID: 7862124921631468208, guid: f8c19bec13e75d7499257cfef224cc64, type: 3}
   - {fileID: 1621079125783572915, guid: 36d0f9b37857da940ad2dd68c8ccd6f4, type: 3}
-  placeables:
-  - {fileID: 4859007708713197913, guid: c6e59490bb4a6194f8f9f924cba8dc5d, type: 3}
-  - {fileID: 4551869357367710681, guid: 5cf6d3db56898c94bac05ee95ba6ad54, type: 3}
-  - {fileID: 7913615788390861074, guid: ad7d148a6051f674f9b6c22fe519955c, type: 3}
-  - {fileID: 5756784816889679233, guid: dc25ed5abc5b2724eb3e334b584a4f14, type: 3}
-  - {fileID: 919132149155446097, guid: 8e253539d780dcd4cad6cec2532c2472, type: 3}
-  - {fileID: 6054489168126246354, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
-  - {fileID: 6649012151119366579, guid: dcddddeb5b72d6644aa9679d55cb73bd, type: 3}
-  - {fileID: 4883235267308747220, guid: d35f400f732d8ec4f87379b1acee9dfe, type: 3}
-  - {fileID: 1816969379885902540, guid: f1ee2bd88bd64ca4d84a4cd86c199a5f, type: 3}
-  - {fileID: 8129457335974638507, guid: bf2e64b0bc6908544b7a2571f16f94a8, type: 3}
-  - {fileID: 1912764546292142483, guid: b715f7190abbd9d4fbc38935d56e606e, type: 3}
+  placeables: []
   placedObjects: []
 --- !u!4 &1463296190
 Transform:

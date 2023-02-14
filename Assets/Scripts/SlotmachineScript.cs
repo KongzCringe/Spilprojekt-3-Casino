@@ -172,6 +172,16 @@ public class SlotmachineScript : MonoBehaviour
         isOccupied = false;
         occupiedBy = null;
     }
+
+    public AudioSource GetJackpotSound()
+    {
+        return jackpotSound;
+    }
+    
+    public AudioSource GetPlaySound()
+    {
+        return playSound;
+    }
     
     
     public Vector3 GetPosition(GameObject NPC)
