@@ -73,7 +73,7 @@ public class BuildScript : MonoBehaviour
         if (spaceOccupied == true || MoneyScript.moneyCount < cost)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
-            if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall" && spaceOccupied == true)
+            if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall" && spaceOccupied == true && gameObject.layer == 3)
             {
                 delete = true;
             }
