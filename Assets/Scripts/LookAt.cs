@@ -16,7 +16,8 @@ public class LookAt : MonoBehaviour
     private void Start()
     {
         mainCameraTransform = Camera.main.transform;
-      
+
+        transform.position = transform.parent.position;
     }
 
     private void Update()
