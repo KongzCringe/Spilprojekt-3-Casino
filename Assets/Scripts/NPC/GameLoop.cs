@@ -136,11 +136,9 @@ public class GameLoop : MonoBehaviour
 
         foreach (var npc in Npcs)
         {
-            print("npc: " + npc);
             if (npcInCasino.Contains(npc) || 
                 Vector3.Distance(npc.transform.position, transform.position) >= closestDistance) continue;
-
-            print("closest npc: " + npc);
+            
             closestDistance = Vector3.Distance(npc.transform.position, transform.position);
             closestNpc = npc;
         }
@@ -208,12 +206,9 @@ public class GameLoop : MonoBehaviour
 
         for (int i = 0; i < placedObjects.Count; i++)
         {
-            print(placedObjects[i].name);
             array[i] = placedObjects[i];    
         }
         
         SaveSystem.SavePlayerProgress(array);
-        
-        print("Saved");
     }
 }
