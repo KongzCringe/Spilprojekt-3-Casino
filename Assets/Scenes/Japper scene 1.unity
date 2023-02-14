@@ -45968,6 +45968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlotTier1 - Copy
       objectReference: {fileID: 0}
+    - target: {fileID: 6761524811977858580, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7814486087008465720, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -46011,6 +46015,10 @@ PrefabInstance:
     - target: {fileID: 7814486087008465720, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493741478597487874, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5989219585704634871, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
