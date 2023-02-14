@@ -17,7 +17,7 @@ public class GameLoop : MonoBehaviour
     
     [SerializeField] private GameObject[] placeables;
 
-    private List<GameObject> placedObjects = new ();
+    public List<GameObject> placedObjects = new ();
 
     private float wait;
     private float timer;
@@ -27,18 +27,22 @@ public class GameLoop : MonoBehaviour
 
     private void Start()
     {
-        foreach (var slotMachine in slotMachines)
+        var save = SaveSystem.LoadPlayerProgress();
+        
+        if (save != null) LoadPlayerProgress(save);
+        else
         {
-            placedObjects.Add(slotMachine);
+            foreach (var slotMachine in slotMachines)
+            {
+                placedObjects.Add(slotMachine);
+            }
+
+            foreach (var exchangeCounter in exchangeCounters)
+            {
+                placedObjects.Add(exchangeCounter);
+            }
         }
 
-        foreach (var exchangeCounter in exchangeCounters)
-        {
-            placedObjects.Add(exchangeCounter);
-        }
-        
-        LoadPlayerProgress(SaveSystem.LoadPlayerProgress());
-        
         var rnd = new Random();
         wait = rnd.Next(2, 3);
     }
@@ -161,7 +165,7 @@ public class GameLoop : MonoBehaviour
 
     public void AddPlacedObject(GameObject placedObject)
     {
-        placedObjects.Append(placedObject);
+        placedObjects.Add(placedObject);
     }
     
     public void RemovePlacedObject(GameObject placedObject)
@@ -188,19 +192,26 @@ public class GameLoop : MonoBehaviour
                     playerProgress.objectRotations[i].y,
                     playerProgress.objectRotations[i].z));
 
+            placedObject.name = placeable.name;
+            
+            MoneyScript.moneyCount = playerProgress.money;
+
             placedObjects.Add(placedObject);
         }
     }
     
     private void OnApplicationQuit()
     {
-        GameObject[] array = new GameObject[placedObjects.Count];
+        var array = new GameObject[placedObjects.Count];
 
         for (int i = 0; i < placedObjects.Count; i++)
         {
+            print(placedObjects[i].name);
             array[i] = placedObjects[i];    
         }
         
         SaveSystem.SavePlayerProgress(array);
+        
+        print("Saved");
     }
 }

@@ -8,7 +8,6 @@ public class BuildScript : MonoBehaviour
     [SerializeField] int cost;
     bool spaceOccupied;
     bool delete;
-    GameObject moneyObject;
     [SerializeField] GameObject emptyMouse;
     int money;
     [SerializeField] LayerMask mask;
@@ -19,8 +18,6 @@ public class BuildScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moneyObject = GameObject.FindWithTag("Money");
-
         gameLoop = FindObjectOfType<GameLoop>();
     }
 
@@ -73,7 +70,7 @@ public class BuildScript : MonoBehaviour
         {
             delete = false;
         }
-        if (spaceOccupied == true || moneyObject.GetComponent<MoneyScript>().moneyCount < cost)
+        if (spaceOccupied == true || MoneyScript.moneyCount < cost)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
             if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall" && spaceOccupied == true)
@@ -87,15 +84,16 @@ public class BuildScript : MonoBehaviour
             RaycastHit hit;
             Physics.Raycast(rayray, out hit, 10000, mask);
             gameObject.GetComponent<Renderer>().material.color = Color.green;
-            if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.layer == 6 && moneyObject.GetComponent<MoneyScript>().moneyCount > cost)
+            if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.layer == 6 && MoneyScript.moneyCount > cost)
             {
                 var obj = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+                obj.name = prefab.name;
                 if (obj.transform.CompareTag("Exchange")) gameLoop.AddExchangeCounter(obj);
                 else if (obj.transform.CompareTag("Slot")) gameLoop.AddSlotMachine(obj);
                 
                 gameLoop.AddPlacedObject(obj);
                 
-                moneyObject.GetComponent<MoneyScript>().moneyCount -= cost;
+                MoneyScript.moneyCount -= cost;
                 gameObject.SetActive(false);
                 emptyMouse.SetActive(true);
             }

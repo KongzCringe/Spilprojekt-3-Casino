@@ -12,7 +12,7 @@ public static class SaveSystem
         var path = Application.persistentDataPath + "/player.progress";
         var stream = new FileStream(path, FileMode.Create);
 
-        var data = new PlayerProgress(objects);
+        var data = new PlayerProgress(objects, MoneyScript.moneyCount);
 
         formatter.Serialize(stream, data);
         stream.Close();
@@ -31,10 +31,8 @@ public static class SaveSystem
 
             return data;
         }
-        else
-        {
-            Debug.LogError("Save file not found in " + path);
-            return null;
-        }
+        
+        Debug.LogError("Save file not found in " + path);
+        return null;
     }
 }
