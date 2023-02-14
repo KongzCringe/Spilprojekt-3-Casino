@@ -13,6 +13,7 @@ public class MoneyTake : MonoBehaviour
 
     public void TakeMoney()
     {
+        print("hey");
         _CollectScript.MoneyTake(gameObject);
     }
 }
