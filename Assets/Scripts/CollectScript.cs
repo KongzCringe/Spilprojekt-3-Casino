@@ -18,14 +18,14 @@ public class CollectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         if (Input.GetMouseButtonDown(0) && otherObject != null && otherObject.GetComponent<SlotmachineScript>())
         {
             gameObject.GetComponent<AudioSource>().Play();
             MoneyScript.moneyCount += (otherObject.GetComponent<SlotmachineScript>().machineMoney - (otherObject.GetComponent<SlotmachineScript>().bet*1000));
             otherObject.GetComponent<SlotmachineScript>().machineMoney = (otherObject.GetComponent<SlotmachineScript>().bet * 1000);
         }   
-        */
+        
     }
 
     public void MoneyTake(GameObject SlotMachine)
