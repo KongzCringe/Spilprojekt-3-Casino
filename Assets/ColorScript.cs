@@ -18,18 +18,24 @@ public class ColorScript : MonoBehaviour
         PP = gameObject.GetComponent<Volume>(); 
         PPProfile = PP.profile;
         if (!PPProfile.TryGet(out Adjustments)) throw new System.NullReferenceException(nameof(Adjustments));
-        money = MoneyScript.moneyCount;
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        saturationNum = (money / 10000) * 2;
-        if (saturationNum < 100)
-        {
-            saturationNum = saturationNum - (saturationNum * 2);
-        }
+
+        //saturationNum = (money / 10000) * 2;
+        //if (saturationNum < 100)
+        //{
+        //    saturationNum = saturationNum - (saturationNum  * 2);
+        //}
+
+        money = MoneyScript.moneyCount;
+        saturationNum = Mathf.Lerp(-100, 100, Mathf.InverseLerp(0, 1000000, money));
+        Debug.Log("saturation = " + saturationNum + " money = " + money + "current saturation " + Adjustments.saturation);
         Adjustments.saturation.Override(saturationNum);
+        Debug.Log("current saturation " + Adjustments.saturation);
     }
 }
