@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Grid = Script.Grid;
 using Random = System.Random;
 
@@ -130,7 +131,7 @@ public class NPC : MonoBehaviour
             }
         }
 
-        return highestTier;
+        return highestTier == 0 ? 1 : highestTier;
     }
 
     private void UpdateState()
@@ -314,10 +315,26 @@ public class NPC : MonoBehaviour
 
     private IEnumerator SlotMachine()
     {
-        while (chips > 0){
-            yield return new WaitForSeconds(1);
-            chips -= slotScript.bet;
-            slotScript.SlotFunction();
+        var amountEachIteration = slotScript.bet / chips / 10;
+        
+        var iteration = 0;
+        while (chips > 0)
+        {
+            iteration++;
+
+            var ui = FindChild(gameObject, "UI");
+
+            var child = ui.transform.GetChild(0).gameObject;
+            
+            child.GetComponent<Slider>().value = amountEachIteration * iteration;
+
+            if (iteration % 10 == 0)
+            {
+                chips -= slotScript.bet;
+                slotScript.SlotFunction();   
+            }
+            
+            yield return new WaitForSeconds(0.1f);
         }
         
         GetNextTask();
@@ -344,5 +361,11 @@ public class NPC : MonoBehaviour
             task = Agenda.Leave;
             UpdateState();
         }
+    }
+
+    private static GameObject FindChild(GameObject parent, string name)
+    {
+        var result = parent.transform.Find(name);
+        return result == null ? null : result.gameObject;
     }
 }
