@@ -7,6 +7,11 @@ public class LookAtPivot : MonoBehaviour
     public Transform pivotPoint;
     public GameObject original;
 
+    void Start()
+    {
+        this.gameObject.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
