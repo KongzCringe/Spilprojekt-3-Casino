@@ -36492,6 +36492,10 @@ PrefabInstance:
       propertyPath: SMscript
       value: 
       objectReference: {fileID: 619039622}
+    - target: {fileID: 7695476998099356551, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: BuildMode
+      value: 
+      objectReference: {fileID: 642518516}
     - target: {fileID: 7814486087008465720, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -49936,7 +49940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 497}
+  m_AnchoredPosition: {x: 0, y: 500}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1290298253
