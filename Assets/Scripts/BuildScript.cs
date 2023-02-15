@@ -47,36 +47,20 @@ public class BuildScript : MonoBehaviour
         //    spaceOccupied = false;
         //}
 
-        if (delete == true)
-        {
-            other.gameObject.GetComponent<AutoDestroyScript>().SellBuilding();
-
-            var obj = other.gameObject;
-            
-            if (obj.transform.CompareTag("Exchange")) gameLoop.RemoveExchangeCounter(obj);
-            else if (obj.transform.CompareTag("Slot")) gameLoop.RemoveSlotMachine(obj);
-            
-            gameLoop.RemovePlacedObject(obj);
-            
-            delete = false;
-            spaceOccupied = false;
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (delete == true && spaceOccupied == false)
-        {
-            delete = false;
-        }
+
         if (spaceOccupied == true || MoneyScript.moneyCount < cost)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
-            if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall" && otherObject.gameObject.layer == 3 && spaceOccupied == true)
-            {
-                delete = true;
-            }
+            //if (Input.GetMouseButtonDown(1) && otherObject.gameObject.tag != "Wall" && otherObject.gameObject.layer == 3 && spaceOccupied == true)
+            //{
+            //    delete = true;
+            //}
         }
         else
         {
