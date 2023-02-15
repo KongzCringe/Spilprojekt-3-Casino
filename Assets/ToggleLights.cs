@@ -32,16 +32,24 @@ public class ToggleLights : MonoBehaviour
 
     private IEnumerator FlickerScreen()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 5; i++)
         {
             GreenScreen.SetActive(!GreenScreen.activeSelf);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
+            GreenScreen.SetActive(!GreenScreen.activeSelf);
+            yield return new WaitForSeconds(0.1f);
             GreenScreen1.SetActive(!GreenScreen1.activeSelf);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
+            GreenScreen1.SetActive(!GreenScreen1.activeSelf);
+            yield return new WaitForSeconds(0.1f);
             GreenScreen2.SetActive(!GreenScreen2.activeSelf);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
+            GreenScreen2.SetActive(!GreenScreen2.activeSelf);
+            yield return new WaitForSeconds(0.1f);
             GreenScreen3.SetActive(!GreenScreen3.activeSelf);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
+            GreenScreen3.SetActive(!GreenScreen3.activeSelf);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
