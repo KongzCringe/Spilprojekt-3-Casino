@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,10 @@ public class EnableObject : MonoBehaviour
     [SerializeField] private Animator Anim;
 
     private bool MouseHover = false;
-
     
+
     void Update()
     {
-        
         print(MouseHover);
     
     }
