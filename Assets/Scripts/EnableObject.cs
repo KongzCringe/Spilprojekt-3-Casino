@@ -9,9 +9,15 @@ public class EnableObject : MonoBehaviour
     [SerializeField] private GameObject UI;
     [SerializeField] private Animator Anim;
     
-    [SerializeField] private GameObject BuildMode;
+    private GameObject BuildMode;
 
     private bool MouseHover = false;
+
+    private void Start()
+    {
+        BuildMode = GameObject.FindWithTag("DENHER");
+
+    }
 
     void OnMouseEnter()
     {
@@ -21,9 +27,13 @@ public class EnableObject : MonoBehaviour
             MouseHover = true;
         }
 
-        if (BuildMode.activeInHierarchy == true)
+        if (BuildMode.transform.position.y < -93.5f) 
         {
             Anim.SetBool("MouseHover", true);   
+        }
+        else
+        {
+            Anim.SetBool("MouseHover", false);
         }
     }
     
