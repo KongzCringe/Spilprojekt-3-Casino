@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +24,7 @@ public class BuildingButtonScript : MonoBehaviour
     }
     public void ButtonPress()
     {
-        if (gameObject.GetComponent<Image>().color == Color.gray) return;
+        if (transform.GetChild(0).GetComponent<TMP_Text>().text.Contains("(1/1)")) return;
         
         if (mouseIcon.activeSelf == true)
         {

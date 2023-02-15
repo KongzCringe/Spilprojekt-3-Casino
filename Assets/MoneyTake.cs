@@ -36,7 +36,6 @@ public class MoneyTake : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     // Plane was clicked, so do something
-                    Debug.Log("Plane was clicked!");
                     TakeMoney();
                 }
             }
@@ -45,7 +44,6 @@ public class MoneyTake : MonoBehaviour
 
     public void TakeMoney()
     {
-        print("hey");
         _CollectScript.MoneyTake(transform.parent.parent.parent.gameObject);
     }
 }

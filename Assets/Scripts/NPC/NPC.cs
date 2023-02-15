@@ -274,8 +274,6 @@ public class NPC : MonoBehaviour
         if (nodeIndex >= 0) targetNode = path[nodeIndex];
         else
         {
-            print("Being run" + name);
-
             state = State.Idle;
 
             var animator = GetComponent<Animator>();

@@ -79,8 +79,7 @@ public class OpenMenuScript : MonoBehaviour
             
         if (amountOfExchangeDesks == 1)
         {
-            print("Too many");
-            button.GetComponent<Image>().color = Color.gray;
+            button.GetComponent<Image>().color = Color.red;
         }
         else
         {
