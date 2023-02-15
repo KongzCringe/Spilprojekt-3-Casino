@@ -7,9 +7,15 @@ public class CarSpawner : MonoBehaviour
     public GameObject[] Cars;
     public int maxRange;
     
+    [SerializeField] private GameObject Cam;
+    
     // Start is called before the first frame update
     void Start()
     {
+        Cam.SetActive(false);
+        
+        Cam.SetActive(true);
+        
         StartCoroutine(SpawnRandomObject());
     }
 
