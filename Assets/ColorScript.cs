@@ -11,6 +11,7 @@ public class ColorScript : MonoBehaviour
     UnityEngine.Rendering.Universal.ColorAdjustments Adjustments;
     [SerializeField] GameObject moneyObject;
     float money;
+    float saturationNum;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,11 @@ public class ColorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Adjustments.saturation.Override((money/10000)*2);
+        saturationNum = (money / 10000) * 2;
+        if (saturationNum < 100)
+        {
+            saturationNum = saturationNum - (saturationNum * 2);
+        }
+        Adjustments.saturation.Override(saturationNum);
     }
 }
