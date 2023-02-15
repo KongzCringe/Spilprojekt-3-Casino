@@ -9,15 +9,12 @@ public class LookAtPivot : MonoBehaviour
 
     void Start()
     {
-        this.gameObject.SetActive(true);
+        transform.LookAt(pivotPoint);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.position = original.transform.position;
-
         transform.LookAt(pivotPoint);
-        //transform.Translate(Vector3.right * Time.deltaTime);
     }
 }
