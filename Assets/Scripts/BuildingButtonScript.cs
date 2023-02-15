@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingButtonScript : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BuildingButtonScript : MonoBehaviour
     [SerializeField] GameObject mouse;
     [SerializeField] GameObject mouseIcon;
     [SerializeField] GameObject emptyMouse;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class BuildingButtonScript : MonoBehaviour
     }
     public void ButtonPress()
     {
+        if (gameObject.GetComponent<Image>().color == Color.gray) return;
+        
         if (mouseIcon.activeSelf == true)
         {
             alreadyPressed = true;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4607310982595085396}
   - component: {fileID: 4607310982595085398}
   - component: {fileID: 4607310982595085399}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: jeep-open-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4607310982881712251}
   - component: {fileID: 4607310982881712253}
   - component: {fileID: 4607310982881712250}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: jeep-open-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,9 +178,9 @@ GameObject:
   - component: {fileID: 4607310983456137779}
   - component: {fileID: 4607310983456137776}
   - component: {fileID: 4607310983456137777}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: jeep-open
-  m_TagString: Fisk
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4607310983649380892}
   - component: {fileID: 4607310983649380894}
   - component: {fileID: 4607310983649380895}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: jeep-open-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4607310983700695584}
   - component: {fileID: 4607310983700695586}
   - component: {fileID: 4607310983700695587}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: jeep-open-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 4607310983725547383}
   - component: {fileID: 4607310983725547385}
   - component: {fileID: 4607310983725547382}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: jeep-open-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

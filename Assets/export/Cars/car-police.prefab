@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1984740325825408678}
   - component: {fileID: 1984740325825408673}
   - component: {fileID: 1984740325825408672}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-police
-  m_TagString: Fisk
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1984740325837075094}
   - component: {fileID: 1984740325837075092}
   - component: {fileID: 1984740325837075095}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-police-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 1984740326120688195}
   - component: {fileID: 1984740326120688193}
   - component: {fileID: 1984740326120688192}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-police-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1984740327056900786}
   - component: {fileID: 1984740327056900784}
   - component: {fileID: 1984740327056900787}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-police-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 1984740327418892263}
   - component: {fileID: 1984740327418892261}
   - component: {fileID: 1984740327418892260}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-police-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 1984740327700506817}
   - component: {fileID: 1984740327700506823}
   - component: {fileID: 1984740327700506822}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-police-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

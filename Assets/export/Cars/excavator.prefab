@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3168061909929452459}
   - component: {fileID: 3168061909929452457}
   - component: {fileID: 3168061909929452458}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-wheel_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 3168061910193086658}
   - component: {fileID: 3168061910193086659}
   - component: {fileID: 3168061910193086668}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator
-  m_TagString: Fisk
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 3168061910421712573}
   - component: {fileID: 3168061910421712563}
   - component: {fileID: 3168061910421712572}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-arm-top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 3168061910519883971}
   - component: {fileID: 3168061910519883969}
   - component: {fileID: 3168061910519883970}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-wheel_TC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 3168061910566452794}
   - component: {fileID: 3168061910566452792}
   - component: {fileID: 3168061910566452793}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-wheel_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 3168061910635041402}
   - component: {fileID: 3168061910635041400}
   - component: {fileID: 3168061910635041401}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 3168061910768043086}
   - component: {fileID: 3168061910768043084}
   - component: {fileID: 3168061910768043085}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-wheel_TB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 3168061910974571386}
   - component: {fileID: 3168061910974571384}
   - component: {fileID: 3168061910974571385}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-arm-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 3168061910994090080}
   - component: {fileID: 3168061910994090086}
   - component: {fileID: 3168061910994090087}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-wheel_TF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 3168061911064363724}
   - component: {fileID: 3168061911064363714}
   - component: {fileID: 3168061911064363715}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-bucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 3168061911469262608}
   - component: {fileID: 3168061911469262614}
   - component: {fileID: 3168061911469262615}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 3168061911522135150}
   - component: {fileID: 3168061911522135148}
   - component: {fileID: 3168061911522135149}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: excavator-chassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

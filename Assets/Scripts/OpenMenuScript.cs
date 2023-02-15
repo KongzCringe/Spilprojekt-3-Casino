@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenMenuScript : MonoBehaviour
 {
@@ -13,10 +15,15 @@ public class OpenMenuScript : MonoBehaviour
     [SerializeField] GameObject emptyMouse;
     [SerializeField] float open;
     [SerializeField] float close;
+
+    private int amountOfExchangeDesks = 0;
+    
+    private GameLoop gameLoop;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameLoop = FindObjectOfType<GameLoop>();
     }
 
     // Update is called once per frame
@@ -27,8 +34,11 @@ public class OpenMenuScript : MonoBehaviour
         Vector3 current = new Vector3(traitorMenu.GetComponent<RectTransform>().localPosition.x, traitorMenu.GetComponent<RectTransform>().localPosition.y, traitorMenu.GetComponent<RectTransform>().localPosition.z);
         traitorMenu.GetComponent<RectTransform>().localPosition = Vector3.MoveTowards(current, target, step);
 
-
-
+        if (transform.parent.name != "BuildMenu" ||
+            gameLoop.GetExchangeCounter().Count == amountOfExchangeDesks) return;
+        
+        amountOfExchangeDesks = gameLoop.GetExchangeCounter().Count;
+        UpdateExchangeBtn();
     }
 
     public void ButtonPress()
@@ -49,6 +59,32 @@ public class OpenMenuScript : MonoBehaviour
             mouse.SetActive(false);
             collectMouse.SetActive(true);
             CloseMenu();
+        }
+
+        if (transform.parent.name == "BuildMenu")
+        {
+            UpdateExchangeBtn();
+        }
+    }
+
+    public void UpdateExchangeBtn()
+    {
+        var parent = transform.parent;
+
+        var button = parent.Find("Exchange Desk");
+
+        var text = button.transform.GetChild(0).GetComponent<TMP_Text>();
+
+        text.text = "Exchange Desk\nTier 1\n1000$\n(" + amountOfExchangeDesks + "/1)";
+            
+        if (amountOfExchangeDesks == 1)
+        {
+            print("Too many");
+            button.GetComponent<Image>().color = Color.gray;
+        }
+        else
+        {
+            button.GetComponent<Image>().color = Color.white;
         }
     }
 
