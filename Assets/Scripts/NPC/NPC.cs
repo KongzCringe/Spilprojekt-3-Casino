@@ -178,8 +178,6 @@ public class NPC : MonoBehaviour
                 break;
             
             case Agenda.Slot:
-                var slotMachines = gameLoop.GetSlotMachines();
-                
                 var slotmachine = GetSlot();
                 
                 if (slotmachine == null)
@@ -271,8 +269,13 @@ public class NPC : MonoBehaviour
         {
             var animator = GetComponent<Animator>();
             animator.SetTrigger(StopWalking);
+
+            if (atObject != null)
+            {
+                var pos = slotScript.transform.position;
             
-            transform.LookAt(atObject.transform);
+                transform.LookAt(new Vector3(pos.x, transform.position.y, pos.z));   
+            }
 
             switch (task)
             {
@@ -322,11 +325,11 @@ public class NPC : MonoBehaviour
         {
             iteration++;
 
-            //var ui = FindChild(gameObject, "UI");
+            var ui = FindChild(gameObject, "UI");
 
-            //var child = ui.transform.GetChild(0).gameObject;
+            var child = ui.transform.GetChild(0).gameObject;
             
-            //child.GetComponent<Slider>().value = amountEachIteration * iteration;
+            child.GetComponent<Slider>().value = amountEachIteration * iteration;
 
             if (iteration % 10 == 0)
             {
