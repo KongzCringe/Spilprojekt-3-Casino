@@ -320,7 +320,6 @@ public class NPC : MonoBehaviour
         UI.SetActive(true);
         
         var amountEachIteration = (float) 1 / (timer * 10);
-        print("amountEachIteration: " + amountEachIteration);
         var child = UI.transform.GetChild(0).gameObject;
 
         for (int i = 1; i <= timer * 10; i++)
@@ -344,7 +343,9 @@ public class NPC : MonoBehaviour
     {
         UI.SetActive(true);
         
-        var amountEachIteration = (float) slotScript.bet / (float) chips / 10f;
+        var iterationsBeforeGamble = 5;
+        
+        var amountEachIteration = (float) slotScript.bet / (float) chips / (float) iterationsBeforeGamble;
 
         var child = UI.transform.GetChild(0).gameObject;
         
@@ -355,7 +356,7 @@ public class NPC : MonoBehaviour
             
             child.GetComponent<Slider>().value = amountEachIteration * iteration;
 
-            if (iteration % 10 == 0)
+            if (iteration % iterationsBeforeGamble == 0)
             {
                 chips -= slotScript.bet;
                 slotScript.SlotFunction();
