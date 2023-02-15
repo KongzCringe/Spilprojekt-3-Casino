@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
+    
+
     void Start()
     {
         targetPosition = transform.position;

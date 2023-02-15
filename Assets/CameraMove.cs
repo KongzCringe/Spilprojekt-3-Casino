@@ -28,9 +28,14 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private float speed = 1000;
     private float startSpeed = 1000;
 
+    [SerializeField] GameObject buildMode;
+
     private void Update()
     {
-        calculatedFracOfJour += Input.GetAxis("Mouse ScrollWheel");
+        if (buildMode.activeInHierarchy == false)
+        {
+            calculatedFracOfJour += Input.GetAxis("Mouse ScrollWheel");
+        }
         calculatedFracOfJour = Mathf.Clamp(calculatedFracOfJour, 0f, 1f);
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -49,14 +54,15 @@ public class CameraMove : MonoBehaviour
         calculatedPosition = Bezier(highPoint.position, midPoint1.position, midPoint2.position, lowPoint.position, fractionOfJourney);
         calculatedEulerAngles = Bezier(highPoint.localEulerAngles, midPoint1.localEulerAngles,
             midPoint2.localEulerAngles, lowPoint.localEulerAngles, fractionOfJourney);
-        
-        
-        
+
+
+
         transform.position = calculatedPosition;
         transform.localEulerAngles = calculatedEulerAngles;
         calculatedDolleyPos = new Vector3(Mathf.Clamp(calculatedDolleyPos.x, bounds.x, bounds.y), 0,
             Mathf.Clamp(calculatedDolleyPos.z, bounds.z, bounds.w));
         dolley.position = calculatedDolleyPos;
+   
     }
 
     private Vector3 Bezier(Vector3 a, Vector3 b, float t)
