@@ -10,13 +10,6 @@ public class EnableObject : MonoBehaviour
     [SerializeField] private Animator Anim;
 
     private bool MouseHover = false;
-    
-
-    void Update()
-    {
-        print(MouseHover);
-    
-    }
 
     void OnMouseEnter()
     {

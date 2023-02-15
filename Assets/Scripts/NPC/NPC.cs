@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Grid = Script.Grid;
@@ -35,6 +37,7 @@ public class NPC : MonoBehaviour
     private bool targetReached;
 
     private GameObject atObject;
+    private GameObject UI;
 
     GameObject counter;
     private static readonly int StartWalking = Animator.StringToHash("StartWalking");
@@ -60,6 +63,9 @@ public class NPC : MonoBehaviour
     public void StartNPC(GameLoop gameLoop)
     {
         this.gameLoop = gameLoop;
+
+        UI = FindChild(gameObject, "UI");
+        UI.SetActive(false);
         
         var rnd = new Random();
 
@@ -246,6 +252,8 @@ public class NPC : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
         
+        state = State.Moving;
+        
         var animator = GetComponent<Animator>();
         animator.SetTrigger(StartWalking);
     }
@@ -263,16 +271,19 @@ public class NPC : MonoBehaviour
     
     private void MoveObject()
     {
-        state = State.Moving;
         if (nodeIndex >= 0) targetNode = path[nodeIndex];
         else
         {
+            print("Being run" + name);
+
+            state = State.Idle;
+
             var animator = GetComponent<Animator>();
             animator.SetTrigger(StopWalking);
 
             if (atObject != null)
             {
-                var pos = slotScript.transform.position;
+                var pos = atObject.transform.position;
             
                 transform.LookAt(new Vector3(pos.x, transform.position.y, pos.z));   
             }
@@ -306,39 +317,54 @@ public class NPC : MonoBehaviour
 
     private IEnumerator Exchange(int timer)
     {
-        yield return new WaitForSeconds(timer);
+        UI.SetActive(true);
+        
+        var amountEachIteration = (float) 1 / (timer * 10);
+        print("amountEachIteration: " + amountEachIteration);
+        var child = UI.transform.GetChild(0).gameObject;
+
+        for (int i = 1; i <= timer * 10; i++)
+        {
+            child.GetComponent<Slider>().value = amountEachIteration * i;
+            
+            yield return new WaitForSeconds(0.1f);
+        } 
         
         var amount = Mathf.Min(money, 100);
         
         money -= amount;
         chips += amount;
 
+        UI.SetActive(false);
+
         GetNextTask();
     }
 
     private IEnumerator SlotMachine()
     {
-        var amountEachIteration = slotScript.bet / chips / 10;
+        UI.SetActive(true);
+        
+        var amountEachIteration = (float) slotScript.bet / (float) chips / 10f;
+
+        var child = UI.transform.GetChild(0).gameObject;
         
         var iteration = 0;
         while (chips > 0)
         {
             iteration++;
-
-            var ui = FindChild(gameObject, "UI");
-
-            var child = ui.transform.GetChild(0).gameObject;
             
             child.GetComponent<Slider>().value = amountEachIteration * iteration;
 
             if (iteration % 10 == 0)
             {
                 chips -= slotScript.bet;
-                slotScript.SlotFunction();   
+                slotScript.SlotFunction();
             }
             
             yield return new WaitForSeconds(0.1f);
         }
+        
+        UI.SetActive(false);
         
         GetNextTask();
     }

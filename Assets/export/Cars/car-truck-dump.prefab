@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 425835040237672553}
   - component: {fileID: 425835040237672555}
   - component: {fileID: 425835040237672554}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump-wheel_BR1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 425835040489049931}
   - component: {fileID: 425835040489049909}
   - component: {fileID: 425835040489049908}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 425835040553473628}
   - component: {fileID: 425835040553473630}
   - component: {fileID: 425835040553473629}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 425835041147818611}
   - component: {fileID: 425835041147818621}
   - component: {fileID: 425835041147818620}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump-wheel_BL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,9 +344,9 @@ GameObject:
   - component: {fileID: 425835041280051564}
   - component: {fileID: 425835041280051555}
   - component: {fileID: 425835041280051554}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump
-  m_TagString: Fisk
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 425835041588955154}
   - component: {fileID: 425835041588955164}
   - component: {fileID: 425835041588955155}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump-wheel_BR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 425835041914417110}
   - component: {fileID: 425835041914417104}
   - component: {fileID: 425835041914417111}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump-wheel_BL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 425835042088479612}
   - component: {fileID: 425835042088479614}
   - component: {fileID: 425835042088479613}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-truck-dump-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
