@@ -322,11 +322,11 @@ public class NPC : MonoBehaviour
         {
             iteration++;
 
-            var ui = FindChild(gameObject, "UI");
+            //var ui = FindChild(gameObject, "UI");
 
-            var child = ui.transform.GetChild(0).gameObject;
+            //var child = ui.transform.GetChild(0).gameObject;
             
-            child.GetComponent<Slider>().value = amountEachIteration * iteration;
+            //child.GetComponent<Slider>().value = amountEachIteration * iteration;
 
             if (iteration % 10 == 0)
             {
