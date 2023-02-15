@@ -8,6 +8,8 @@ public class EnableObject : MonoBehaviour
 
     [SerializeField] private GameObject UI;
     [SerializeField] private Animator Anim;
+    
+    [SerializeField] private GameObject BuildMode;
 
     private bool MouseHover = false;
 
@@ -18,8 +20,11 @@ public class EnableObject : MonoBehaviour
             Anim.SetTrigger("UP");
             MouseHover = true;
         }
-        
-        Anim.SetBool("MouseHover", true);
+
+        if (BuildMode.activeInHierarchy == true)
+        {
+            Anim.SetBool("MouseHover", true);   
+        }
     }
     
     void OnMouseExit()
