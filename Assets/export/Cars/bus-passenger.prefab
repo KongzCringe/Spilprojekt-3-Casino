@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3057133148313497681}
   - component: {fileID: 3057133148313497687}
   - component: {fileID: 3057133148313497680}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: bus-passenger-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3057133148327364640}
   - component: {fileID: 3057133148327364646}
   - component: {fileID: 3057133148327364647}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: bus-passenger-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3057133148429626532}
   - component: {fileID: 3057133148429626554}
   - component: {fileID: 3057133148429626555}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: bus-passenger-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,9 +261,9 @@ GameObject:
   - component: {fileID: 3057133148586126252}
   - component: {fileID: 3057133148586126253}
   - component: {fileID: 3057133148586126254}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: bus-passenger
-  m_TagString: Fisk
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 3057133148796140985}
   - component: {fileID: 3057133148796140991}
   - component: {fileID: 3057133148796140984}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: bus-passenger-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 3057133149363760136}
   - component: {fileID: 3057133149363760142}
   - component: {fileID: 3057133149363760143}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: bus-passenger-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

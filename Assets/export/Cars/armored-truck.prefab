@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1676310740596814178}
   - component: {fileID: 1676310740596814180}
   - component: {fileID: 1676310740596814181}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: armored-truck-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1676310740833288467}
   - component: {fileID: 1676310740833288469}
   - component: {fileID: 1676310740833288466}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: armored-truck-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1676310740885578913}
   - component: {fileID: 1676310740885578915}
   - component: {fileID: 1676310740885578912}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: armored-truck-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,9 +261,9 @@ GameObject:
   - component: {fileID: 1676310740933584700}
   - component: {fileID: 1676310740933584701}
   - component: {fileID: 1676310740933584698}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: armored-truck
-  m_TagString: Fisk
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 1676310741217306569}
   - component: {fileID: 1676310741217306571}
   - component: {fileID: 1676310741217306568}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: armored-truck-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 1676310741415761009}
   - component: {fileID: 1676310741415761011}
   - component: {fileID: 1676310741415761008}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: armored-truck-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -45036,7 +45036,7 @@ RectTransform:
   m_GameObject: {fileID: 1204960711}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.4112608, y: 3.4112608, z: 3.4112608}
+  m_LocalScale: {x: 3.4112613, y: 3.4112608, z: 3.4112608}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 688474986}
@@ -45044,7 +45044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -478, y: 79}
+  m_AnchoredPosition: {x: -442, y: -274}
   m_SizeDelta: {x: 198.149, y: 57.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204960713
@@ -56587,25 +56587,7 @@ MonoBehaviour:
   - {fileID: 461535069}
   SpawnRoad: {fileID: 777841668}
   playerModels:
-  - {fileID: 6386155808934149616, guid: a06716ebdb1476944bac6ec3f72b9dd1, type: 3}
   - {fileID: 6933188668914757571, guid: c802d426e01c39c4399dcfa9396243bf, type: 3}
-  - {fileID: 5366785418181899431, guid: 91b3f76da2b97734b9ed2789ac729085, type: 3}
-  - {fileID: 8161768363895779499, guid: 99e49a175a756a34d97b1c5e2ec6d8d3, type: 3}
-  - {fileID: 1110870099809977475, guid: acb6db63d674c634b8ba2566922fbb01, type: 3}
-  - {fileID: 1211115110159011992, guid: dc3dc691234207343abf8b31c5b42b11, type: 3}
-  - {fileID: 6014339437246049321, guid: a543d76c02c0efa429453558becc9e14, type: 3}
-  - {fileID: 149839492312087635, guid: 1065600a8fa3d4e479b472167710cf00, type: 3}
-  - {fileID: 7955783173213201465, guid: 340991dcb32baf742b433adc9770059b, type: 3}
-  - {fileID: 8292709575377397952, guid: 9e76c342d00a6aa45bd558969ed48b13, type: 3}
-  - {fileID: 256738716149805677, guid: 2ef248de4ce234b458c8296af1285baf, type: 3}
-  - {fileID: 2684702305104070639, guid: 906c4f1b294c08249afd5a63be792cbe, type: 3}
-  - {fileID: 2568773190114488451, guid: d486d643edd62ec4d8737e33be2c600a, type: 3}
-  - {fileID: 6738023120952237964, guid: 24377ad2c5183264a82688ac3dd14d36, type: 3}
-  - {fileID: 8560245401506899472, guid: 1ac1b19dbfa82d047a6e24bcbe58ed4d, type: 3}
-  - {fileID: 813107020002011734, guid: cc46d4d0e602f904bacdf272e0c52510, type: 3}
-  - {fileID: 7711013106963378669, guid: b6d8a6e07d6f6dc43a42dcb1105f21e5, type: 3}
-  - {fileID: 7862124921631468208, guid: f8c19bec13e75d7499257cfef224cc64, type: 3}
-  - {fileID: 1621079125783572915, guid: 36d0f9b37857da940ad2dd68c8ccd6f4, type: 3}
   placeables: []
   placedObjects: []
 --- !u!4 &1463296190

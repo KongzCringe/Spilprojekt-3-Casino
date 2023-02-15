@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1950095474463761170}
   - component: {fileID: 1950095474463761172}
   - component: {fileID: 1950095474463761171}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-taxi-china-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1950095475410298966}
   - component: {fileID: 1950095475410298952}
   - component: {fileID: 1950095475410298967}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-taxi-china-wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1950095475607185710}
   - component: {fileID: 1950095475607185696}
   - component: {fileID: 1950095475607185711}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-taxi-china-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1950095476142971964}
   - component: {fileID: 1950095476142971966}
   - component: {fileID: 1950095476142971965}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-taxi-china-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 1950095476237907437}
   - component: {fileID: 1950095476237907439}
   - component: {fileID: 1950095476237907438}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-taxi-china-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,9 +427,9 @@ GameObject:
   - component: {fileID: 1950095476555169063}
   - component: {fileID: 1950095476555169062}
   - component: {fileID: 1950095476555169061}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: car-taxi-china
-  m_TagString: Fisk
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
