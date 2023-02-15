@@ -6,6 +6,7 @@ public class MoveMouseScript : MonoBehaviour
 {
     [SerializeField] bool pickedUp = false;
     Collider otherObject;
+    bool spaceOccupied;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,12 @@ public class MoveMouseScript : MonoBehaviour
         {
             otherObject = gameObject.transform.GetChild(0).GetComponent<Collider>();
         }
-        if (Input.GetMouseButtonDown(0) && pickedUp == true)
+        if (Input.GetMouseButtonDown(0) && pickedUp == true && spaceOccupied == false)
         {
             
             //Debug.Log("Place");
             pickedUp = false;
+            otherObject.isTrigger = false;
             otherObject.gameObject.transform.parent = null;
         }
         else if (Input.GetMouseButtonDown(0) && gameObject.transform.childCount < 1 && otherObject != null)
@@ -31,6 +33,7 @@ public class MoveMouseScript : MonoBehaviour
             pickedUp = true;
             otherObject.gameObject.transform.parent = gameObject.transform;
             otherObject.transform.localPosition = new Vector3(0, 0, 0);
+            otherObject.isTrigger = true;
             //Debug.Log("Pickup");
         }
 
@@ -39,6 +42,7 @@ public class MoveMouseScript : MonoBehaviour
         if (pickedUp == false && gameObject.transform.childCount > 0 && otherObject != null && gameObject.layer == 3)
         {
             otherObject.gameObject.transform.parent = null;
+            spaceOccupied = false;
         }
     }
 
@@ -50,12 +54,20 @@ public class MoveMouseScript : MonoBehaviour
         {
             otherObject = other;
         }
+        if (pickedUp == true)
+        {
+            spaceOccupied = true;
+        }
         
     }
 
     private void OnTriggerExit(Collider other)
     {
         otherObject = null;
+        if (pickedUp == true)
+        {
+            spaceOccupied = false;
+        }
     }
 
 }
