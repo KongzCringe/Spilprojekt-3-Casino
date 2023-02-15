@@ -36456,6 +36456,10 @@ PrefabInstance:
       propertyPath: Anim
       value: 
       objectReference: {fileID: 2106302939}
+    - target: {fileID: 4531148382389785385, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: BuildMode
+      value: 
+      objectReference: {fileID: 642518516}
     - target: {fileID: 6054489168126246354, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_Name
       value: SlotTier1 - Copy (1)
