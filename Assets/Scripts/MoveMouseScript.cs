@@ -30,11 +30,20 @@ public class MoveMouseScript : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && gameObject.transform.childCount < 1 && otherObject != null)
         {
+            if (otherObject.gameObject == null) return;
+
+            if (otherObject.GetComponent<SlotmachineScript>() && 
+                otherObject.GetComponent<SlotmachineScript>().IsOccupied()) return;
+
+            if (otherObject.GetComponent<ExchangeCounter>() &&
+                otherObject.GetComponent<ExchangeCounter>().IsOccupied()) return;
+
+            //Debug.Log("Pickup");
             pickedUp = true;
             otherObject.gameObject.transform.parent = gameObject.transform;
             otherObject.transform.localPosition = new Vector3(0, 0, 0);
             otherObject.isTrigger = true;
-            //Debug.Log("Pickup");
+            
         }
 
 
