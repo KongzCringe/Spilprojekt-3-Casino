@@ -12,6 +12,7 @@ TagManager:
   - Slot
   - Exchange
   - CollectMouse
+  - DENHER
   layers:
   - Default
   - TransparentFX

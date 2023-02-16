@@ -15123,7 +15123,7 @@ GameObject:
   - component: {fileID: 358943627}
   m_Layer: 5
   m_Name: BuildMenu
-  m_TagString: Untagged
+  m_TagString: DENHER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36492,6 +36492,10 @@ PrefabInstance:
       propertyPath: SMscript
       value: 
       objectReference: {fileID: 619039622}
+    - target: {fileID: 7695476998099356551, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
+      propertyPath: BuildMode
+      value: 
+      objectReference: {fileID: 642518516}
     - target: {fileID: 7814486087008465720, guid: cfec31f7d2a224c43b553f277aa2be19, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -49928,7 +49932,7 @@ RectTransform:
   m_GameObject: {fileID: 1290298251}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4993925, y: 1.4993925, z: 1.4993925}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8683728087828362811}
