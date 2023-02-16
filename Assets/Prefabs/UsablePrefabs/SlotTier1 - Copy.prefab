@@ -420,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1625585127212511896}
   Anim: {fileID: 3563182641110093761}
+  MouseHover: 0
 --- !u!65 &102003910216497938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -431,8 +432,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35282165, y: 1.6257807, z: 1}
-  m_Center: {x: 0.18170646, y: 0.31288946, z: -0.0000000052071196}
+  m_Size: {x: 0.3244715, y: 1.6257807, z: 1}
+  m_Center: {x: 0.19588152, y: 0.31288946, z: -0.000000006052021}
 --- !u!1 &1625585127212511896
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +953,7 @@ GameObject:
   - component: {fileID: -513796809312645485}
   - component: {fileID: 4531148382389785385}
   - component: {fileID: 939367016247425436}
+  - component: {fileID: 1166647294740176116}
   m_Layer: 3
   m_Name: SlotTier1 - Copy
   m_TagString: Slot
@@ -1104,6 +1106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1625585127212511896}
   Anim: {fileID: 3563182641110093761}
+  MouseHover: 0
 --- !u!114 &939367016247425436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,6 +1120,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotTier: 1
+--- !u!114 &1166647294740176116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054489168126246354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6884242817116587074
 GameObject:
   m_ObjectHideFlags: 0
