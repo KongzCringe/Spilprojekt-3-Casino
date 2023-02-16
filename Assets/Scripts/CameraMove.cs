@@ -32,6 +32,18 @@ public class CameraMove : MonoBehaviour
 
     private void Update()
     {
+        /*
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, ray.direction * 10000, Color.green);
+        if (Physics.Raycast(ray, out hit))
+        {
+            // The raycast hit an object
+            Debug.Log("Hit object: " + hit.collider.name);
+            
+        }
+        */
+
         if (buildMode.activeInHierarchy == false)
         {
             calculatedFracOfJour += Input.GetAxis("Mouse ScrollWheel");
