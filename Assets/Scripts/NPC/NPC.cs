@@ -71,9 +71,11 @@ public class NPC : MonoBehaviour
         var rnd = new Random();
 
         var vipChance = rnd.Next(0, 100);
-        //VIP = vipChance < 5;
+        //VIP = vipChance < 5
 
-        tier = rnd.Next(1, GetHighestTier());
+        var tiers = GetTiers();
+
+        if (tiers.Count > 0) tier = tiers[rnd.Next(0, tiers.Count)];
         
         money = rnd.Next(5 * tier, 25 * tier);
 
@@ -122,31 +124,26 @@ public class NPC : MonoBehaviour
         if (Vector2.Distance(new Vector2(position.x, position.z), new Vector2(targetPos.x, targetPos.z)) < 0.1f) MoveObject();
     }
 
-    private GameObject GetSlot()
+    private GameObject GetSlot(int slotTier)
     {
-        var highestTier = GetHighestTier();
-        foreach (var slotMachine in GameLoop.GetSlotMachines().Where(x => x.GetComponent<SlotClass>().GetSlotTier() == highestTier))
-        {
-            if (slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
-            return slotMachine;
-        }
-
-        return null;
+        return GameLoop.GetSlotMachines().FirstOrDefault(x => 
+            x.GetComponent<SlotClass>().GetSlotTier() == slotTier && 
+            !x.GetComponent<SlotmachineScript>().IsOccupied());
     }
 
-    private int GetHighestTier()
+    private List<int> GetTiers()
     {
-        var highestTier = 0;
+        var tiers = new List<int>();
         
-        foreach (var slotMachine in GameLoop.GetSlotMachines().Where(x => chips / x.GetComponent<SlotmachineScript>().bet > 5))
+        foreach (var slotMachine in GameLoop.GetSlotMachines())
         {
-            if (slotMachine.GetComponent<SlotClass>().GetSlotTier() > highestTier)
-            {
-                highestTier = slotMachine.GetComponent<SlotClass>().GetSlotTier();
-            }
+            var slotTier = slotMachine.GetComponent<SlotClass>().GetSlotTier();
+            if (tiers.Contains(slotTier)) continue;
+            
+            tiers.Add(slotTier);
         }
 
-        return highestTier == 0 ? 1 : highestTier;
+        return tiers;
     }
 
     private void UpdateState()
@@ -194,7 +191,7 @@ public class NPC : MonoBehaviour
                 break;
             
             case Agenda.Slot:
-                var slotmachine = GetSlot();
+                var slotmachine = GetSlot(tier);
                 
                 if (slotmachine == null)
                 {
