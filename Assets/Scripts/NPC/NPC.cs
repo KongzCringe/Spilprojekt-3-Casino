@@ -26,6 +26,7 @@ public class NPC : MonoBehaviour
     private int money;
     private int chips;
     private int tier;
+    private GameObject character;
 
     private int joy = 100;
 
@@ -63,6 +64,7 @@ public class NPC : MonoBehaviour
 
     public void StartNPC(GameLoop gameLoop)
     {
+        character = FindChild(gameObject, "Character");
         this.gameLoop = gameLoop;
 
         UI = FindChild(gameObject, "UI");
@@ -92,7 +94,7 @@ public class NPC : MonoBehaviour
             task = Agenda.Exchange;
         }
 
-        var animator = GetComponent<Animator>();
+        var animator = character.GetComponent<Animator>();
         animator.SetTrigger(StartWalking);
         
         UpdateState();
@@ -262,7 +264,7 @@ public class NPC : MonoBehaviour
         
         state = State.Moving;
         
-        var animator = GetComponent<Animator>();
+        var animator = character.GetComponent<Animator>();
         animator.SetTrigger(StartWalking);
     }
 
@@ -271,7 +273,7 @@ public class NPC : MonoBehaviour
         gameLoop.NpcEnteredCasino(gameObject);
         task = Agenda.Exchange;
 
-        var animator = GetComponent<Animator>();
+        var animator = character.GetComponent<Animator>();
         animator.SetTrigger(StartWalking);
 
         UpdateState();
@@ -284,7 +286,7 @@ public class NPC : MonoBehaviour
         {
             state = State.Idle;
 
-            var animator = GetComponent<Animator>();
+            var animator = character.GetComponent<Animator>();
             animator.SetTrigger(StopWalking);
 
             if (atObject != null)

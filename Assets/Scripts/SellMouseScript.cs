@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Grid = Script.Grid;
 
 public class SellMouseScript : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class SellMouseScript : MonoBehaviour
     Color colorSave;
 
     GameLoop gameLoop;
+    private Grid grid;
+    
     // Start is called before the first frame update
     void Start()
     {
         gameLoop = FindObjectOfType<GameLoop>();
+        grid = FindObjectOfType<Grid>();
     }
 
     // Update is called once per frame
@@ -49,6 +53,8 @@ public class SellMouseScript : MonoBehaviour
 
             if (obj.transform.CompareTag("Exchange")) gameLoop.RemoveExchangeCounter(obj);
             else if (obj.transform.CompareTag("Slot")) gameLoop.RemoveSlotMachine(obj);
+
+            grid.GenerateGrid();
 
             gameLoop.RemovePlacedObject(obj);
 

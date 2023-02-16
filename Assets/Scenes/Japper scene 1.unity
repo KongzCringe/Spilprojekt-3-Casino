@@ -59505,7 +59505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnRoad: {fileID: 777841668}
   playerModels:
-  - {fileID: 6933188668914757571, guid: c802d426e01c39c4399dcfa9396243bf, type: 3}
+  - {fileID: 6145507729398555003, guid: 1cc76210145d4f64e89a420e66f14425, type: 3}
   placeables: []
   placedObjects: []
 --- !u!4 &1463296190

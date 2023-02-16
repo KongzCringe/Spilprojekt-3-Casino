@@ -26,7 +26,7 @@ namespace Script
         
         private void Start()
         {
-            StartCoroutine(GenerateGrid());
+            GenerateGrid();
         }
 
         private void Update()
@@ -51,7 +51,7 @@ namespace Script
             */
         }
 
-        private IEnumerator GenerateGrid()
+        public void GenerateGrid()
         {
             ground.Sort(new SortObjectInSquare());
             
@@ -114,8 +114,6 @@ namespace Script
                     z = 0;
                     x++;
                 }
-
-            yield return new WaitForSeconds(0.25f);
         }
 
         private bool IsWalkable(Vector2 pos)
