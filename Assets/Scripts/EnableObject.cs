@@ -12,14 +12,24 @@ public class EnableObject : MonoBehaviour
     private GameObject BuildMode;
 
     public bool MouseHover = false;
+    
+    private Outline _outline;
+    
+    //private Color startcolor;
 
     private void Start()
     {
         BuildMode = GameObject.FindWithTag("DENHER");
+        
+        _outline = GetComponent<Outline>();
     }
 
     void OnMouseEnter()
     {
+        //startcolor = GetComponent<Renderer>().material.color;
+        //GetComponent<Renderer>().material.color = Color.yellow;
+        _outline.enabled = true;
+        
         if (MouseHover == false)
         {
             Anim.SetTrigger("UP");
@@ -34,14 +44,20 @@ public class EnableObject : MonoBehaviour
         {
             Anim.SetBool("MouseHover", false);
         }
+        
+
     }
     
     void OnMouseExit()
     {
+        _outline.enabled = false;
+        
         MouseHover = false;
         Anim.SetTrigger("DOWN");
         
         Anim.SetBool("MouseHover", false);
+        
+        //GetComponent<Renderer>().material.color = startcolor;
     }
 
     public void Disable()
