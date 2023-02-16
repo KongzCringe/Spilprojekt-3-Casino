@@ -39,7 +39,17 @@ public class MoneyScript : MonoBehaviour
 
         if (oldMoney != moneyCount && safety == false)
         {
-            oldMoney = moneyCount;
+            //oldMoney = moneyCount;
+            if (oldMoney > moneyCount)
+            {
+                oldMoney--;
+
+            }
+            else
+            {
+                oldMoney++;
+
+            }
         }
 
 
