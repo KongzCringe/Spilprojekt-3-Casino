@@ -17,14 +17,6 @@ public class OpenMenuScript : MonoBehaviour
     [SerializeField] float close;
 
     private int amountOfExchangeDesks = 0;
-    
-    private GameLoop gameLoop;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameLoop = FindObjectOfType<GameLoop>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -35,9 +27,9 @@ public class OpenMenuScript : MonoBehaviour
         traitorMenu.GetComponent<RectTransform>().localPosition = Vector3.MoveTowards(current, target, step);
 
         if (transform.parent.name != "BuildMenu" ||
-            gameLoop.GetExchangeCounter().Count == amountOfExchangeDesks) return;
+            GameLoop.GetExchangeCounter().Count == amountOfExchangeDesks) return;
         
-        amountOfExchangeDesks = gameLoop.GetExchangeCounter().Count;
+        amountOfExchangeDesks = GameLoop.GetExchangeCounter().Count;
         UpdateExchangeBtn();
     }
 
