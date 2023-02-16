@@ -22,12 +22,13 @@ public class MoveMouseScript : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && pickedUp == true && spaceOccupied == false)
         {
-            
             //Debug.Log("Place");
             pickedUp = false;
             otherObject.isTrigger = false;
             otherObject.gameObject.transform.parent = null;
+            
         }
+        
         else if (Input.GetMouseButtonDown(0) && gameObject.transform.childCount < 1 && otherObject != null)
         {
             pickedUp = true;
