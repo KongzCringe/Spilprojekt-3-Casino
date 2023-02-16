@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Grid = Script.Grid;
 
 public class BuildScript : MonoBehaviour
 {
@@ -12,13 +13,16 @@ public class BuildScript : MonoBehaviour
     int money;
     [SerializeField] LayerMask mask;
     [SerializeField] Collider otherObject;
-    
-    GameLoop gameLoop;
+
+    private Grid grid;
+
+    private GameLoop gameLoop;
     
     // Start is called before the first frame update
     void Start()
     {
         gameLoop = FindObjectOfType<GameLoop>();
+        grid = FindObjectOfType<Grid>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,8 +76,11 @@ public class BuildScript : MonoBehaviour
             {
                 var obj = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
                 obj.name = prefab.name;
+                
                 if (obj.transform.CompareTag("Exchange")) gameLoop.AddExchangeCounter(obj);
                 else if (obj.transform.CompareTag("Slot")) gameLoop.AddSlotMachine(obj);
+                
+                grid.GenerateGrid();
                 
                 gameLoop.AddPlacedObject(obj);
                 

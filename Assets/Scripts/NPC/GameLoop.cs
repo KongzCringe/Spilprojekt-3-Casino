@@ -64,7 +64,7 @@ public class GameLoop : MonoBehaviour
             var rndModels = rnd.Next(0, playerModels.Length - 1);
 
             var npc = Instantiate(playerModels[rndModels], 
-                GetOppositeSpawn(), 
+                GetOppositeSpawn() + new Vector3(0, 0.3f, 0), 
                 Quaternion.identity);
             
             Npcs.Add(npc);

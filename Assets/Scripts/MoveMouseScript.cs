@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Grid = Script.Grid;
 
 public class MoveMouseScript : MonoBehaviour
 {
@@ -8,10 +10,13 @@ public class MoveMouseScript : MonoBehaviour
     Collider otherObject;
     bool spaceOccupied;
     Color colorSave;
+
+    private Grid grid;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        grid = FindObjectOfType<Grid>();
     }
 
     // Update is called once per frame
@@ -24,6 +29,19 @@ public class MoveMouseScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && pickedUp == true && spaceOccupied == false)
         {
             //Debug.Log("Place");
+            print("place started");
+            var childCollider = GetComponentInChildren<Collider>();
+
+            if (Physics.CheckBox(
+                    childCollider.bounds.center, 
+                    childCollider.bounds.extents, 
+                    childCollider.transform.rotation, 
+                    LayerMask.NameToLayer("Obstacle"))) return;
+            
+            print("place success");
+            
+            grid.GenerateGrid();
+            
             pickedUp = false;
             otherObject.gameObject.GetComponent<Renderer>().material.color = colorSave;
             otherObject.isTrigger = false;
@@ -59,7 +77,14 @@ public class MoveMouseScript : MonoBehaviour
         }
     }
 
-   
+    private void OnDrawGizmos()
+    {
+        var childCollider = GetComponentInChildren<Collider>();
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(childCollider.bounds.center, childCollider.bounds.size);
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
