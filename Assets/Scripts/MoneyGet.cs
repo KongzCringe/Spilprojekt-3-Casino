@@ -9,6 +9,16 @@ public class MoneyGet : MonoBehaviour
     void Update()
     {
         //textOutput.fontSize = 25 - (SMscript.machineMoney / (SMscript.machineMoney / 10));
-        textOutput.text =  "$" + SMscript.machineMoney.ToString();
+        if ((SMscript.machineMoney - (SMscript.bet * 1000)) > -0.01f)
+        {   
+            textOutput.color = Color.green;
+            textOutput.text = "$" + (SMscript.machineMoney - (SMscript.bet * 1000));
+        }
+        else
+        {
+            textOutput.color = Color.red;
+            textOutput.text = "$-" + (SMscript.machineMoney - (SMscript.bet * 1000));
+        }
+        
     }
 }
