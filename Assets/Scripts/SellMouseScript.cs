@@ -7,6 +7,7 @@ public class SellMouseScript : MonoBehaviour
     bool delete;
     bool spaceOccupied;
     Collider otherObject;
+    Color colorSave;
 
     GameLoop gameLoop;
     // Start is called before the first frame update
@@ -60,14 +61,26 @@ public class SellMouseScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         spaceOccupied = true;
-        otherObject = other;
+        if (other.gameObject.tag != "Wall")
+        {
+            otherObject = other;
+            colorSave = otherObject.gameObject.GetComponent<Renderer>().material.color;
+            otherObject.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
         spaceOccupied = false;
-        otherObject = null;
+        if (other.gameObject.tag != "Wall")
+        {
+            otherObject.gameObject.GetComponent<Renderer>().material.color = colorSave;
+            otherObject = null;
+            
+        }
 
+        
 
     }
 

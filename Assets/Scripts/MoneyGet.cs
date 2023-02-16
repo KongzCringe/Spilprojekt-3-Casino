@@ -17,7 +17,7 @@ public class MoneyGet : MonoBehaviour
         else
         {
             textOutput.color = Color.red;
-            textOutput.text = "$-" + (SMscript.machineMoney - (SMscript.bet * 1000));
+            textOutput.text = "$" + (SMscript.machineMoney - (SMscript.bet * 1000));
         }
         
     }
