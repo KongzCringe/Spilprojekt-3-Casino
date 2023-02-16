@@ -421,7 +421,7 @@ MonoBehaviour:
   UI: {fileID: 1625585127212511896}
   Anim: {fileID: 3563182641110093761}
   MouseHover: 0
-  Outlinemaker: {fileID: 0}
+  Outlinemaker: {fileID: 6769261389083945864}
 --- !u!65 &102003910216497938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1149,8 +1149,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6769261389083945864}
   m_LocalRotation: {x: 0.00000023841858, y: -0.00000035762787, z: 0.00000059604645, w: 1}
-  m_LocalPosition: {x: 0.0007, y: 0.009, z: -0.0051}
-  m_LocalScale: {x: 1, y: 0.67375296, z: -0.024047}
+  m_LocalPosition: {x: 0.0007, y: 0.00851, z: -0.0051}
+  m_LocalScale: {x: 1, y: 0.6906439, z: -0.024047}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7814486087008465720}
@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6769261389083945864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
