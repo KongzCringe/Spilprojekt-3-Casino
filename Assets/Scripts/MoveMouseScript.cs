@@ -7,6 +7,7 @@ public class MoveMouseScript : MonoBehaviour
     [SerializeField] bool pickedUp = false;
     Collider otherObject;
     bool spaceOccupied;
+    Color colorSave;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class MoveMouseScript : MonoBehaviour
         {
             //Debug.Log("Place");
             pickedUp = false;
+            otherObject.gameObject.GetComponent<Renderer>().material.color = colorSave;
             otherObject.isTrigger = false;
             otherObject.gameObject.transform.parent = null;
             
@@ -44,7 +46,8 @@ public class MoveMouseScript : MonoBehaviour
             otherObject.gameObject.transform.parent = gameObject.transform;
             otherObject.transform.localPosition = new Vector3(0, 0, 0);
             otherObject.isTrigger = true;
-            
+            colorSave = otherObject.gameObject.GetComponent<Renderer>().material.color;
+            otherObject.gameObject.GetComponent<Renderer>().material.color = Color.blue;
         }
 
 
