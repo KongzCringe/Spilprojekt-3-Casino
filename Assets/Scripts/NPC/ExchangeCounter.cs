@@ -7,27 +7,22 @@ using Random = System.Random;
 
 public class ExchangeCounter : MonoBehaviour
 {
-    private bool[] isOccupied;
-    Vector3[] positions;
+    private List<bool> isOccupied;
+    private List<Vector3> positions;
     
-    private GameObject[] occupiedBy;
+    private List<GameObject> occupiedBy;
     
     private void Start()
     {
         var listOfStandPoint = GetStandPoints();
 
-        isOccupied = new bool[listOfStandPoint.Count];
-        positions = new Vector3[listOfStandPoint.Count];
-        occupiedBy = new GameObject[listOfStandPoint.Count];
-        
-        for (int i = 0; i < isOccupied.Length; i++)
-        {
-            isOccupied[i] = false;
-        }
+        isOccupied = new List<bool>();
+        positions = new List<Vector3>();
+        occupiedBy = new List<GameObject>();
 
         for (int i = 0; i < listOfStandPoint.Count; i++)
         {
-            positions[i] = listOfStandPoint[i].transform.position;
+            positions.Add(listOfStandPoint[i].transform.position);
         }
 
 
@@ -50,13 +45,24 @@ public class ExchangeCounter : MonoBehaviour
 
     public void NotOccupied(GameObject npc)
     {
-        for (int i = 0; i < isOccupied.Length; i++)
+        for (int i = 0; i < isOccupied.Count; i++)
         {
             if (occupiedBy[i] != npc) continue;
             
             isOccupied[i] = false;
             occupiedBy[i] = null;
         }
+    }
+
+    public void Occupy(GameObject npc)
+    {
+        isOccupied.Add(true);
+        occupiedBy.Add(npc);
+    }
+
+    public bool IsOccupied()
+    {
+        return isOccupied.Any(x => x);
     }
 
     public Vector3 GetPosition(GameObject NPC)
@@ -67,13 +73,13 @@ public class ExchangeCounter : MonoBehaviour
             return Vector3.zero;
         }
         */
+        
+        Occupy(NPC);
 
-        for (int i = 0; i < isOccupied.Length; i++)
+        for (int i = 0; i < positions.Count; i++)
         {
             //if (occupiedBy[i]) continue;
             
-            isOccupied[i] = true;
-            occupiedBy[i] = NPC;
             return positions[i];
         }
 

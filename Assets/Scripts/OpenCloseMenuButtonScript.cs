@@ -7,27 +7,18 @@ using TMPro;
 public class OpenCloseMenuButtonScript : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
+    
+    private static bool casinoOpen = true;
 
-    // Update is called once per frame
-    void Update()
+    public static bool GetCasinoOpen()
     {
-        
+        return casinoOpen;
     }
     
     public void ButtonPress()
     {
-        if (text.text == "Opened")
-        {
-            text.text = "Closed";
-        }
-        else
-        {
-            text.text = "Opened";
-        }
+        casinoOpen = !casinoOpen;
+
+        text.text = casinoOpen ? "Opened" : "Closed";
     }
 }

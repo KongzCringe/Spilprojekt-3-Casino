@@ -8,8 +8,8 @@ using Random = System.Random;
 
 public class GameLoop : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> slotMachines = new ();
-    [SerializeField] private List<GameObject> exchangeCounters = new ();
+    private static List<GameObject> slotMachines = new ();
+    private static List<GameObject> exchangeCounters = new ();
 
     [SerializeField] private GameObject SpawnRoad;
 
@@ -73,12 +73,12 @@ public class GameLoop : MonoBehaviour
         }
     }
     
-    public List<GameObject> GetSlotMachines()
+    public static List<GameObject> GetSlotMachines()
     {
         return slotMachines;
     }
     
-    public List<GameObject> GetExchangeCounter()
+    public static List<GameObject> GetExchangeCounter()
     {
         return exchangeCounters;
     }

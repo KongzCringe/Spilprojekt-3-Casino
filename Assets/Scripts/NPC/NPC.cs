@@ -37,6 +37,7 @@ public class NPC : MonoBehaviour
     private bool targetReached;
 
     private GameObject atObject;
+    private Vector3 atObjectPos;
     private GameObject UI;
 
     GameObject counter;
@@ -77,8 +78,9 @@ public class NPC : MonoBehaviour
         money = rnd.Next(5 * tier, 25 * tier);
 
         if (//gameLoop.GetExchangeCounter().Count <= 0 || 
-            gameLoop.GetSlotMachines().Count <= 0 || 
-            gameLoop.GetNpcsInCasino().Count >= gameLoop.GetSlotMachines().Count)
+            GameLoop.GetSlotMachines().Count <= 0 || 
+            gameLoop.GetNpcsInCasino().Count >= GameLoop.GetSlotMachines().Count ||
+            !OpenCloseMenuButtonScript.GetCasinoOpen())
         {
             task = Agenda.Leave;
         }
@@ -101,6 +103,13 @@ public class NPC : MonoBehaviour
     
     void Update()
     {
+        if (atObject != null && atObject.transform.position != atObjectPos)
+        {
+            task = Agenda.Leave;
+            UpdateState();
+            return;
+        }
+        
         if (state != State.Moving) return;
 
         var position = transform.position;
@@ -116,7 +125,7 @@ public class NPC : MonoBehaviour
     private GameObject GetSlot()
     {
         var highestTier = GetHighestTier();
-        foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => x.GetComponent<SlotClass>().GetSlotTier() == highestTier))
+        foreach (var slotMachine in GameLoop.GetSlotMachines().Where(x => x.GetComponent<SlotClass>().GetSlotTier() == highestTier))
         {
             if (slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
             return slotMachine;
@@ -129,7 +138,7 @@ public class NPC : MonoBehaviour
     {
         var highestTier = 0;
         
-        foreach (var slotMachine in gameLoop.GetSlotMachines().Where(x => chips / x.GetComponent<SlotmachineScript>().bet > 5))
+        foreach (var slotMachine in GameLoop.GetSlotMachines().Where(x => chips / x.GetComponent<SlotmachineScript>().bet > 5))
         {
             if (slotMachine.GetComponent<SlotClass>().GetSlotTier() > highestTier)
             {
@@ -150,11 +159,12 @@ public class NPC : MonoBehaviour
         switch (task)
         {
             case Agenda.Exchange:
-                var exchangeCounters = gameLoop.GetExchangeCounter();
+                var exchangeCounters = GameLoop.GetExchangeCounter();
                 
                 var counterIndex = rnd.Next(0, exchangeCounters.Count - 1);
                 
                 atObject = exchangeCounters[counterIndex];
+                atObjectPos = atObject.transform.position;
 
                 var position = exchangeCounters[counterIndex].GetComponent<ExchangeCounter>().GetPosition(gameObject);
                 counter = exchangeCounters[counterIndex];
@@ -195,6 +205,7 @@ public class NPC : MonoBehaviour
 
                 slotScript = slotmachine.GetComponent<SlotmachineScript>();
                 atObject = slotmachine;
+                atObjectPos = atObject.transform.position;
 
                 var slotPosition = slotScript.GetPosition(gameObject);
                 
@@ -316,7 +327,7 @@ public class NPC : MonoBehaviour
     private IEnumerator Exchange(int timer)
     {
         UI.SetActive(true);
-        
+
         var amountEachIteration = (float) 1 / (timer * 10);
         var child = UI.transform.GetChild(0).gameObject;
 
@@ -333,7 +344,9 @@ public class NPC : MonoBehaviour
         chips += amount;
 
         UI.SetActive(false);
-
+        
+        atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
+        
         GetNextTask();
     }
 
@@ -341,7 +354,7 @@ public class NPC : MonoBehaviour
     {
         UI.SetActive(true);
         
-        var iterationsBeforeGamble = 5;
+        const int iterationsBeforeGamble = 5;
         
         var amountEachIteration = (float) slotScript.bet / (float) chips / (float) iterationsBeforeGamble;
 
@@ -391,7 +404,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private static GameObject FindChild(GameObject parent, string name)
+    public static GameObject FindChild(GameObject parent, string name)
     {
         var result = parent.transform.Find(name);
         return result == null ? null : result.gameObject;
