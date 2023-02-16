@@ -11,12 +11,11 @@ public class EnableObject : MonoBehaviour
     
     private GameObject BuildMode;
 
-    private bool MouseHover = false;
+    public bool MouseHover = false;
 
     private void Start()
     {
         BuildMode = GameObject.FindWithTag("DENHER");
-
     }
 
     void OnMouseEnter()
