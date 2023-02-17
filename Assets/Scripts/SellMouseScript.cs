@@ -79,6 +79,11 @@ public class SellMouseScript : MonoBehaviour
         spaceOccupied = true;
         if (other.gameObject.tag != "Wall")
         {
+            if (otherObject != null)
+            {
+                otherObject.gameObject.GetComponent<Renderer>().material.color = colorSave;
+                otherObject = null;
+            }
             otherObject = other;
             colorSave = otherObject.gameObject.GetComponent<Renderer>().material.color;
             otherObject.gameObject.GetComponent<Renderer>().material.color = Color.red;
