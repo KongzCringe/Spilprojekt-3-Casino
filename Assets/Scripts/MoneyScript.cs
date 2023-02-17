@@ -16,7 +16,7 @@ public class MoneyScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (oldMoney < moneyCount && ((moneyCount - oldMoney) / 100) > 1)
         {
