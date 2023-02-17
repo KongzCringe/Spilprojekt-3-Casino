@@ -30,7 +30,7 @@ public class EnableObject : MonoBehaviour
     {
         //startcolor = GetComponent<Renderer>().material.color;
         //GetComponent<Renderer>().material.color = Color.yellow;
-        _outline.enabled = true;
+        
         
         if (MouseHover == false)
         {
@@ -52,7 +52,7 @@ public class EnableObject : MonoBehaviour
     
     void OnMouseExit()
     {
-        _outline.enabled = false;
+        
         
         MouseHover = false;
         Anim.SetTrigger("DOWN");
