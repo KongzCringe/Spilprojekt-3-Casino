@@ -34,6 +34,8 @@ public class FadeInButtons : MonoBehaviour
 
         playText.color = startColor;
         //settingsText.color = startColor;
+        
+        FadeIn();
     }
 
     void Update()
