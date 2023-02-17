@@ -733,6 +733,7 @@ GameObject:
   - component: {fileID: -1097686357893011315}
   - component: {fileID: 6838539914469826075}
   - component: {fileID: 7624848623765144731}
+  - component: {fileID: 3783171227073374122}
   m_Layer: 3
   m_Name: SlotTier5
   m_TagString: Slot
@@ -884,6 +885,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 3812272359023251127}
   Anim: {fileID: 8012082956075513639}
+  MouseHover: 0
+  Outlinemaker: {fileID: 0}
 --- !u!114 &7624848623765144731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,6 +900,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotTier: 5
+--- !u!114 &3783171227073374122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129457335974638507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f828342c0f171146bc8d51efad68934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JabseUI: {fileID: 8703317728462992057}
 --- !u!1 &8129457335977644181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1080,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 3812272359023251127}
   Anim: {fileID: 8012082956075513639}
+  MouseHover: 0
+  Outlinemaker: {fileID: 0}
 --- !u!1 &9070913961918439632
 GameObject:
   m_ObjectHideFlags: 0
