@@ -46,7 +46,6 @@ public class MoveMouseScript : MonoBehaviour
             otherObject.gameObject.GetComponent<Renderer>().material.color = colorSave;
             otherObject.isTrigger = false;
             otherObject.gameObject.transform.parent = null;
-            
         }
         
         else if (Input.GetMouseButtonDown(0) && gameObject.transform.childCount < 1 && otherObject != null)
