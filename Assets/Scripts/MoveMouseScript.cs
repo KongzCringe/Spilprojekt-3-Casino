@@ -29,7 +29,6 @@ public class MoveMouseScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && pickedUp == true && spaceOccupied == false)
         {
             //Debug.Log("Place");
-            print("place started");
             var childCollider = GetComponentInChildren<Collider>();
 
             if (Physics.CheckBox(
@@ -37,9 +36,7 @@ public class MoveMouseScript : MonoBehaviour
                     childCollider.bounds.extents, 
                     childCollider.transform.rotation, 
                     LayerMask.NameToLayer("Obstacle"))) return;
-            
-            print("place success");
-            
+
             grid.GenerateGrid();
             
             pickedUp = false;
