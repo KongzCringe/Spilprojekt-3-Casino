@@ -38,17 +38,6 @@ public class FadeInButtons : MonoBehaviour
         FadeIn();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) FadeIn();
-
-        if (!playAnim.isPlaying && hasStarted)
-        {
-            playBtn.GetComponent<Button>().enabled = true;
-            //settingsBtn.GetComponent<Button>().enabled = true;
-        }
-    }
-
     private void FadeIn()
     {
         playAnim.Play();
