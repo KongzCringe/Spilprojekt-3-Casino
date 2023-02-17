@@ -34,17 +34,8 @@ public class FadeInButtons : MonoBehaviour
 
         playText.color = startColor;
         //settingsText.color = startColor;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) FadeIn();
-
-        if (!playAnim.isPlaying && hasStarted)
-        {
-            playBtn.GetComponent<Button>().enabled = true;
-            //settingsBtn.GetComponent<Button>().enabled = true;
-        }
+        
+        FadeIn();
     }
 
     private void FadeIn()

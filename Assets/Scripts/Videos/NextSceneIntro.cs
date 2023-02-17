@@ -14,6 +14,6 @@ public class NextSceneIntro : MonoBehaviour
     {
         yield return new WaitForSeconds(7);
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(+1);
     }
 }
