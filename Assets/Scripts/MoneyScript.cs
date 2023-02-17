@@ -16,7 +16,7 @@ public class MoneyScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (oldMoney < moneyCount && ((moneyCount - oldMoney) / 100) > 1)
         {
@@ -66,11 +66,12 @@ public class MoneyScript : MonoBehaviour
             moneyText.color = Color.green;
         }
 
-        
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             moneyCount += 5000;
         }
+        */
         
     }
 }
