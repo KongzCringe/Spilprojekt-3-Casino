@@ -19,6 +19,8 @@ public class GameLoop : MonoBehaviour
 
     public List<GameObject> placedObjects = new ();
 
+    private int npcSpawned = 0;
+
     private float wait;
     private float timer;
     
@@ -66,6 +68,8 @@ public class GameLoop : MonoBehaviour
             var npc = Instantiate(playerModels[rndModels], 
                 GetOppositeSpawn() + new Vector3(0, 0.3f, 0), 
                 Quaternion.identity);
+
+            npc.name = "NPC " + npcSpawned;
             
             Npcs.Add(npc);
             
@@ -98,7 +102,7 @@ public class GameLoop : MonoBehaviour
         var newNpc = GetClosestNpc();
         npcInCasino.Remove(npc);
         
-        if (newNpc == null) return;
+        if (newNpc == null || !OpenCloseMenuButtonScript.GetCasinoOpen()) return;
 
         newNpc.GetComponent<NPC>().UpdateNpc();
     }
@@ -137,7 +141,8 @@ public class GameLoop : MonoBehaviour
         foreach (var npc in Npcs)
         {
             if (npcInCasino.Contains(npc) || 
-                Vector3.Distance(npc.transform.position, transform.position) >= closestDistance) continue;
+                Vector3.Distance(npc.transform.position, transform.position) >= closestDistance ||
+                npc.GetComponent<NPC>().GetMoney() <= 0) continue;
             
             closestDistance = Vector3.Distance(npc.transform.position, transform.position);
             closestNpc = npc;

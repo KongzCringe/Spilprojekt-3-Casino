@@ -40,12 +40,22 @@ public class SellMouseScript : MonoBehaviour
         if (delete == true)
         {
             if (otherObject.gameObject == null) return;
+            
+            print("Tried to sell");
 
-            if (otherObject.GetComponent<SlotmachineScript>() && 
-                otherObject.GetComponent<SlotmachineScript>().IsOccupied()) return;
+            if (otherObject.GetComponent<SlotmachineScript>() &&
+                otherObject.GetComponent<SlotmachineScript>().IsOccupied())
+            {
+                print("Slot is used");
+                return;
+            }
 
             if (otherObject.GetComponent<ExchangeCounter>() &&
-                otherObject.GetComponent<ExchangeCounter>().IsOccupied()) return;
+                otherObject.GetComponent<ExchangeCounter>().IsOccupied())
+            {
+                print("Exchange is used");
+                return;
+            }
             
             otherObject.gameObject.GetComponent<AutoDestroyScript>().SellBuilding();
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class SlotmachineScript : MonoBehaviour
@@ -35,26 +36,17 @@ public class SlotmachineScript : MonoBehaviour
     void Update()
     {
         /*
-        if (occupiedBy != null)
+        if (isOccupied)
         {
-            if (Vector3.Distance(position, occupiedBy.transform.position) > 1.5f)
-            {
-                notOccupiedForSeconds += Time.deltaTime;
-            }
+            var dist = Vector3.Distance(GetStandPoint().transform.position, occupiedBy.transform.position);
 
-            if (notOccupiedForSeconds > 3)
+            if (dist > Vector3.Distance(GetStandPoint().transform.position, transform.position) + 5)
             {
-                notOccupiedForSeconds = 0;
-                isOccupied = false;
                 occupiedBy = null;
+                isOccupied = false;
             }
         }
         */
-        
-        if (Input.GetKey(KeyCode.K))
-        {
-            SlotFunction();
-        }
     }
 
     public bool IsOccupied()
@@ -168,7 +160,7 @@ public class SlotmachineScript : MonoBehaviour
     public void NotOccupied(GameObject npc)
     {
         if (occupiedBy != npc) return;
-            
+
         isOccupied = false;
         occupiedBy = null;
     }
@@ -182,8 +174,8 @@ public class SlotmachineScript : MonoBehaviour
     {
         return playSound;
     }
-    
-    
+
+
     public Vector3 GetPosition(GameObject NPC)
     {
         if (isOccupied)

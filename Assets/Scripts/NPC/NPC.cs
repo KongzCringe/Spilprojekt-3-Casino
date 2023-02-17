@@ -140,7 +140,7 @@ public class NPC : MonoBehaviour
         foreach (var slotMachine in GameLoop.GetSlotMachines())
         {
             var slotTier = slotMachine.GetComponent<SlotClass>().GetSlotTier();
-            if (tiers.Contains(slotTier)) continue;
+            if (tiers.Contains(slotTier) && slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
             
             tiers.Add(slotTier);
         }
@@ -161,7 +161,7 @@ public class NPC : MonoBehaviour
                 var exchangeCounters = GameLoop.GetExchangeCounter();
                 
                 var counterIndex = rnd.Next(0, exchangeCounters.Count - 1);
-                
+
                 atObject = exchangeCounters[counterIndex];
                 atObjectPos = atObject.transform.position;
 
@@ -382,13 +382,16 @@ public class NPC : MonoBehaviour
 
     private void GetNextTask()
     {
-        if (chips == 0 && money != 0)
+        /*
+        if (chips == 0 && money)
         {
             atObject.GetComponent<SlotmachineScript>().NotOccupied(gameObject);
             task = Agenda.Exchange;
             UpdateState();
         }
-        else if (chips != 0)
+        */
+        
+        if (chips >= 5 * tier)
         {
             task = Agenda.Slot;
             //atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
