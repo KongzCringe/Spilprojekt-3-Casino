@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Ngi-Intro.unity
     guid: 33665d7e7e33d674c9dda97804808829
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: f2644df29568d30479eb50496f853ace
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: d74c43b93141e09489a685e926166fc0
+    path: Assets/Scenes/GoldenNuggetIntro.unity
+    guid: b024fe3cda693134689b4b606c21092c
   - enabled: 1
     path: Assets/Scenes/Japper scene 1.unity
     guid: c2a8bec4ab3b287468f64ee01868d0d1
