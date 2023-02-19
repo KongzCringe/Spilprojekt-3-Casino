@@ -30,6 +30,5 @@ public class UIChooser : MonoBehaviour
         
         otherGameObject2.SetActive(false);
         
-        print("done");
     }
 }
