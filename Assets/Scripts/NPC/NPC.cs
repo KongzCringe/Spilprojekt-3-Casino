@@ -81,7 +81,7 @@ public class NPC : MonoBehaviour
         
         money = rnd.Next(5 * tier, 25 * tier);
 
-        if (//gameLoop.GetExchangeCounter().Count <= 0 || 
+        if (GameLoop.GetExchangeCounter().Count <= 0 || 
             GameLoop.GetSlotMachines().Count <= 0 || 
             gameLoop.GetNpcsInCasino().Count >= GameLoop.GetSlotMachines().Count ||
             !OpenCloseMenuButtonScript.GetCasinoOpen())
