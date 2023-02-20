@@ -13,9 +13,7 @@ public class EnableObject : MonoBehaviour
 
     public bool MouseHover = false;
     
-    private Outline _outline;
-
-    [SerializeField] private GameObject Outlinemaker;
+    
     
     //private Color startcolor;
 
@@ -23,7 +21,6 @@ public class EnableObject : MonoBehaviour
     {
         BuildMode = GameObject.FindWithTag("DENHER");
         
-        _outline = Outlinemaker.GetComponent<Outline>();
     }
 
     void OnMouseEnter()
