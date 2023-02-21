@@ -1743,6 +1743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOutput: {fileID: 5681039264644556939}
+  collect: {fileID: 2808444839526804683}
   SMscript: {fileID: 1970158075087575002}
 --- !u!1 &8310881040891276183
 GameObject:

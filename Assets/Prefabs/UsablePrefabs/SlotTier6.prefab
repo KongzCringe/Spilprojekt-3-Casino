@@ -382,7 +382,6 @@ GameObject:
   - component: {fileID: 7675977801083124410}
   - component: {fileID: -3967834760891961635}
   - component: {fileID: 7951381248362044697}
-  - component: {fileID: 6168636704300105284}
   m_Layer: 3
   m_Name: SlotTier6
   m_TagString: Slot
@@ -562,19 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f828342c0f171146bc8d51efad68934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JabseUI: {fileID: 0}
---- !u!114 &6168636704300105284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912764546292142483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5db2d7422dc3a49b6417a4582bddfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  JabseUI: {fileID: 2928237181763641605}
 --- !u!1 &2597245117464183064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOutput: {fileID: 2710540852266872627}
+  collect: {fileID: 5746677524903719806}
   SMscript: {fileID: 9142657980667758091}
 --- !u!1 &5118779782156043378
 GameObject:

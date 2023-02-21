@@ -157,20 +157,14 @@ public class NPC : MonoBehaviour
 
         var rnd = new Random();
 
-        return slotList[rnd.Next(0, slotList.Count)];
-
-        /*
-        return GameLoop.GetSlotMachines().FirstOrDefault(x => 
-            x.GetComponent<SlotClass>().GetSlotTier() == slotTier && 
-            !x.GetComponent<SlotmachineScript>().IsOccupied());
-        */
+        return slotList.Count < 1 ? null : slotList[rnd.Next(0, slotList.Count)];
     }
 
     private List<int> GetTiers()
     {
         var tiers = new List<int>();
         
-        foreach (var slotMachine in GameLoop.GetSlotMachines())
+        foreach (var slotMachine in GameLoop.GetSlotMachines().Where(x => !x.GetComponent<SlotmachineScript>().IsOccupied()))
         {
             var slotTier = slotMachine.GetComponent<SlotClass>().GetSlotTier();
             if (tiers.Contains(slotTier) && slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
@@ -228,26 +222,19 @@ public class NPC : MonoBehaviour
             case Agenda.Slot:
                 var slotmachine = GetSlot(tier);
                 
-                if (slotmachine == null)
-                {
-                    task = Agenda.Leave;
-                    UpdateState();
-                    break;
-                }
-
                 slotScript = slotmachine.GetComponent<SlotmachineScript>();
                 atObject = slotmachine;
                 atObjectPos = atObject.transform.position;
 
                 var slotPosition = slotScript.GetPosition(gameObject);
                 
-                if (slotPosition == Vector3.zero)
+                if (slotmachine == null || slotPosition == Vector3.zero)
                 {
                     task = Agenda.Leave;
                     UpdateState();
                     break;
                 }
-                
+
                 targetNode = Grid.GetNode(new Vector2(slotPosition.x, slotPosition.z));
                 
                 path = PathFinding.FindPath(startNode, targetNode);
@@ -424,8 +411,15 @@ public class NPC : MonoBehaviour
         }
         */
         
-        if (chips >= 5 * tier)
+        if (chips >= minMoney[tier - 1])
         {
+            if (!GetTiers().Contains(tier))
+            {
+                task = Agenda.Leave;
+                UpdateState();
+                return;
+            }
+            
             task = Agenda.Slot;
             //atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
             UpdateState();
