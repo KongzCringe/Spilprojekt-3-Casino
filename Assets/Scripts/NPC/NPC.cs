@@ -72,6 +72,8 @@ public class NPC : MonoBehaviour
         Leave,
         None
     }
+    
+    // hey
 
     private enum State
     {
