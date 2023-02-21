@@ -8,12 +8,6 @@ using UnityEngine;
 
 public class PathFinding : MonoBehaviour
 {
-    private static Color startColor = Color.green;
-    private static Color endColor = Color.red;
-    private static Color pathColor = Color.cyan;
-    private static Color pathSwamp = Color.blue;
-    private static Color visitedColor = Color.magenta;
-
     private bool moving;
     private NodeBase targetNode;
     private GameObject objectToMove;
