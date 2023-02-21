@@ -97,9 +97,12 @@ public class NPC : MonoBehaviour
 
         var tiers = GetTiers();
 
-        if (tiers.Count > 0) tier = tiers[rnd.Next(0, tiers.Count)];
-        
-        money = rnd.Next(minMoney[tier - 1], maxMoney[tier - 1]);
+        if (tiers.Count > 0)
+        {
+            tier = tiers[rnd.Next(0, tiers.Count)];
+            money = rnd.Next(minMoney[tier - 1], maxMoney[tier - 1]);
+        }
+        else money = rnd.Next(minMoney[0], maxMoney[0]);
 
         if (GameLoop.GetExchangeCounter().Count <= 0 || 
             GameLoop.GetSlotMachines().Count <= 0 || 
@@ -148,9 +151,19 @@ public class NPC : MonoBehaviour
 
     private GameObject GetSlot(int slotTier)
     {
+        var slotList = GameLoop.GetSlotMachines().Where(x => 
+            x.GetComponent<SlotClass>().GetSlotTier() == slotTier && 
+            !x.GetComponent<SlotmachineScript>().IsOccupied()).ToList();
+
+        var rnd = new Random();
+
+        return slotList[rnd.Next(0, slotList.Count)];
+
+        /*
         return GameLoop.GetSlotMachines().FirstOrDefault(x => 
             x.GetComponent<SlotClass>().GetSlotTier() == slotTier && 
             !x.GetComponent<SlotmachineScript>().IsOccupied());
+        */
     }
 
     private List<int> GetTiers()

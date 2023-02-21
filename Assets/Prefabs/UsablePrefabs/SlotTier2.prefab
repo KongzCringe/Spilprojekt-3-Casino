@@ -1443,8 +1443,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.026204444, y: 0.030626286, z: 0.06701618}
-  m_Center: {x: -0.011188456, y: 0.013521766, z: 0.026436038}
+  m_Size: {x: 0.03980306, y: 0.03184562, z: 0.06701618}
+  m_Center: {x: -0.0075733764, y: 0.003791677, z: 0.026436038}
 --- !u!114 &6383060837540819513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1489,7 +1489,6 @@ MonoBehaviour:
   UI: {fileID: 5646487470018666799}
   Anim: {fileID: 4627826744772934324}
   MouseHover: 0
-  Outlinemaker: {fileID: 0}
 --- !u!114 &-1030820369890768827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,7 +2011,6 @@ MonoBehaviour:
   UI: {fileID: 5646487470018666799}
   Anim: {fileID: 4627826744772934324}
   MouseHover: 0
-  Outlinemaker: {fileID: 0}
 --- !u!65 &9190563104778686124
 BoxCollider:
   m_ObjectHideFlags: 0
