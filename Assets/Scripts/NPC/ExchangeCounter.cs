@@ -75,6 +75,12 @@ public class ExchangeCounter : MonoBehaviour
         */
         
         Occupy(NPC);
+        var pos = GetStandPoints();
+        
+        for (int i = 0; i < pos.Count; i++)
+        {
+            positions[i] = pos[i].transform.position;
+        }
 
         for (int i = 0; i < positions.Count; i++)
         {

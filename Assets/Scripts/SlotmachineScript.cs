@@ -183,7 +183,7 @@ public class SlotmachineScript : MonoBehaviour
             return Vector3.zero;
         }
 
-        position = transform.GetChild(0).position;
+        position = transform.Find("StandPoint").position;
 
         isOccupied = true;
 
