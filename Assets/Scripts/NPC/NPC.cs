@@ -11,6 +11,26 @@ using Random = System.Random;
 
 public class NPC : MonoBehaviour
 {
+    private List<int> minMoney = new List<int>
+    {
+        5,
+        25,
+        50,
+        100,
+        250,
+        500
+    };
+
+    private List<int> maxMoney = new List<int>
+    {
+        10,
+        50,
+        100,
+        200,
+        500,
+        1000
+    };
+
     private NodeBase targetNode;
 
     private int nodeIndex;
@@ -79,7 +99,7 @@ public class NPC : MonoBehaviour
 
         if (tiers.Count > 0) tier = tiers[rnd.Next(0, tiers.Count)];
         
-        money = rnd.Next(5 * tier, 25 * tier);
+        money = rnd.Next(minMoney[tier - 1], maxMoney[tier - 1]);
 
         if (GameLoop.GetExchangeCounter().Count <= 0 || 
             GameLoop.GetSlotMachines().Count <= 0 || 
@@ -337,7 +357,7 @@ public class NPC : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         } 
         
-        var amount = Mathf.Min(money, 100);
+        var amount = Mathf.Min(money, 250);
         
         money -= amount;
         chips += amount;
