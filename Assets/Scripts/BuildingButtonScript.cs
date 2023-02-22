@@ -10,21 +10,45 @@ public class BuildingButtonScript : MonoBehaviour
     [SerializeField] GameObject mouse;
     [SerializeField] GameObject mouseIcon;
     [SerializeField] GameObject emptyMouse;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        var btn = GetComponent<Button>();
+
+        if (GameLoop.GetExchangeCounter().Count > 0 && btn.enabled && transform.name == "Exchange Desk")
+        {
+            var ownedText = NPC.FindChild(gameObject, "Owned");
+
+            if (ownedText != null)
+            {
+                var text = ownedText.GetComponent<TextMeshProUGUI>();
+                
+                text.color = Color.red;
+                text.text = GameLoop.GetExchangeCounter().Count + "/1";
+            }
+            btn.enabled = false;
+        }
+        
+        else if (GameLoop.GetExchangeCounter().Count == 0 && !btn.enabled && transform.name == "Exchange Desk")
+        {
+            var ownedText = NPC.FindChild(gameObject, "Owned");
+
+            if (ownedText != null)
+            {
+                var text = ownedText.GetComponent<TextMeshProUGUI>();
+                
+                text.color = Color.white;
+                text.text = GameLoop.GetExchangeCounter().Count + "/1";
+            }
+            
+            btn.enabled = true;
+        }
+        
         
     }
     public void ButtonPress()
     {
-        if (transform.GetChild(0).GetComponent<TMP_Text>().text.Contains("(1/1)")) return;
+        if (GameLoop.GetExchangeCounter().Count > 0  && transform.name == "Exchange Desk") return;
         
         if (mouseIcon.activeSelf == true)
         {
