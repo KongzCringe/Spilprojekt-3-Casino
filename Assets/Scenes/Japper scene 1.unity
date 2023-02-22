@@ -64326,6 +64326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnRoad: {fileID: 777841668}
+  Door: {fileID: 1910882064734792}
   playerModels:
   - {fileID: 6145507729398555003, guid: 1cc76210145d4f64e89a420e66f14425, type: 3}
   placeables: []

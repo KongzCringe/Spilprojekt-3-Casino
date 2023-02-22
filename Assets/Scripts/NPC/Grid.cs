@@ -13,7 +13,7 @@ namespace Script
         [SerializeField] private LayerMask obstacleMask;
         [SerializeField] private LayerMask floorMask;
 
-        private const int AmountOfTiles = 2;
+        private const int AmountOfTiles = 4;
         private int _tempAmountOfTiles;
 
         public static NodeBase[,] grid;
