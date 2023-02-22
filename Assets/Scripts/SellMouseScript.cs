@@ -28,12 +28,20 @@ public class SellMouseScript : MonoBehaviour
             delete = false;
         }
 
-        if (spaceOccupied == true /*|| MoneyScript.moneyCount < cost*/)
+        if (spaceOccupied == true && otherObject != null)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
-            if (Input.GetMouseButtonDown(0) && otherObject.gameObject.tag != "Wall" && otherObject.gameObject.layer == 3 && spaceOccupied == true)
+            //gameObject.GetComponent<Renderer>().material.color = Color.red;
+            Ray rayray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Physics.Raycast(rayray, out hit, 10000, 6);
+            if (/*hit.collider.gameObject.layer == 6 &&*/ Input.GetMouseButtonDown(0) && spaceOccupied == true)
             {
-                delete = true;
+                Debug.Log(otherObject.gameObject);
+                if (otherObject.gameObject.tag != "Wall" && otherObject.gameObject.layer == 3)
+                {
+                    delete = true;
+                }
+                
             }
         }
 
@@ -94,7 +102,7 @@ public class SellMouseScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         spaceOccupied = false;
-        if (other.gameObject.tag != "Wall")
+        if (other.gameObject.tag != "Wall" && otherObject != null)
         {
             otherObject.gameObject.GetComponent<Renderer>().material.color = colorSave;
             otherObject = null;
@@ -108,6 +116,7 @@ public class SellMouseScript : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         spaceOccupied = true;
+        
         //if (otherObject = null)
         //{
         //    otherObject = other;
