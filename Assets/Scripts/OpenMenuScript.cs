@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class OpenMenuScript : MonoBehaviour
 {
     [SerializeField] float speed;
-    bool openState;
+    private bool openState;
     [SerializeField] float targetMenu = -645;
     [SerializeField] GameObject traitorMenu;
     [SerializeField] GameObject mouse;
@@ -30,6 +30,11 @@ public class OpenMenuScript : MonoBehaviour
             GameLoop.GetExchangeCounter().Count == amountOfExchangeDesks) return;
         
         amountOfExchangeDesks = GameLoop.GetExchangeCounter().Count;
+    }
+
+    public bool GetOpenState()
+    {
+        return openState;
     }
 
     public void ButtonPress()

@@ -13,14 +13,13 @@ public class EnableObject : MonoBehaviour
 
     public bool MouseHover = false;
     
-    
-    
+    private OpenMenuScript _openMenuScript;
     //private Color startcolor;
 
     private void Start()
     {
         BuildMode = GameObject.FindWithTag("DENHER");
-        
+        _openMenuScript = NPC.FindChild(BuildMode, "MenuButton").GetComponent<OpenMenuScript>();
     }
 
     void OnMouseEnter()
@@ -35,7 +34,7 @@ public class EnableObject : MonoBehaviour
             MouseHover = true;
         }
 
-        if (BuildMode.transform.position.y < -93.5f) 
+        if (!_openMenuScript.GetOpenState()) 
         {
             Anim.SetBool("MouseHover", true);   
         }
