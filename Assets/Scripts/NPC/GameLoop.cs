@@ -27,7 +27,7 @@ public class GameLoop : MonoBehaviour
     private float timer;
     
     private List<GameObject> Npcs = new ();
-    private List<GameObject> npcInCasino = new();
+    private static List<GameObject> npcInCasino = new();
 
     private void Start()
     {
@@ -102,7 +102,7 @@ public class GameLoop : MonoBehaviour
         return exchangeCounters;
     }
     
-    public List<GameObject> GetNpcsInCasino()
+    public static List<GameObject> GetNpcsInCasino()
     {
         return npcInCasino;
     }

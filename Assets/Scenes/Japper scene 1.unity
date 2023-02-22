@@ -93836,7 +93836,7 @@ MonoBehaviour:
   targetMenu: -987.3
   traitorMenu: {fileID: 394142573}
   mouse: {fileID: 1689554266}
-  collectMouse: {fileID: 0}
+  collectMouse: {fileID: 642518516}
   emptyMouse: {fileID: 1689554266}
   open: -651.9
   close: -987.3

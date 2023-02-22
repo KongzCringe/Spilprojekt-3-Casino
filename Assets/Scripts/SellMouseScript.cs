@@ -49,19 +49,17 @@ public class SellMouseScript : MonoBehaviour
         {
             if (otherObject.gameObject == null) return;
             
-            print("Tried to sell");
+            if (OpenCloseMenuButtonScript.GetCasinoOpen() && GameLoop.GetNpcsInCasino().Count >= 0) return;
 
             if (otherObject.GetComponent<SlotmachineScript>() &&
                 otherObject.GetComponent<SlotmachineScript>().IsOccupied())
             {
-                print("Slot is used");
                 return;
             }
 
             if (otherObject.GetComponent<ExchangeCounter>() &&
                 otherObject.GetComponent<ExchangeCounter>().IsOccupied())
             {
-                print("Exchange is used");
                 return;
             }
             
