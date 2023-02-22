@@ -111,7 +111,7 @@ public class NPC : MonoBehaviour
 
         if (GameLoop.GetExchangeCounter().Count <= 0 || 
             GameLoop.GetSlotMachines().Count <= 0 || 
-            gameLoop.GetNpcsInCasino().Count >= GameLoop.GetSlotMachines().Count ||
+            GameLoop.GetNpcsInCasino().Count >= GameLoop.GetSlotMachines().Count ||
             !OpenCloseMenuButtonScript.GetCasinoOpen())
         {
             task = Agenda.Leave;
@@ -136,12 +136,14 @@ public class NPC : MonoBehaviour
     
     void Update()
     {
+        /*
         if (atObject != null && atObject.transform.position != atObjectPos)
         {
             task = Agenda.Door;
             UpdateState();
             return;
         }
+        */
         
         if (state != State.Moving) return;
 
@@ -234,9 +236,7 @@ public class NPC : MonoBehaviour
             // hey
             case Agenda.Slot:
                 var slotmachine = GetSlot(tier);
-                
-                print(slotmachine.name);
-                
+
                 if (slotmachine == null)
                 {
                     task = Agenda.Door;
@@ -282,7 +282,7 @@ public class NPC : MonoBehaviour
                 path = PathFinding.FindPath(startNode, targetNode);
                 nodeIndex = path.Count - 1;
 
-                if (gameLoop.GetNpcsInCasino().Contains(gameObject)) 
+                if (GameLoop.GetNpcsInCasino().Contains(gameObject)) 
                     gameLoop.NpcLeftCasino(gameObject);
 
                 state = State.Leaving;
@@ -296,7 +296,7 @@ public class NPC : MonoBehaviour
 
                 var target = Grid.GetNode(new Vector2(doorPos.x, doorPos.z));
                 
-                if (gameLoop.GetNpcsInCasino().Contains(gameObject)) 
+                if (GameLoop.GetNpcsInCasino().Contains(gameObject)) 
                     gameLoop.NpcLeftCasino(gameObject);
 
                 path = PathFinding.FindPath(startNode, target);

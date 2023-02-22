@@ -29,13 +29,6 @@ public class MoveMouseScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && pickedUp == true && spaceOccupied == false)
         {
             //Debug.Log("Place");
-            var childCollider = GetComponentInChildren<Collider>();
-
-            if (Physics.CheckBox(
-                    childCollider.bounds.center, 
-                    childCollider.bounds.extents, 
-                    childCollider.transform.rotation, 
-                    LayerMask.NameToLayer("Obstacle"))) return;
 
             grid.GenerateGrid();
             
@@ -47,7 +40,9 @@ public class MoveMouseScript : MonoBehaviour
         
         else if (Input.GetMouseButtonDown(0) && gameObject.transform.childCount < 1 && otherObject != null)
         {
-            if (otherObject.gameObject == null) return;
+            if (otherObject.gameObject == null ) return;
+            
+            if (OpenCloseMenuButtonScript.GetCasinoOpen() && GameLoop.GetNpcsInCasino().Count >= 0) return;
 
             if (otherObject.GetComponent<SlotmachineScript>() && 
                 otherObject.GetComponent<SlotmachineScript>().IsOccupied()) return;
