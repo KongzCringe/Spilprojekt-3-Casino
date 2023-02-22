@@ -4,6 +4,7 @@ using TMPro;
 public class MoneyGet : MonoBehaviour
 {
     public TextMeshPro textOutput;
+    public TMP_Text collect;
     public SlotmachineScript SMscript;
 
     void Update()
@@ -13,11 +14,15 @@ public class MoneyGet : MonoBehaviour
         {   
             textOutput.color = Color.green;
             textOutput.text = "$" + (SMscript.machineMoney - (SMscript.bet * 1000));
+            collect.color = Color.yellow;
+            collect.text = "Collect";
         }
         else
         {
             textOutput.color = Color.red;
             textOutput.text = "$" + (SMscript.machineMoney - (SMscript.bet * 1000));
+            collect.color = Color.red;
+            collect.text = "Fill up";
         }
         
     }

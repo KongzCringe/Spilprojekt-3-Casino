@@ -13,6 +13,8 @@ public class GameLoop : MonoBehaviour
 
     [SerializeField] private GameObject SpawnRoad;
 
+    [SerializeField] private GameObject Door;
+
     [SerializeField] private GameObject[] playerModels;
     
     [SerializeField] private GameObject[] placeables;
@@ -48,12 +50,23 @@ public class GameLoop : MonoBehaviour
         }
 
         var rnd = new Random();
-        wait = rnd.Next(2, 3);
+        //Set variable to 1 if slotMachines.count is 0 else set it to slotMachines.count
+        
+        var slotmachinesCount = slotMachines.Count == 0 ? 1 : slotMachines.Count;
+
+        wait = (float) (rnd.Next(2, 3) / slotmachinesCount);
+    }
+
+    public GameObject GetDoor()
+    {
+        return Door;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
+
+        print(wait);
 
         //if (slotMachines.Count < 1 && exchangeCounters.Count < 1) return;
         
@@ -61,8 +74,10 @@ public class GameLoop : MonoBehaviour
         {
             timer = 0;
             var rnd = new Random();
-            wait = rnd.Next(2, 3);
+            wait = (rnd.Next(2, 3) / (slotMachines.Count == 0 ? 1 : slotMachines.Count));
 
+            wait = wait == 0 ? 0.75f : wait;
+            
             var rndModels = rnd.Next(0, playerModels.Length - 1);
 
             var npc = Instantiate(playerModels[rndModels], 

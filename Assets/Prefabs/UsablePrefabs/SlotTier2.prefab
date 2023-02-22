@@ -826,6 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOutput: {fileID: 8325326603060164109}
+  collect: {fileID: 0}
   SMscript: {fileID: 0}
 --- !u!1 &5646487470018666799
 GameObject:
@@ -1260,7 +1261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6649012150833960033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.008700006, y: -0.013033334, z: 0}
+  m_LocalPosition: {x: -0.008700006, y: -0.0261, z: -0}
   m_LocalScale: {x: 0.010053001, y: 0.010053, z: 0.010053}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1335,7 +1336,6 @@ GameObject:
   - component: {fileID: 5278375755904604031}
   - component: {fileID: -1030820369890768827}
   - component: {fileID: 4835471601933471131}
-  - component: {fileID: 6003709417543763681}
   m_Layer: 3
   m_Name: SlotTier2
   m_TagString: Slot
@@ -1515,18 +1515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JabseUI: {fileID: 9213217804603421063}
---- !u!114 &6003709417543763681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6649012151119366579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5db2d7422dc3a49b6417a4582bddfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6914484095627965334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOutput: {fileID: 617021124777683542}
+  collect: {fileID: 8445991920517393278}
   SMscript: {fileID: 6383060837540819513}
 --- !u!1 &9213217804603421063
 GameObject:

@@ -70,8 +70,11 @@ public class NPC : MonoBehaviour
         Slot,
         Exchange,
         Leave,
+        Door,
         None
     }
+    
+    // hey
 
     private enum State
     {
@@ -81,11 +84,13 @@ public class NPC : MonoBehaviour
         Exchanging,
         Leaving
     }
-
+    // hey
+    
     public void StartNPC(GameLoop gameLoop)
     {
         character = FindChild(gameObject, "Character");
         this.gameLoop = gameLoop;
+        // hey
 
         UI = FindChild(gameObject, "UI");
         UI.SetActive(false);
@@ -116,7 +121,7 @@ public class NPC : MonoBehaviour
             gameLoop.NpcEnteredCasino(gameObject);
             task = Agenda.Exchange;
         }
-
+        // hey
         var animator = character.GetComponent<Animator>();
         animator.SetTrigger(StartWalking);
         
@@ -126,13 +131,14 @@ public class NPC : MonoBehaviour
     public int GetMoney()
     {
         return money;
+        // hey
     }
     
     void Update()
     {
         if (atObject != null && atObject.transform.position != atObjectPos)
         {
-            task = Agenda.Leave;
+            task = Agenda.Door;
             UpdateState();
             return;
         }
@@ -151,13 +157,14 @@ public class NPC : MonoBehaviour
 
     private GameObject GetSlot(int slotTier)
     {
+        // hey
         var slotList = GameLoop.GetSlotMachines().Where(x => 
             x.GetComponent<SlotClass>().GetSlotTier() == slotTier && 
             !x.GetComponent<SlotmachineScript>().IsOccupied()).ToList();
 
         var rnd = new Random();
 
-        return slotList[rnd.Next(0, slotList.Count)];
+        return slotList.Count == 0 ? null : slotList[rnd.Next(0, slotList.Count)];
 
         /*
         return GameLoop.GetSlotMachines().FirstOrDefault(x => 
@@ -169,8 +176,8 @@ public class NPC : MonoBehaviour
     private List<int> GetTiers()
     {
         var tiers = new List<int>();
-        
-        foreach (var slotMachine in GameLoop.GetSlotMachines())
+        // hey
+        foreach (var slotMachine in GameLoop.GetSlotMachines().Where(x => !x.GetComponent<SlotmachineScript>().IsOccupied()))
         {
             var slotTier = slotMachine.GetComponent<SlotClass>().GetSlotTier();
             if (tiers.Contains(slotTier) && slotMachine.GetComponent<SlotmachineScript>().IsOccupied()) continue;
@@ -187,7 +194,7 @@ public class NPC : MonoBehaviour
         
         var pos = transform.position;
         var startNode = Grid.GetNode(new Vector2(pos.x, pos.z));
-        
+        // hey
         switch (task)
         {
             case Agenda.Exchange:
@@ -203,18 +210,18 @@ public class NPC : MonoBehaviour
                 
                 if (position == Vector3.zero)
                 {
-                    task = Agenda.Leave;
+                    task = Agenda.Door;
                     UpdateState();
                     break;
                 }
-
+                // hey
                 targetNode = Grid.GetNode(new Vector2(position.x, position.z));
                 
                 path = PathFinding.FindPath(startNode, targetNode);
 
                 if (path == null)
                 {
-                    task = Agenda.Leave;
+                    task = Agenda.Door;
                     UpdateState();
                     break;
                 }
@@ -224,13 +231,15 @@ public class NPC : MonoBehaviour
                 state = State.Exchanging;
                 MoveObject();
                 break;
-            
+            // hey
             case Agenda.Slot:
                 var slotmachine = GetSlot(tier);
                 
+                print(slotmachine.name);
+                
                 if (slotmachine == null)
                 {
-                    task = Agenda.Leave;
+                    task = Agenda.Door;
                     UpdateState();
                     break;
                 }
@@ -243,7 +252,7 @@ public class NPC : MonoBehaviour
                 
                 if (slotPosition == Vector3.zero)
                 {
-                    task = Agenda.Leave;
+                    task = Agenda.Door;
                     UpdateState();
                     break;
                 }
@@ -254,7 +263,7 @@ public class NPC : MonoBehaviour
 
                 if (path == null)
                 {
-                    task = Agenda.Leave;
+                    task = Agenda.Door;
                     state = State.Leaving;
                     MoveObject();
                     break;
@@ -279,7 +288,24 @@ public class NPC : MonoBehaviour
                 state = State.Leaving;
                 MoveObject();
                 break;
+            // hey
             
+            case Agenda.Door:
+                var door = gameLoop.GetDoor();
+                var doorPos = door.transform.position;
+
+                var target = Grid.GetNode(new Vector2(doorPos.x, doorPos.z));
+                
+                if (gameLoop.GetNpcsInCasino().Contains(gameObject)) 
+                    gameLoop.NpcLeftCasino(gameObject);
+
+                path = PathFinding.FindPath(startNode, target);
+                nodeIndex = path.Count - 1;
+
+                state = State.Leaving;
+                MoveObject();
+                break;
+
             case Agenda.None:
                 exit = gameLoop.GetOppositeSpawn();
                 targetNode = Grid.GetNode(new Vector2(exit.x, exit.z));
@@ -296,7 +322,7 @@ public class NPC : MonoBehaviour
         }
         
         state = State.Moving;
-        
+        // hey
         var animator = character.GetComponent<Animator>();
         animator.SetTrigger(StartWalking);
     }
@@ -308,7 +334,7 @@ public class NPC : MonoBehaviour
 
         var animator = character.GetComponent<Animator>();
         animator.SetTrigger(StartWalking);
-
+        // hey
         UpdateState();
     }
     
@@ -318,7 +344,7 @@ public class NPC : MonoBehaviour
         else
         {
             state = State.Idle;
-
+            // hey
             var animator = character.GetComponent<Animator>();
             animator.SetTrigger(StopWalking);
 
@@ -338,7 +364,7 @@ public class NPC : MonoBehaviour
                     
                 case Agenda.Exchange:
                     counter.GetComponent<AudioSource>().Play();
-                    StartCoroutine(Exchange(4));
+                    StartCoroutine(Exchange(2));
                     state = State.Exchanging;
                     break;
                 
@@ -347,6 +373,11 @@ public class NPC : MonoBehaviour
                     Destroy(gameObject);
                     break;
                 
+                case Agenda.Door:
+                    task = Agenda.Leave;
+                    UpdateState();
+                    break;
+                // hey
                 default:
                     task = Agenda.None;
                     state = State.Idle;
@@ -369,7 +400,7 @@ public class NPC : MonoBehaviour
             
             yield return new WaitForSeconds(0.1f);
         } 
-        
+        // hey
         var amount = Mathf.Min(money, 250);
         
         money -= amount;
@@ -389,7 +420,7 @@ public class NPC : MonoBehaviour
         const int iterationsBeforeGamble = 5;
         
         var amountEachIteration = (float) slotScript.bet / (float) chips / (float) iterationsBeforeGamble;
-
+        // hey
         var child = UI.transform.GetChild(0).gameObject;
         
         var iteration = 0;
@@ -398,7 +429,7 @@ public class NPC : MonoBehaviour
             iteration++;
             
             child.GetComponent<Slider>().value = amountEachIteration * iteration;
-
+            // hey
             if (iteration % iterationsBeforeGamble == 0)
             {
                 chips -= slotScript.bet;
@@ -423,7 +454,7 @@ public class NPC : MonoBehaviour
             UpdateState();
         }
         */
-        
+        // hey
         if (chips >= 5 * tier)
         {
             task = Agenda.Slot;
@@ -434,7 +465,7 @@ public class NPC : MonoBehaviour
         {
             if (atObject.GetComponent<SlotmachineScript>()) atObject.GetComponent<SlotmachineScript>().NotOccupied(gameObject);
             else atObject.GetComponent<ExchangeCounter>().NotOccupied(gameObject);
-            task = Agenda.Leave;
+            task = Agenda.Door;
             UpdateState();
         }
     }
@@ -443,5 +474,6 @@ public class NPC : MonoBehaviour
     {
         var result = parent.transform.Find(name);
         return result == null ? null : result.gameObject;
+        // hey
     }
 }

@@ -58,7 +58,7 @@ public class SlotmachineScript : MonoBehaviour
     {
         if (playSound.isPlaying == false)
         {
-            playSound.Play();
+            //playSound.Play();
         }
         
         int win = Random.Range(1, 101);
@@ -90,10 +90,12 @@ public class SlotmachineScript : MonoBehaviour
 
                 case int n when n < 995:
                     machineMoney -= (bet * 100);
+                    jackpotSound.Play();
                     break;
 
                 case int n when n < 999:
                     machineMoney -= (bet * 500);
+                    jackpotSound.Play();
                     break;
 
                 case 1000:
