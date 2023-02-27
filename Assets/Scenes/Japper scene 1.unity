@@ -108601,6 +108601,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3279414230154149197, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.998
+      objectReference: {fileID: 0}
     - target: {fileID: 3279414230154149203, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsKinematic
       value: 0
@@ -108616,6 +108620,18 @@ PrefabInstance:
     - target: {fileID: 3279414230305709744, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279414230305709745, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279414230305709745, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279414230305709745, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3279414230305709751, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsKinematic
@@ -108644,6 +108660,14 @@ PrefabInstance:
     - target: {fileID: 3279414230810417385, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279414230810417386, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279414230810417387, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_Name
+      value: w
       objectReference: {fileID: 0}
     - target: {fileID: 3279414230812652320, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsKinematic
@@ -108724,6 +108748,10 @@ PrefabInstance:
     - target: {fileID: 3279414231509015702, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279414231522052764, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 3279414231522052834, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsKinematic
@@ -108836,6 +108864,10 @@ PrefabInstance:
     - target: {fileID: 3279414232089035322, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279414232089035323, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 3279414232093715109, guid: 529fd22c498160445a270ab8517cd03c, type: 3}
       propertyPath: m_IsKinematic
